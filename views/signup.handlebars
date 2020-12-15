@@ -1,28 +1,35 @@
 {{!-- <div class="dropdown-menu"> --}}
     <form class="px-4 py-3">
         <div class="mb-3">
-            <span class="input-text">First name</span>
-            <input type="text" aria-label="First name" class="form-control">
-            <span class="input-text">First name</span>
-            <input type="text" aria-label="Last name" class="form-control">
+            <label for="validationCustom01" class="form-label">First name</label>
+            <input type="text" class="form-control" id="validationCustom01" value=" " required>
+
+            <label for="validationCustom02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02" value=" " required>
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-        </div>
-        <div class="mb-3">
-            <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-        </div>
-        <div class="mb-3">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                    Remember me
-                </label>
+            <label for="validationCustomUsername" class="form-label">Username</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Please choose a username.
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign up</button>
+            <div class="mb-3">
+                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                        Remember me
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">Already a member? Login</a>
