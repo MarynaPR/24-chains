@@ -1,0 +1,13 @@
+
+.username {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 100%;
+    z-index: 10;
+    background-color: none;
+}
+
+footer {
+    text-align: center;
+}
