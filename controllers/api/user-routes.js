@@ -113,15 +113,15 @@ router.post('/logout', (req, res) => {
 router.put('/:id', (req,res) => {
     User.update(
         {
-            where: {
-                id: req.params.id
-            }
-        },
-        {
             email: req.body.email,
             username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname
+        },
+        {
+            where: {
+                id: req.params.id
+            }
         }
     )
     .then(dbUserData => {
