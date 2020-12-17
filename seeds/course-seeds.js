@@ -1,4 +1,5 @@
 const { Course } = require('../models');
+const sequelize = require('../config/connection');
 
 const coursedata = [
     {
