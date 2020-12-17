@@ -3,31 +3,40 @@ const { User, Review } = require('../models');
 
 const userdata = [
     {
-        username: 'lefthandthrower',
         email: 'leftiethrower0@test.com',
-        password: 'easyguess123'
+        username: 'lefthandthrower',
+        password: 'easyguess123',
+        firstname: 'bob',
+        lastname: 'johnson'
     },
     {
-        username: 'mystart5',
         email: 'layout5@yahoo.com',
-        password: '1youllneverguess'
+        username: 'mystart5',
+        password: '1youllneverguess',
+        fistname: 'mary',
+        lastname: 'richardson'
     },
     {
-        username: 'breadcrumbs',
         email: 'carousel123@last.com',
-        password: 'condition'
+        username: 'breadcrumbs',
+        password: 'condition',
+        fistname: 'linda',
+        lastname: 'banks'
     },
     {
-        username: 'dsdropdown3',
         email: 'badge3@gmail.com',
-        password: 'pasfgfgs3'
+        username: 'dsdropdown3',
+        password: 'pasfgfgs3',
+        fistname: 'jeff',
+        lastname: 'harrison'
     },
     {
-        username: 'jumpandthrow',
         email: 'progress4@weather.com',
-        password: 'passrtaefb3'
+        username: 'jumpandthrow',
+        password: 'passrtaefb3',
+        fistname: 'tom',
+        lastname: 'smith'
     }
-
 ];
 
 const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
