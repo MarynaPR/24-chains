@@ -14,15 +14,6 @@ Review.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
-User.hasMany(Rate, {
-    foreignKey: 'user_id'
-});
-
-Rate.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-});
-
 User.hasMany(Favorite, {
     foreignKey: 'user_id'
 });
