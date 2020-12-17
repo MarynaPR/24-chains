@@ -2,7 +2,38 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create the Course model
-class Course extends Model {}
+class Course extends Model {
+    static favorite(body, models) {
+        return models.Favorite.create({
+            user_id: body.user_id,
+            course_id: body.course_id
+        }).then(() => {
+            return Course.findOne({
+                where: {
+                    id: body.course_id
+                },
+                attributes: [
+                    'id',
+                    'course_name',
+                    'holes',
+                    'par',
+                    'established',
+                    'zipcode'
+                ],
+                include: [
+                    {
+                        model: models.Review,
+                        attributes: ['id', 'review_content', 'rating'],
+                        include: {
+                            model: models.User,
+                            attributes: ['username']
+                        }
+                    }
+                ]
+            });
+        });
+    }
+}
 
 // create fields for Course model
 Course.init(

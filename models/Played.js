@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create the Review model
-class Review extends Model {}
+// create the Played model
+class Played extends Model{}
 
-// create fields for Review model
-Review.init(
+// create fields for Played model
+Played.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -27,27 +27,17 @@ Review.init(
             key: 'id'
             }
         },
-        review_content: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [4]
-            }
-        },
-        rating: {
+        score: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                isIn: [[1, 2, 3, 4, 5]]
-            }
+            allowNull: false
         }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'review'
+        modelName: 'played'
     }
 );
 
-module.exports = Review;
+module.exports = Played;

@@ -13,28 +13,28 @@ const userdata = [
         email: 'layout5@yahoo.com',
         username: 'mystart5',
         password: '1youllneverguess',
-        fistname: 'mary',
+        firstname: 'mary',
         lastname: 'richardson'
     },
     {
         email: 'carousel123@last.com',
         username: 'breadcrumbs',
         password: 'condition',
-        fistname: 'linda',
+        firstname: 'linda',
         lastname: 'banks'
     },
     {
         email: 'badge3@gmail.com',
         username: 'dsdropdown3',
         password: 'pasfgfgs3',
-        fistname: 'jeff',
+        firstname: 'jeff',
         lastname: 'harrison'
     },
     {
         email: 'progress4@weather.com',
         username: 'jumpandthrow',
         password: 'passrtaefb3',
-        fistname: 'tom',
+        firstname: 'tom',
         lastname: 'smith'
     }
 ];
