@@ -1,16 +1,13 @@
 {{> course-info course}}
 {{#if loggedIn}}
-
-<form class="review-form">
-    <div>
-        <textarea name="review-content"></textarea>
-        <textarea name="rating"></textarea>
+{{!-- CARD for review posting --}}
+<div class="card">
+    <div class="card-header">
+        {{review.review_title}}
     </div>
-    <div>
-        <div>
-            <button type="submit">add review</button>
-            {{!-- <button type="button" class="rate-btn">rate</button> --}}
-        </div>
+    <div class="card-body">
+        <p class="card-text">{{review.review_content}}</p>
+        {{!-- RATING --}}
         <div class="form-group" id="rating-ability-wrapper">
             <label class="control-label" for="rating">
                 <span class="field-label-header">How would you rate this course?</span><br>
@@ -57,7 +54,10 @@
             </button>
         </div>
     </div>
-</form>
+    <div>
+        <button type="button" class="btn btn-primary">Submit Review</button>
+    </div>
+</div>
 {{/if}}
 {{> reviews course.reviews}}
 
