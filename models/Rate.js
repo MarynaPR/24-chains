@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create the Rate model
-class Rate extends Model {}
+class Rate extends Model { }
 
 // create fields for Review model
 Rate.init(
@@ -23,8 +23,8 @@ Rate.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'user',
-            key: 'id'
+                model: 'user',
+                key: 'id'
             }
         },
         rating: {

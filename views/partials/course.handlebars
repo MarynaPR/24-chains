@@ -1,23 +1,18 @@
-{{!-- THIS FILE WILL INCLUDE REVIEWS AND RATING --}}
+{{!-- THIS FILE WILL INCLUDE REVIEWS AND RATING AND SEARCHED FOR COURSES--}}
 {{> course-info course}}
-
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="review-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="review-body"></textarea>
     </div>
-
     <div>
         <button type="submit">add review</button>
         <button type="button" class="rate-btn">rate</button>
     </div>
 </form>
 {{/if}}
-
 {{> reviews course.reviews}}
-
 {{#if loggedIn}}
-{{!--
-<script src="/javascript/review.js"></script> --}}
+<script src="/javascript/review.js"></script>
 <script src="/javascript/rate.js"></script>
 {{/if}}
