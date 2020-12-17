@@ -33,6 +33,10 @@ Review.init(
             validate: {
                 len: [4]
             }
+        },
+        rating: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         }
     },
     {
