@@ -3,18 +3,23 @@ const loginFormHandler = async function (event) {
 
     const usernameEl = document.querySelector("#username-input-login");
     const passwordEl = document.querySelector("#password-input-login");
-    fetch("/api/user/login", {
-        method: "post",
-        body: JSON.stringify({
-            username: usernameEl.value,
-            password: passwordEl.value
-        }),
-        headers: { "Content-Type": "application/json" }
-    })
-        .then(function () {
-            document.location.replace("/dashboard");
+    
+    if (usernameEl && passwordEl) {
+        const response = await fetch("/api/user/login", {
+            method: "post",
+            body: JSON.stringify({
+                username: usernameEl.value,
+                password: passwordEl.value
+            }),
+            headers: { "Content-Type": "application/json" }
         })
-        .catch(err => console.log(err));
+            
+        if (response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert(response.statusText);
+        }
+    }
 };
 
 document
