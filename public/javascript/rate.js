@@ -1,13 +1,11 @@
 async function upvoteClickHandler(event) {
     event.preventDefault();
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const rating = document.querySelector('input[name="course-id"]').value;
     const response = await fetch('/api/posts/rate', {
         method: 'PUT',
         body: JSON.stringify({
-            post_id: id
+            rating: id
             // course_id
             //user_id
             //rating
@@ -23,5 +21,6 @@ async function upvoteClickHandler(event) {
         alert(response.statusText);
     }
 }
-
+// add button for each disc
 document.querySelector('.rate-btn').addEventListener('click', upvoteClickHandler);
+//

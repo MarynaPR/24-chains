@@ -1,0 +1,12 @@
+{{!-- RATED COURSES --}}
+<div class="row mt-4">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+        {{#each course}}
+        <a class="" href="/rate/{{id}}">
+            <span>{{course_name}}</span>
+            <span>{{review.rating}}</span>
+        </a>
+        {{/each}}
+    </div>
+</div>

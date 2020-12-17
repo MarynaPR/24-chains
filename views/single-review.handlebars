@@ -1,16 +1,66 @@
 {{> course-info course}}
 {{#if loggedIn}}
+
 <form class="review-form">
     <div>
         <textarea name="review-content"></textarea>
+        <textarea name="rating"></textarea>
     </div>
     <div>
-        <button type="submit">add review</button>
-        <button type="button" class="rate-btn">rate</button>
+        <div>
+            <button type="submit">add review</button>
+            {{!-- <button type="button" class="rate-btn">rate</button> --}}
+        </div>
+        <div class="form-group" id="rating-ability-wrapper">
+            <label class="control-label" for="rating">
+                <span class="field-label-header">How would you rate this course?</span><br>
+                <span class="field-label-info"></span>
+                <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
+            </label>
+            <h2 class="bold rating-header" style="">
+                <span class="selected-rating">0</span><small> / 5</small>
+            </h2>
+            <button type="button" class="btn btn-outline-warning" data_attr="1" id="rating-star-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+            </button>
+            <button type="button" class="btn btn-outline-warning" data_attr="2" id="rating-star-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+            </button>
+            <button type="button" class="btn btn-outline-warning" data_attr="3" id="rating-star-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+            </button>
+            <button type="button" class="btn btn-outline-warning" data_attr="4" id="rating-star-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+            </button>
+            <button type="button" class="btn btn-outline-warning" data_attr="5" id="rating-star-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+            </button>
+        </div>
     </div>
 </form>
 {{/if}}
 {{> reviews course.reviews}}
+
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
 <script src="/javascript/rate.js"></script>
