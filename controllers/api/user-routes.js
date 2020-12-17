@@ -1,8 +1,20 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: ['id', 'email', 'username', 'firstname', 'lastname']
+     
+    })
+      .then((dbCourseData) => res.json(dbCourseData))
+      .catch((err) => {
+        res.status(500).json(err);
+      });
+  });
+
 router.post('/', (req, res) => {
     User.create({
+        email: req.body.email,
         username: req.body.username,
         password: req.body.password,
         firstname: req.body.firstname,
@@ -11,6 +23,7 @@ router.post('/', (req, res) => {
     .then(dbUser => {
         req.session.save(() => {
             req.session.userId = dbUser.id;
+            req.session.email = dbUser.email,
             req.session.username = dbUser.username;
             req.session.firstname = dbUser.firstname;
             req.session.lastname = dbUser.lastname;
