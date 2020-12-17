@@ -31,6 +31,10 @@ Course.init(
             validate: {
                 len: [4]
             }
+        },
+        zipcode: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
