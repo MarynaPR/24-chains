@@ -1,27 +1,12 @@
 const router = require('express').Router();
-const { Review, User, Course } = require('../../models');
+const { Played, User, Course } = require('../../models');
 
-// create a review
-router.post('/', (req, res) => {
-    Review.create({ 
-        course_id: req.body.course_id,
-        review_content: req.body.review_content,
-        rating: req.body.rating,
-        user_id: req.body.user_id
-    })
-    .then(dbReview => res.json(dbReview))
-    .catch(err => {
-        res.status(500).json(err);
-    });
-});
-
-// get all reviews
+// get all played courses
 router.get('/', (req, res) => {
-    Review.findAll({
+    Played.findAll({
         attributes: [
             'id',
-            'review_content',
-            'rating',
+            'score',
             'created_at'
         ],
         include: [
@@ -35,23 +20,22 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbReview => res.json(dbReview))
+    .then(dbPlayedData => res.json(dbPlayedData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 
-// get one review
+// get one played course
 router.get('/:id', (req, res) => {
-    Review.findOne({
+    Played.findOne({
         where: {
             id: req.params.id
         },
         attributes: [
             'id',
-            'review_content',
-            'rating',
+            'score',
             'created_at'
         ],
         include: [
@@ -65,12 +49,12 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then(dbReviewData => {
-        if(!dbReviewData) {
-            res.status(404).json({ message: 'No review found with this id'});
+    .then(dbPlayedData => {
+        if(!dbPlayedData) {
+            res.status(404).json({ message: 'No course played found with this id'});
             return;
         }
-        res.json(dbReviewData);
+        res.json(dbPlayedData);
     })
     .catch(err => {
         console.log(err);
@@ -78,12 +62,25 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Update a review
+// create a played course
+router.post('/', (req, res) => {
+    Played.create({
+        course_id: req.body.course_id,
+        user_id: req.body.user_id,
+        score: req.body.score
+    })
+    .then(dbPlayedData => res.json(dbPlayedData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// update a played course
 router.put('/:id', (req, res) => {
-    Review.update(
+    Played.update(
         {
-            review_content: req.body.review_content,
-            rating: req.body.rating
+            score: req.body.score
         },
         {
             where: {
@@ -91,12 +88,12 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-    .then(dbReviewData => {
-        if(!dbReviewData) {
-            res.status(404).json({ message: 'No review found with this id'});
+    .then(dbPlayedData => {
+        if(!dbPlayedData) {
+            res.status(404).json({ message: 'No course played found with this id'});
             return;
         }
-        res.json(dbReviewData);
+        res.json(dbPlayedData);
     })
     .catch(err => {
         console.log(err);
@@ -104,19 +101,19 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// delete a review
+// delete a played course
 router.delete('/:id', (req, res) => {
-    Review.destroy({
+    Played.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbReviewData => {
-        if(!dbReviewData) {
-            res.status(404).json({ message: 'No review found with this id'});
+    .then(dbPlayedData => {
+        if(!dbPlayedData) {
+            res.status(404).json({ message: 'No course played found with this id'});
             return;
         }
-        res.json(dbReviewData);
+        res.json(dbPlayedData);
     })
     .catch(err => {
         console.log(err);

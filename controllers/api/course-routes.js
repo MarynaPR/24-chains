@@ -110,16 +110,16 @@ router.put('/favorite', (req, res) => {
 router.put('/:id', (req, res) => {
     Course.update(
         {
-            where: {
-                id: req.params.id
-            }
-        },
-        {
             course_name: req.body.course_name,
             holes: req.body.holes,
             par: req.body.par,
             established: req.body.established,
             zipcode: req.body.zipcode
+        },
+        {
+            where: {
+                id: req.params.id
+            }
         }
     )
     .then(dbCourseData => {
