@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 
 // get one favorite
 router.get('/:id', (req, res) => {
-    Favorite.findAll({
+    Favorite.findOne({
         where: {
             id: req.params.id
         },
