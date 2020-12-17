@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Review, User, Course, Rate } = require('../../models');
+const { Review, User, Course } = require('../../models');
 
 router.post('/', (req, res) => {
     Review.create({ 
