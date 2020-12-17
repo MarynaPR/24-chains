@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Course } = require('../../models');
+const { Course, Review, User, Favorite } = require('../../models');
 
 // get all courses
 router.get('/', (req, res) => {
@@ -11,6 +11,22 @@ router.get('/', (req, res) => {
             'par',
             'established',
             'zipcode'
+        ],
+        include: [
+            {
+                model: Review,
+                attributes: ['id', 'review_content', 'rating'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username'],
+                through: Favorite,
+                as: 'favorited_courses'
+            }
         ]
     })
     .then(dbCourseData => res.json(dbCourseData))
@@ -33,6 +49,22 @@ router.get('/:id', (req, res) => {
             'par',
             'established',
             'zipcode'
+        ],
+        include: [
+            {
+                model: Review,
+                attributes: ['id', 'review_content', 'rating'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username'],
+                through: Favorite,
+                as: 'favorited_courses'
+            }
         ]
     })
     .then(dbCourseData => {
@@ -58,6 +90,16 @@ router.post('/', (req, res) => {
         zipcode: req.body.zipcode
     })
     .then(dbCourseData => res.json(dbCourseData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// favorite a course
+router.put('/favorite', (req, res) => {
+    Course.favorite({ ...req.body, user_id: req.body.user_id }, { Favorite, Course, User, Review })
+    .then(updatedFavoriteData => res.json(updatedFavoriteData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);

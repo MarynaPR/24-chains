@@ -1,16 +1,10 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Favorite, Course } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: [
-            'id', 
-            'email', 
-            'username', 
-            'firstname', 
-            'lastname'
-        ]
+        attributes: { exclude: ['password']}
     })
     .then((dbCourseData) => res.json(dbCourseData))
     .catch((err) => {
@@ -24,12 +18,14 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: [
-            'id', 
-            'email', 
-            'username', 
-            'firstname', 
-            'lastname'
+        attributes: { exclude: ['password']},
+        include: [
+            {
+                model: Course,
+                attributes: ['course_name'],
+                through: Favorite,
+                as: 'favorited_courses'
+            }
         ]
     })
     .then(dbUserData => {
