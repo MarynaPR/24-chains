@@ -1,14 +1,18 @@
 <div class="row mt-4">
     <div class="col-sm-2"></div>
     <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+        {{#each this}}
         {{user.username}}
         </br>
         {{created_at}}
         </br>
         {{rating}}<p> /5 discs </p>
         </br>
+        {{review_title}}
+        </br>
         {{review_content}}
         </br>
+        {{reviews}}
         {{!-- <div class="row bg-secondary">
             <div class="col align-items-start bg-secondary">
                 14 Upvotes 2 DownVotes
@@ -18,6 +22,7 @@
                     class="btn align-item-end ml-3 mt-1">Downvote</button>
             </div>
         </div> --}}
+        {{/each}}
     </div>
     <div class="col-sm-2"></div>
 </div>

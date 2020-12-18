@@ -14,16 +14,16 @@ router.get('/', (req, res) => {
             'lastname'
         ]
     })
-    .then(dbUserData => {
-        res.render('profile', {
-            dbUserData,
-            //loggedIn: true
+        .then(dbUserData => {
+            res.render('profile', {
+                dbUserData,
+                //loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
 // get all user reviews
@@ -49,18 +49,18 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbReviewData => {
-        const reviews = dbReviewData.map(review => review.get({ plain: true }));
+        .then(dbReviewData => {
+            const reviews = dbReviewData.map(review => review.get({ plain: true }));
 
-        res.render('profile', {
-            reviews,
-            //loggedIn: true
+            res.render('profile', {
+                reviews
+                //loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
 // get all user favorited courses
@@ -79,18 +79,18 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbReviewData => {
-        const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+        .then(dbReviewData => {
+            const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
 
-        res.render('profile', {
-            favorites,
-            //loggedIn: true
+            res.render('profile', {
+                favorites
+                //loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
 module.exports = router;
