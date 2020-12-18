@@ -27,6 +27,13 @@ Review.init(
             key: 'id'
             }
         },
+        review_title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [4]
+            }
+        },
         review_content: {
             type: DataTypes.STRING,
             allowNull: false,

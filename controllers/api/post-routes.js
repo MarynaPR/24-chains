@@ -7,7 +7,8 @@ router.post('/', (req, res) => {
         course_id: req.body.course_id,
         review_content: req.body.review_content,
         rating: req.body.rating,
-        user_id: req.body.user_id
+        user_id: req.body.user_id,
+        review_title: req.body.review_title
     })
         .then(dbReview => res.json(dbReview))
         .catch(err => {
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
             'id',
+            'review_title',
             'review_content',
             'rating',
             'created_at'
@@ -50,6 +52,7 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
+            'review_title',
             'review_content',
             'rating',
             'created_at'
@@ -82,6 +85,7 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     Review.update(
         {
+            review_title: req.body.review_title,
             review_content: req.body.review_content,
             rating: req.body.rating
         },
