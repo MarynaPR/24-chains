@@ -2,29 +2,29 @@ const router = require('express').Router();
 const { User, Course, Favorite, Review } = require('../models');
 
 // get user data
-// router.get('/', (req, res) => {
-//     User.findAll({
-//         where: {
-//             id: req.session.user_id
-//         },
-//         attributes: [
-//             'id',
-//             'username',
-//             'firstname',
-//             'lastname'
-//         ]
-//     })
-//     .then(dbUserData => {
-//         res.render('profile', {
-//             dbUserData,
-//             //loggedIn: true
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
+router.get('/', (req, res) => {
+    User.findAll({
+        where: {
+            id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'username',
+            'firstname',
+            'lastname'
+        ]
+    })
+    .then(dbUserData => {
+        res.render('profile', {
+            dbUserData,
+            //loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // get all user reviews
 router.get('/', (req, res) => {
@@ -64,33 +64,33 @@ router.get('/', (req, res) => {
 });
 
 // get all user favorited courses
-// router.get('/', (req, res) => {
-//     Favorite.findAll({
-//         where: {
-//             user_id: req.session.user_id
-//         },
-//         attributes: [
-//             'id'
-//         ],
-//         include: [
-//             {
-//                 model: Course,
-//                 attributes: ['id', 'course_name', 'zipcode']
-//             }
-//         ]
-//     })
-//     .then(dbReviewData => {
-//         const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+router.get('/', (req, res) => {
+    Favorite.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'zipcode']
+            }
+        ]
+    })
+    .then(dbReviewData => {
+        const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
 
-//         res.render('profile', {
-//             favorites,
-//             //loggedIn: true
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
+        res.render('profile', {
+            favorites,
+            //loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
