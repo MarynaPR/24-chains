@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create a user
-router.post('/', (req, res) => {
+router.post('/signup', (req, res) => {
     User.create({
         email: req.body.email,
         username: req.body.username,
