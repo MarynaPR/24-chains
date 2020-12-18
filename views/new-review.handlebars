@@ -1,4 +1,4 @@
-{{> course-info course}}
+{{> course course}}
 {{#if loggedIn}}
 {{!-- CARD for review posting --}}
 <div class="card">
@@ -59,7 +59,7 @@
     </div>
 </div>
 {{/if}}
-{{> reviews course.reviews}}
+{{> reviews course.review}}
 
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>

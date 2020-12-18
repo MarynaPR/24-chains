@@ -9,7 +9,7 @@ const newReview = async function(event) {
     const review_title = document.querySelector('input[name="review-title"]').value;
     
     if (review_content && rating) {
-        const response = await fetch(`api/post`, {
+        const response = await fetch(`api/review`, {
             method: "POST",
             body: JSON.stringify({
                 course_id,
