@@ -3,20 +3,22 @@
     <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
         {{!-- CALL THE TABLE FOR SCORES AFTER A COURSE IS COMPLETED --}}
         {{!-- Username --}}
-        {{username}}
+        {{user.username}}
         </br>
-        {{!-- Date/Time 12/12/2020 4:35 PM
-        --}}
-
+        {{!-- Date/Time 12/12/2020 4:35 PM--}}
+        {{played.created_at}}
         </br>
         {{!-- Random Course Name --}}
-        {{user.}}
+        {{course.course_name}}
         <br>
-        Number of Holes: 18 </br>
-        Rating 4/5 Discs</br>
-        Score: 3
+        {{!-- Number of Holes: 18 --}}
+        {{course.holes}}
+        </br>
+        {{!-- Rating 4 --}}
+        {{review.rating}}/5 Discs
+        </br>
+        {{!-- Score: 3 --}}
+        {{played.score}}
     </div>
     <div class="col-sm-2"></div>
 </div>
-
-{{!-- need score info to finish --}}
