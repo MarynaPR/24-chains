@@ -23,7 +23,7 @@ class Course extends Model {
                 include: [
                     {
                         model: models.Review,
-                        attributes: ['id', 'review_content', 'rating'],
+                        attributes: ['id', 'review_title', 'review_content', 'rating'],
                         include: {
                             model: models.User,
                             attributes: ['username']
