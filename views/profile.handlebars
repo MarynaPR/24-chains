@@ -4,7 +4,7 @@
       <div class="container-fluid" style="padding: 0px;">
           <div class="row"> 
               <div class="col-xs-12" style="position: relative;"> 
-                      <img src="/public/images/IMG_4694.png" class="img-fluid" alt="company logo" style="width:100%; margin-top: -150px;">
+                      <img src="./public/images/IMG_4694.png" class="img-fluid" alt="compnay logo" style="width:100%; margin-top: -150px;">
                       <div class="username">
                         {{!-- ______________________________ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE____________________________ --}}
                           <h2 style="z-index: 1060;">First and Last Name</h2>
@@ -58,10 +58,13 @@
   <!-- _________________________________________THIS IS AN EXAMPLE OF A RATED COURSE POST_____________________________________ -->
 
 {{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
-
+  <ol class="">
     {{#each reviews}}
+      <li>
       {{>reviews review}}
+      </li>
     {{/each}}
+  </ol>
 
 
   {{!-- <div class="row mt-4">
@@ -88,9 +91,9 @@
 
   <!-- _________________________________________THIS IS AN EXAMPLE OF A PLAYED COURSE POST_________________________________ -->
 
-  {{!-- {{#each}}
-    {{>course-score}}
-  {{/each}} --}}
+  {{!-- {{#each}} --
+    {{!-- {{>course-score}} --
+  {{!-- {{/each}} --
 
 
   {{!-- <div class="row mt-4">
