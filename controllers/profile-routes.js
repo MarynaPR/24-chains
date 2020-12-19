@@ -55,7 +55,7 @@ router.get('/', (req, res) => {
 
         res.render('profile', {
             reviews,
-            //loggedIn: true
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
