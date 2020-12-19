@@ -1,4 +1,4 @@
-
+/* 
 .username {
     position: absolute;
     top: 60%;
@@ -7,7 +7,59 @@
     z-index: 10;
     background-color: none;
 }
+} */ 
 
-footer {
-    text-align: center;
+body
+{
+    background: url('http://farm3.staticflickr.com/2832/12303719364_c25cecdc28_b.jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
 }
+.card-sign .card-title {
+  margin-bottom: 3rem;
+  font-weight: 350;
+  font-size: 1.7rem;
+}
+
+.card-sign .card-body {
+  padding: 3rem;
+}
+
+.form-sign {
+  width: 100%;
+}
+/* round corners, etc on btns */
+.form-sign .btn {
+  font-size: 80%;
+  border-radius: 6rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1.2rem;
+  transition: all 0.2s;
+}
+/* round corners on input form */
+.form-label-group input {
+    height: auto;
+    border-radius: 2rem;
+    background: transparent;
+}
+
+/* span{
+    position: absolute;
+    margin-left: 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  } */
+  input{
+    padding-left: 25px;
+    height: 20px;
+  }
+  
+/* 
+.btn-google {
+  color: white;
+} */
+
+

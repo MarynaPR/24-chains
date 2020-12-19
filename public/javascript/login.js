@@ -3,7 +3,7 @@ const loginFormHandler = async function (event) {
 
     const usernameEl = document.querySelector("#username-input-login");
     const passwordEl = document.querySelector("#password-input-login");
-    
+
     if (usernameEl && passwordEl) {
         const response = await fetch("/api/user/login", {
             method: "post",
@@ -13,7 +13,7 @@ const loginFormHandler = async function (event) {
             }),
             headers: { "Content-Type": "application/json" }
         })
-            
+
         if (response.ok) {
             document.location.replace('/profile');
         } else {
