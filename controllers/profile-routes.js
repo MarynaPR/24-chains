@@ -65,33 +65,33 @@ router.get('/', (req, res) => {
 });
 
 // // get all user favorited courses
-// router.get('/', (req, res) => {
-//     Favorite.findAll({
-//         where: {
-//             user_id: req.session.userId
-//         },
-//         attributes: [
-//             'id'
-//         ],
-//         include: [
-//             {
-//                 model: Course,
-//                 attributes: ['id', 'course_name', 'zipcode']
-//             }
-//         ]
-//     })
-//     .then(dbReviewData => {
-//         const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+router.get('/favorited', (req, res) => {
+    Favorite.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'zipcode']
+            }
+        ]
+    })
+    .then(dbReviewData => {
+        const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
 
-//         res.render('profile', {
-//             favorites,
-//             //loggedIn: true
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
+        res.render('profile-favorited', {
+            favorites,
+            //loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
