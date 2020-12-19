@@ -1,51 +1,66 @@
-{{!-- not a card format,add :
-<div class="card">
-    <div class="card-header">
-        <h2>Login</h2>
-    </div>--}}
-    {{!-- <div class="dropdown-menu"> --}}
-        <form class="px-4 py-3" id="signup-form">
-            <div class="mb-3">
-                <label for="validationCustom01" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstname-input-signup" value=" " required>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-sign my-5 bg-transparent">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign Up</h5>
+                    {{!-- Sign up form --}}
+                    <form class="form-sign" id="signup-form">
+                        <hr class="my-4">
+                        <button class="btn btn-danger btn-lg btn-google btn-block text-uppercase" {{!-- type="submit"
+                            --}}><i class="fa fa-google-plus"></i> Sign up with
+                            Google</button>
+                        <hr class="my-4">
 
-                <label for="validationCustom02" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastname-input-signup" value=" " required>
+                        {{!-- FIRST NAME --}}
+                        <div class="form-label-group">
+                            <input type="text" class="form-control" id="firstname-input-signup" placeholder="First Name"
+                                required autofocus>
+                            <label for="inputFirstName"></label>
+                        </div>
+                        {{!-- LAST NAME --}}
+                        <div class="form-label-group">
+                            <input type="text" class="form-control" id="lastname-input-signup" placeholder="Last name"
+                                aria-label="default input example" required autofocus>
+                            <label for="inputLastName"></label>
+                        </div>
+                        {{!-- EMAIL --}}
+                        <div class="form-label-group">
+                            <input type="email" id="email-input-signup" class="form-control" placeholder="Email"
+                                required autofocus>
+                            <label for="inputEmail"></label>
+                        </div>
+                        {{!-- USERNAME --}}
+                        <div class="form-label-group">
+                            <input type="text" class="form-control" id="username-input-signup" placeholder="Username">
+                            <label for="exampleDropdownFormUsername" class="form-label"></label>
+                        </div>
+
+                        {{!-- PASSWORD --}}
+                        <div class="form-label-group">
+                            <input type="password" id="password-input-signup" class="form-control"
+                                placeholder="Password" required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase">Sign
+                            in</button>
+                        {{!--
+                        <hr class="my-4">
+                        <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                                class="fab fa-google"></i> Sign un with
+                            Google</button> --}}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/login">Already a member? Login</a>
+
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="validationInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="email-input-signup" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="mb-3">
-                <label for="validationCustomUsername" class="form-label">Username</label>
-                <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="username-input-signup"
-                        aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                        Please choose a username.
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password-input-signup"
-                        placeholder="Password">
-                </div>
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                        <label class="form-check-label" for="dropdownCheck">
-                            Remember me
-                        </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign up</button>
-        </form>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/login">Already a member? Login</a>
-        {{!--
-    </div> --}}
-    <script src="/javascript/signup.js"></script>
+        </div>
+    </div>
+</div>
+
+<script src="/javascript/signup.js"></script>
