@@ -2,58 +2,21 @@ const router = require('express').Router();
 const { User, Course, Favorite, Review } = require('../models');
 
 // get user data
-router.get('/', (req, res) => {
-    User.findAll({
-        where: {
-            id: req.session.userId
-        },
-        attributes: [
-            'id',
-            'username',
-            'firstname',
-            'lastname'
-        ]
-    })
-    .then(dbUserData => {
-        res.render('profile', {
-            dbUserData,
-            //loggedIn: true
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
-// get all user reviews
 // router.get('/', (req, res) => {
-//     Review.findAll({
+//     User.findAll({
 //         where: {
-//             user_id: req.session.userId
+//             id: req.session.userId
 //         },
 //         attributes: [
 //             'id',
-//             'review_content',
-//             'rating',
-//             'created_at'
-//         ],
-//         include: [
-//             {
-//                 model: Course,
-//                 attributes: ['id', 'course_name']
-//             },
-//             {
-//                 model: User,
-//                 attributes: ['id', 'username']
-//             }
+//             'username',
+//             'firstname',
+//             'lastname'
 //         ]
 //     })
-//     .then(dbReviewData => {
-//         const reviews = dbReviewData.map(review => review.get({ plain: true }));
-
+//     .then(dbUserData => {
 //         res.render('profile', {
-//             reviews,
+//             dbUserData,
 //             //loggedIn: true
 //         });
 //     })
@@ -62,6 +25,44 @@ router.get('/', (req, res) => {
 //         res.status(500).json(err);
 //     });
 // });
+
+// get all user reviews
+router.get('/', (req, res) => {
+    Review.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'review_content',
+            'review_title',
+            'rating',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name']
+            },
+            {
+                model: User,
+                attributes: ['id', 'username']
+            }
+        ]
+    })
+    .then(dbReviewData => {
+        const reviews = dbReviewData.map(review => review.get({ plain: true }));
+
+        res.render('profile', {
+            reviews,
+            //loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // // get all user favorited courses
 // router.get('/', (req, res) => {
