@@ -22,4 +22,4 @@ async function favoriteClickHandler(event) {
     }
 }
 
-document.querySelector('').addEventListener('click', favoriteClickHandler);
+document.querySelector('#favorite-course').addEventListener('click', favoriteClickHandler);
