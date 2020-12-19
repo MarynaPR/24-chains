@@ -5,7 +5,7 @@ const { User, Course, Favorite, Review } = require('../models');
 router.get('/', (req, res) => {
     User.findAll({
         where: {
-            id: req.session.user_id
+            id: req.session.userId
         },
         attributes: [
             'id',
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 router.get('/', (req, res) => {
     Review.findAll({
         where: {
-            user_id: req.session.user_id
+            user_id: req.session.userId
         },
         attributes: [
             'id',
@@ -67,7 +67,7 @@ router.get('/', (req, res) => {
 router.get('/', (req, res) => {
     Favorite.findAll({
         where: {
-            user_id: req.session.user_id
+            user_id: req.session.userId
         },
         attributes: [
             'id'
