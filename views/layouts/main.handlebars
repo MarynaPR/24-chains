@@ -33,17 +33,19 @@
                     <a class="nav-link navbar-brand" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
+                    <a class="nav-link navbar-brand" href="/profile">Profile</a>
                 </li>
+                {{#if loggedIn}}
                 <li class="nav-item">
                     <a id="logout" class="nav-link" href="/login">Log Out</a>
                 </li>
-                <form class="d-flex">
-                    <input class="form-control" type="search" placeholder="Search for course" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                {{/if}}
             </ul>
         </div>
+        <form class="form-inline bg-transparent">
+            <input class="form-control mr-sm-2 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
