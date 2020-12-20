@@ -1,5 +1,10 @@
+
+{{#each homeObject.reviews as |allreviews|}}
+{{>reviews allreviews}}
+{{/each}}
+
 <ol class="">
-    {{#each courses as |course|}}
+    {{#each homeObject.courses as |course|}}
     <li>
         {{> course course }}
     </li>

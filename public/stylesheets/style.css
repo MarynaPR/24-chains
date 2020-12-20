@@ -73,3 +73,12 @@ input{
   color: rgba(255,255,255,0.9);
   font-weight: 600;
 }
+
+.page-name {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.logo-img{
+  margin-bottom: 6px;
+}
