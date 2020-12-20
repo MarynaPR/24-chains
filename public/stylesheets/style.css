@@ -11,11 +11,12 @@
 
 body
 {
-    background: url('http://farm3.staticflickr.com/2832/12303719364_c25cecdc28_b.jpg') fixed, url();
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/IMG_4786.png') fixed, url();
     background-size: cover;
     padding: 0;
     margin: 0;
 }
+
 .card-sign .card-title {
   margin-bottom: 3rem;
   font-weight: 350;
@@ -43,6 +44,7 @@ body
     height: auto;
     border-radius: 2rem;
     background: transparent;
+    background-color: rgba(255,255,255,0.2);
 }
 
 /* span{
@@ -56,10 +58,9 @@ body
     padding-left: 25px;
     height: 20px;
   }
-  
-/* 
-.btn-google {
-  color: white;
-} */
 
+.sign-up-log-in:visited {
+  color: white;
+  text-decoration: none;
+}
 
