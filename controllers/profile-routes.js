@@ -77,14 +77,13 @@ router.get('/favorited', reqAuth, (req, res) => {
         include: [
             {
                 model: Course,
-                attributes: ['id', 'course_name', 'zipcode']
+                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
             }
         ]
     })
     .then(dbReviewData => {
         const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-            console.log('============================================================')
-            console.log(favorites);
+        
         res.render('profile-favorited', {
             favorites,
             //loggedIn: true
