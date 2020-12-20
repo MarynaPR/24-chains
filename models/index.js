@@ -54,6 +54,15 @@ Course.belongsToMany(User, {
     as: 'favorited_courses',
     foreignKey: 'course_id',
     onDelete: 'SET NULL'
-})
+});
+
+Course.hasMany(Favorite, {
+    foreignKey: 'course_id'
+});
+
+Favorite.belongsTo(Course, {
+    foreignKey: 'course_id',
+    onDelete: 'SET NULL'
+});
 
 module.exports = { User, Course, Review, Favorite, Played };
