@@ -98,7 +98,7 @@ router.post('/', (req, res) => {
 
 // favorite a course
 router.put('/favorite', (req, res) => {
-    Course.favorite({ ...req.body, user_id: req.session.user_id }, { Favorite, Course, User, Review })
+    Course.favorite({ ...req.body, user_id: req.session.userId }, { Favorite, Course, User, Review })
     .then(updatedFavoriteData => res.json(updatedFavoriteData))
     .catch(err => {
         console.log(err);
