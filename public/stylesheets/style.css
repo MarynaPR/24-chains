@@ -16,22 +16,25 @@ body
     padding: 0;
     margin: 0;
 }
-
 .card-sign .card-title {
   margin-bottom: 3rem;
   font-weight: 350;
   font-size: 1.7rem;
 }
-
 .card-sign .card-body {
   padding: 3rem;
 }
-
 .form-sign {
   width: 100%;
 }
 /* round corners, etc on btns */
-.form-sign .btn {
+.form-sign .btn,
+.row .btn,
+.input-group-text,
+.textarea,
+.form-inline input,
+.form-inline .btn
+.input-group{
   font-size: 80%;
   border-radius: 6rem;
   letter-spacing: .1rem;
@@ -40,13 +43,17 @@ body
   transition: all 0.2s;
 }
 /* round corners on input form */
-.form-label-group input {
+.form-label-group input,
+.textarea,
+.form-inline input,
+.form-inline .btn,
+.form-control
+{
     height: auto;
     border-radius: 2rem;
     background: transparent;
     background-color: rgba(255,255,255,0.2);
 }
-
 /* span{
     position: absolute;
     margin-left: 15px;
@@ -54,19 +61,15 @@ body
     display: flex;
     align-items: center;
   } */
-  input{
+input{
     padding-left: 25px;
     height: 20px;
   }
-
 .sign-up-log-in:visited {
   color: white;
   text-decoration: none;
 }
-
 .form-control::-webkit-input-placeholder {
   color: rgba(255,255,255,0.9);
   font-weight: 600;
 }
-
-
