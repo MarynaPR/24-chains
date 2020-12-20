@@ -64,3 +64,9 @@ body
   text-decoration: none;
 }
 
+.form-control::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
+
+
