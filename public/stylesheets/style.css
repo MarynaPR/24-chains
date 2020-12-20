@@ -9,14 +9,9 @@
 }
 } */ 
 
-<<<<<<< HEAD
-body {
-    background: url('http://farm3.staticflickr.com/2832/12303719364_c25cecdc28_b.jpg') fixed;
-=======
 body
 {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/IMG_4786.png') fixed, url();
->>>>>>> b4270d66cabb4e773ad6d0bf8c857249390cf115
     background-size: cover;
     padding: 0;
     margin: 0;
@@ -37,7 +32,10 @@ body
 .form-sign .btn,
 .row .btn,
 .input-group-text,
-.textarea {
+.textarea,
+.form-inline input,
+.form-inline .btn
+.input-group{
   font-size: 80%;
   border-radius: 6rem;
   letter-spacing: .1rem;
@@ -48,7 +46,11 @@ body
 
 /* round corners on input form */
 .form-label-group input,
-.textarea {
+.textarea,
+.form-inline input,
+.form-inline .btn,
+.form-control
+{
     height: auto;
     border-radius: 2rem;
     background: transparent;
@@ -64,15 +66,7 @@ body
 input{
     padding-left: 25px;
     height: 20px;
-<<<<<<< HEAD
-}
-/* 
-.btn-google {
-  color: white;
-} */
-=======
   }
->>>>>>> b4270d66cabb4e773ad6d0bf8c857249390cf115
 
 .sign-up-log-in:visited {
   color: white;
