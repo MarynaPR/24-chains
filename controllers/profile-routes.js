@@ -86,7 +86,7 @@ router.get('/favorited', reqAuth, (req, res) => {
         
         res.render('profile-favorited', {
             favorites,
-            //loggedIn: true
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
