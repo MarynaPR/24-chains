@@ -1,7 +1,17 @@
-<ol class="">
-    {{#each courses as |course|}}
+
+{{#each homeObject.reviews as |allreviews|}}
+{{>reviews allreviews}}
+{{/each}}
+
+{{!-- <ol class="">
+    {{#each homeObject.courses as |course|}}
     <li>
         {{> course course }}
     </li>
     {{/each}}
-</ol>
+</ol> --}}
+
+
+{{#each homeObject.played as |played|}}
+    {{> played played }}
+{{/each}}
