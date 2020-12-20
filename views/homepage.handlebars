@@ -3,10 +3,15 @@
 {{>reviews allreviews}}
 {{/each}}
 
-<ol class="">
+{{!-- <ol class="">
     {{#each homeObject.courses as |course|}}
     <li>
         {{> course course }}
     </li>
     {{/each}}
-</ol>
+</ol> --}}
+
+
+{{#each homeObject.played as |played|}}
+    {{> played played }}
+{{/each}}
