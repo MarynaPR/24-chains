@@ -16,7 +16,6 @@ body
     padding: 0;
     margin: 0;
 }
-
 .card-sign .card-title {
   margin-bottom: 3rem;
   font-weight: 350;
@@ -43,7 +42,6 @@ body
   padding: 1.2rem;
   transition: all 0.2s;
 }
-
 /* round corners on input form */
 .form-label-group input,
 .textarea,
@@ -67,9 +65,11 @@ input{
     padding-left: 25px;
     height: 20px;
   }
-
 .sign-up-log-in:visited {
   color: white;
   text-decoration: none;
 }
-
+.form-control::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
