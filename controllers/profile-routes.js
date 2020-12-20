@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Course, Favorite, Review } = require('../models');
+const reqAuth = require('../utils/auth');
 
 // get user data
 // router.get('/', (req, res) => {
@@ -27,7 +28,7 @@ const { User, Course, Favorite, Review } = require('../models');
 // });
 
 // get all user reviews
-router.get('/', (req, res) => {
+router.get('/', reqAuth, (req, res) => {
     Review.findAll({
         where: {
             user_id: req.session.userId
@@ -65,7 +66,7 @@ router.get('/', (req, res) => {
 });
 
 // // get all user favorited courses
-router.get('/favorited', (req, res) => {
+router.get('/favorited', reqAuth, (req, res) => {
     Favorite.findAll({
         where: {
             user_id: req.session.userId
@@ -82,7 +83,8 @@ router.get('/favorited', (req, res) => {
     })
     .then(dbReviewData => {
         const favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-
+            console.log('============================================================')
+            console.log(favorites);
         res.render('profile-favorited', {
             favorites,
             //loggedIn: true

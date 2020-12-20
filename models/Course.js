@@ -28,6 +28,10 @@ class Course extends Model {
                             model: models.User,
                             attributes: ['username']
                         }
+                    },
+                    {
+                        model: models.Favorite,
+                        attributes: ['id', 'course_id', 'user_id']
                     }
                 ]
             });
