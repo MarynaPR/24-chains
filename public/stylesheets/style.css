@@ -28,6 +28,7 @@ body
   width: 100%;
 }
 /* round corners, etc on btns */
+
 .form-sign .btn,
 .card-user,
 .row .btn,
@@ -37,7 +38,7 @@ body
 .form-inline .btn
 .input-group
 {
-  font-size: 80%;
+  font-size: 87%;
   border-radius: 6rem;
   letter-spacing: .1rem;
   font-weight: bold;
@@ -52,7 +53,7 @@ body
 .form-inline .btn,
 .form-control
 {
-    height: auto;
+    /* height: auto; */
     border-radius: 2rem;
     background: transparent;
     background-color: rgba(255,255,255,0.2);
