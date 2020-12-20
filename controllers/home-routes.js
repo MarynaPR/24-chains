@@ -153,13 +153,30 @@ router.get('/', reqAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
   })
-  Course.findAll({
-        attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
-      })
-  .then((dbCourseData) => {
-          homeObject.courses = dbCourseData.map(course => course.get({ plain: true }));
+  // Course.findAll({
+  //       attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
+  //     })
+  Played.findAll({
+    attributes: [
+        'id',
+        'score',
+        'created_at'
+    ],
+    include: [
+        {
+            model: User,
+            attributes: ['username']
+        },
+        {
+            model: Course,
+            attributes: ['course_name']
+        }
+    ]
+  })
+  .then((dbPlayedData) => {
+          homeObject.played = dbPlayedData.map(played => played.get({ plain: true }));
           //creates a list of all data in homeObject
-          homeObject.fullList = homeObject.courses.concat(homeObject.reviews)
+          homeObject.fullList = homeObject.played.concat(homeObject.reviews)
           //converting date into integers(Date.now())
           //homeObject.ordered = homeObject.fullList.sort(compareNumbers(homeObject.reviews.created_at))
           res.render('homepage', {
@@ -173,6 +190,49 @@ router.get('/', reqAuth, (req, res) => {
   });
 });
 
+
+// get all courses
+
+router.get('/courses', reqAuth, (req, res) => {
+    Course.findAll({
+        attributes: [
+            'id',
+            'course_name',
+            'holes',
+            'par',
+            'established',
+            'zipcode'
+        ],
+        include: [
+            {
+                model: Review,
+                attributes: ['id', 'review_title', 'review_content', 'rating'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username'],
+                through: Favorite,
+                as: 'favorited_courses'
+            }
+        ]
+    })
+    .then(dbCourseData => {
+      const courses = dbCourseData.map(course => course.get({ plain: true }));
+      console.log(courses);
+      res.render('searched-courses', {
+          courses,
+          loggedIn: req.session.loggedIn
+      });
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  });
+});
 
 module.exports = router;
 
