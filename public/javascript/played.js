@@ -4,23 +4,25 @@ const newPlayed = async function(event) {
     const course_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    const user_id = req.session.userId;
+
     const score = document.querySelector('input[name="played-score"]').value;
-    
+
+
     if (score) {
-        const response = await fetch(`api/played`, {
+        const response = await fetch(`../api/played`, {
             method: "POST",
             body: JSON.stringify({
-                course_id,
-                user_id,
-                score
+                course_id: course_id,
+                score: score
             }),
             headers: {
                 "Content-Type": "application/json",
             }
         });
-    
+        // console.log('made it past the response');
+        console.log(response);
         if (response.ok) {
+            console.log('your played post was posted successfully');
             document.location.replace('/profile');
         } else {
             alert(response.statusText);
@@ -28,4 +30,4 @@ const newPlayed = async function(event) {
     }
 };
 
-document.querySelector("#new-played").addEventListener("submit", newPlayed);
+document.querySelector("#new-played").addEventListener("click", newPlayed);
