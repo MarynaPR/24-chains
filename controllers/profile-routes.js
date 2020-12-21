@@ -20,7 +20,9 @@ router.get('/', (req, res) => {
             // console.log("///////", dbUserData.dataValues)
             const { dataValues } = dbUserData
             res.render('profile', {
-                dataValues
+                dataValues,
+                loggedIn: req.session.loggedIn
+
             });
         })
         .catch(err => {
