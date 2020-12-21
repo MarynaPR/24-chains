@@ -120,13 +120,18 @@
 </div>
 
 {{!-- LIST of reviews --}}
+{{#each review as |review|}}
+{{>reviews review}}
+{{review.course_id}}
 {{review.review_title}}
-<div class="card-body">
-    <p class="card-text">{{review.review_content}}</p>
-</div>
+<p class="card-text">{{review.review_content}}</p>
+{{/each}}
+
+{{!-- {{#each reviews as |review|}}
+{{>reviews review}}
+{{/each}} --}}
 
 {{/if}}
-
 
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
