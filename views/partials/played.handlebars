@@ -1,10 +1,12 @@
 {{!-- SAVED/Played COURSES --}}
-<div class="row mt-4">
+<div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
-    <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-        {{!-- need to add score model --}}
+    <div class="col-md-8 p-3">
+        <div class="card border-primary" style="padding:10px 20px; background-color: rgba(255, 255, 255, 0.468);">
+            {{!-- need to add score model --}}
             <p><span>{{user.username}}</span></p>
             <p>Course: <span>{{course.course_name}}</span></p>
             <p>Score: <span>{{score}}</span></p>
+        </div>
     </div>
 </div>

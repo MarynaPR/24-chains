@@ -1,11 +1,13 @@
 {{!-- THIS FILE WILL INCLUDE FAVORITE COURSES--}}
-<div class="row mt-4">
+<div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
-    <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-        {{#each course}}
-        <a class="list-item" href="/course/{{id}}">
-            <span>{{course.course_name}}</span>
-        </a>
-        {{/each}}
+    <div class="col-md-8 p-3">
+        <div class="card border-primary" style="padding:10px 20px;">
+            {{#each course}}
+            <a class="" href="/course/{{id}}">
+                <span>{{course.course_name}}</span>
+            </a>
+            {{/each}}
+        </div>
     </div>
 </div>
