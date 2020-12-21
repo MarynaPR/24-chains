@@ -12,7 +12,6 @@ const newPlayed = async function(event) {
         const response = await fetch(`../api/played`, {
             method: "POST",
             body: JSON.stringify({
-                //needs to add/define user_id here
                 course_id: course_id,
                 score: score
             }),
@@ -24,7 +23,7 @@ const newPlayed = async function(event) {
         console.log(response);
         if (response.ok) {
             console.log('your played post was posted successfully');
-            //document.location.replace('/profile');
+            document.location.replace('/profile');
         } else {
             alert(response.statusText);
         }
