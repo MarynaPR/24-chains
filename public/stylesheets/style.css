@@ -86,3 +86,7 @@ input{
 .logo-img{
   margin-bottom: 6px;
 }
+
+.btn {
+  background-color: rgb(213, 121, 9);
+}
