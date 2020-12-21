@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Course,
-                attributes: ['course_name']
+                attributes: ['course_name', 'city', 'state']
             }
         ]
     })
@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Course,
-                attributes: ['course_name']
+                attributes: ['course_name', 'city', 'state']
             }
         ]
     })
