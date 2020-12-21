@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Course,
-                attributes: ['course_name'],
+                attributes: ['course_name', 'city', 'state'],
                 through: Favorite,
                 as: 'favorited_courses'
             }
