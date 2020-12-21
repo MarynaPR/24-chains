@@ -89,6 +89,34 @@
     <div class="row">
         <button type="button" id="new-review" class="btn btn-primary text-uppercase">Submit Review</button>
     </div>
+    <div class="row">
+        <br>
+        <br>
+    </div>
+
+    <div class="row">
+        <h3>If you have played here let others know how you did!</h3>
+    </div>
+    {{!-- SCORE text --}}
+    <div class="row">
+        <form class="form-sign">
+            <div class="container">
+                <div class="row justify-content-start">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-uppercase">Your Score</span>
+                    </div>
+                    <label for="title" id="input" class="form-label-group"> </label>
+                    <input type="title" name="played-score" class="form-control">
+                    {{!-- <textarea class="form-control" aria-label="With textarea"></textarea> --}}
+                </div>
+        </form>
+        <hr class="my-4">
+        <div class="row">
+            <button type="button" id="new-played" class="btn btn-primary text-uppercase">POST SCORE</button>
+        </div>
+    </div>
 </div>
 
 {{!-- LIST of reviews --}}
@@ -102,4 +130,5 @@
 
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
+<script src="/javascript/played.js"></script>
 {{/if}}

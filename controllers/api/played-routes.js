@@ -66,10 +66,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Played.create({
         course_id: req.body.course_id,
-        user_id: req.body.user_id,
+        user_id: req.session.userId,
         score: req.body.score
     })
-    .then(dbPlayedData => res.json(dbPlayedData))
+    .then(dbPlayedData => 
+        res.json(dbPlayedData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
