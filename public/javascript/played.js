@@ -7,7 +7,7 @@ const newPlayed = async function(event) {
     const user_id = req.session.userId;
     const score = document.querySelector('input[name="played-score"]').value;
     
-    if (review_content && rating) {
+    if (score) {
         const response = await fetch(`api/played`, {
             method: "POST",
             body: JSON.stringify({
