@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
             'holes',
             'par',
             'established',
+            'city',
+            'state',
             'zipcode'
         ],
         include: [
@@ -48,6 +50,8 @@ router.get('/:id', (req, res) => {
             'holes',
             'par',
             'established',
+            'city',
+            'state',
             'zipcode'
         ],
         include: [
@@ -87,6 +91,8 @@ router.post('/', (req, res) => {
         holes: req.body.holes,
         par: req.body.par,
         established: req.body.established,
+        city: req.body.city,
+        state: req.body.state,
         zipcode: req.body.zipcode
     })
     .then(dbCourseData => res.json(dbCourseData))
@@ -114,6 +120,8 @@ router.put('/:id', (req, res) => {
             holes: req.body.holes,
             par: req.body.par,
             established: req.body.established,
+            city: req.body.city,
+            state: req.body.state,
             zipcode: req.body.zipcode
         },
         {

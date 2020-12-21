@@ -18,6 +18,8 @@ class Course extends Model {
                     'holes',
                     'par',
                     'established',
+                    'city',
+                    'state',
                     'zipcode'
                 ],
                 include: [
@@ -65,6 +67,17 @@ Course.init(
             allowNull: true,
             validate: {
                 len: [4]
+            }
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [2]
             }
         },
         zipcode: {

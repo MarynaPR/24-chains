@@ -45,7 +45,7 @@ router.get('/', reqAuth, (req, res) => {
         include: [
             {
                 model: Course,
-                attributes: ['id', 'course_name']
+                attributes: ['id', 'course_name', 'city', 'state']
             },
             {
                 model: User,
@@ -79,7 +79,7 @@ router.get('/favorited', reqAuth, (req, res) => {
         include: [
             {
                 model: Course,
-                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
+                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
             }
         ]
     })

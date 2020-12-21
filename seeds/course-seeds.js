@@ -7,6 +7,8 @@ const coursedata = [
         holes: 18,
         par: 57,
         established: 2006,
+        city: 'Oak Creek',
+        state: 'WI',
         zipcode: 53154
     },
     {
@@ -14,6 +16,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2001,
+        city: 'Fond du Lac',
+        state: 'WI',
         zipcode: 54935
     },
     {
@@ -21,6 +25,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2010,
+        city: 'Rhinelander',
+        state: 'WI',
         zipcode: 54501
     },
     {
@@ -28,6 +34,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2013,
+        city: 'Sparta',
+        state: 'WI',
         zipcode: 54656
     },
     {
@@ -35,6 +43,8 @@ const coursedata = [
         holes: 21,
         par: 64,
         established: 2003,
+        city: 'Boyceville',
+        state: 'WI',
         zipcode: 54725
     },
     {
@@ -42,6 +52,8 @@ const coursedata = [
         holes: 18,
         par: 27,
         established: 2007,
+        city: 'Peshtigo',
+        state: 'WI',
         zipcode: 54157
     },
     {
@@ -49,6 +61,8 @@ const coursedata = [
         holes: 18,
         par: 55,
         established: 1996,
+        city: 'Baraboo',
+        state: 'WI',
         zipcode: 53913
     },
     {
@@ -56,6 +70,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2007,
+        city: 'Mosinee',
+        state: 'WI',
         zipcode: 54455
     },
     {
@@ -63,6 +79,8 @@ const coursedata = [
         holes: 28,
         par: 84,
         established: 2011,
+        city: 'Marshall',
+        state: 'WI',
         zipcode: 53559
     },
     {
@@ -70,6 +88,8 @@ const coursedata = [
         holes: 18,
         par: 69,
         established: 2004,
+        city: 'Marshfield',
+        state: 'WI',
         zipcode: 54449
     },
     {
@@ -77,6 +97,8 @@ const coursedata = [
         holes: 18,
         par: 59,
         established: 2011,
+        city: 'Woodruff',
+        state: 'WI',
         zipcode: 54568
     },
     {
@@ -84,6 +106,8 @@ const coursedata = [
         holes: 21,
         par: 65,
         established: 2006,
+        city: 'Milwaukee',
+        state: 'WI',
         zipcode: 53209
     },
     {
@@ -91,6 +115,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2013,
+        city: 'Madison',
+        state: 'WI',
         zipcode: 53711
     },
     {
@@ -98,6 +124,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2015,
+        city: 'Palmyra',
+        state: 'WI',
         zipcode: 53156
     },
     {
@@ -105,6 +133,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2012,
+        city: 'Chetek',
+        state: 'WI',
         zipcode: 54728
     },
     {
@@ -112,6 +142,8 @@ const coursedata = [
         holes: 18,
         par: 57,
         established: 2011,
+        city: 'Antigo',
+        state: 'WI',
         zipcode: 54409
     },
     {
@@ -119,6 +151,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2017,
+        city: 'Green Bay',
+        state: 'WI',
         zipcode: 54313
     },
     {
@@ -126,6 +160,8 @@ const coursedata = [
         holes: 18,
         par: 64,
         established: 1994,
+        city: 'Beaver Dam',
+        state: 'WI',
         zipcode: 53916
     },
     {
@@ -133,6 +169,8 @@ const coursedata = [
         holes: 22,
         par: 70,
         established: 2018,
+        city: 'Darlington',
+        state: 'WI',
         zipcode: 53530
     },
     {
@@ -140,6 +178,8 @@ const coursedata = [
         holes: 21,
         par: 63,
         established: 2012,
+        city: 'Kewaskum',
+        state: 'WI',
         zipcode: 53040
     },
     {
@@ -147,6 +187,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: null,
+        city: 'Eau Claire',
+        state: 'WI',
         zipcode: 54703
     },
     {
@@ -154,6 +196,8 @@ const coursedata = [
         holes: 18,
         par: 55,
         established: 2006,
+        city: 'Milwaukee',
+        state: 'WI',
         zipcode: 53216
     },
     {
@@ -161,12 +205,16 @@ const coursedata = [
         holes: 27,
         par: 81,
         established: 1993,
+        city: 'Milwaukee',
+        state: 'WI',
         zipcode: 53224
     },{
         course_name: 'Eagle Pines',
         holes: 20,
         par: 60,
         established: 2020,
+        city: 'Almond',
+        state: 'WI',
         zipcode: 54909
     },
     {
@@ -174,6 +222,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2015,
+        city: 'Esofea',
+        state: 'WI',
         zipcode: 54667
     },
     {
@@ -181,6 +231,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1992,
+        city: 'Madison',
+        state: 'WI',
         zipcode: 53719
     },
     {
@@ -188,6 +240,8 @@ const coursedata = [
         holes: 20,
         par: 60,
         established: 2010,
+        city: 'Milwaukee',
+        state: 'WI',
         zipcode: 53217
     },
     {
@@ -195,6 +249,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2018,
+        city: 'Sheboygan Falls',
+        state: 'WI',
         zipcode: 53085
     },
     {
@@ -202,6 +258,8 @@ const coursedata = [
         holes: 23,
         par: 78,
         established: 1999,
+        city: 'Hayward',
+        state: 'WI',
         zipcode: 54843
     },
     {
@@ -209,6 +267,8 @@ const coursedata = [
         holes: 18,
         par: 63,
         established: 2004,
+        city: 'Florence',
+        state: 'WI',
         zipcode: 54121
     },
     {
@@ -216,6 +276,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2010,
+        city: 'Silver Lake',
+        state: 'WI',
         zipcode: 53170
     },
     {
@@ -223,6 +285,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2015,
+        city: 'Lake Geneva',
+        state: 'WI',
         zipcode: 53147
     },
     {
@@ -230,6 +294,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2000,
+        city: 'Kaukauna',
+        state: 'WI',
         zipcode: 54130
     },
     {
@@ -237,6 +303,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2005,
+        city: 'Plymouth',
+        state: 'WI',
         zipcode: 53073
     },
     {
@@ -244,6 +312,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2017,
+        city: 'Reedsburg',
+        state: 'WI',
         zipcode: 53959
     },
     {
@@ -251,6 +321,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2003,
+        city: 'New London',
+        state: 'WI',
         zipcode: 54961
     },
     {
@@ -258,6 +330,8 @@ const coursedata = [
         holes: 24,
         par: 80,
         established: 2011,
+        city: 'Trego',
+        state: 'WI',
         zipcode: 54888
     },
     {
@@ -265,6 +339,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2015,
+        city: 'Slinger',
+        state: 'WI',
         zipcode: 53086
     },
     {
@@ -272,6 +348,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1998,
+        city: 'Madison',
+        state: 'WI',
         zipcode: 53714
     },
     {
@@ -279,6 +357,8 @@ const coursedata = [
         holes: 18,
         par: 62,
         established: 2004,
+        city: 'Highbridge',
+        state: 'WI',
         zipcode: 54846
     },
     {
@@ -286,6 +366,8 @@ const coursedata = [
         holes: 18,
         par: 62,
         established: 2004,
+        city: 'Highbridge',
+        state: 'WI',
         zipcode: 54846
     },
     {
@@ -293,6 +375,8 @@ const coursedata = [
         holes: 18,
         par: 65,
         established: 2004,
+        city: 'Highbridge',
+        state: 'WI',
         zipcode: 54846
     },
     {
@@ -300,6 +384,8 @@ const coursedata = [
         holes: 18,
         par: 71,
         established: 2006,
+        city: 'Highbridge',
+        state: 'WI',
         zipcode: 54846
     },
     {
@@ -307,6 +393,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2005,
+        city: 'Highbridge',
+        state: 'WI',
         zipcode: 54846
     },
     {
@@ -314,6 +402,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2002,
+        city: 'Ixonia',
+        state: 'WI',
         zipcode: 53036
     },
     {
@@ -321,6 +411,8 @@ const coursedata = [
         holes: 18,
         par: 59,
         established: 2011,
+        city: 'Horicon',
+        state: 'WI',
         zipcode: 53032
     },
     {
@@ -328,6 +420,8 @@ const coursedata = [
         holes: 18,
         par: 63,
         established: 2007,
+        city: 'Manitowoc',
+        state: 'WI',
         zipcode: 54220
     },
     {
@@ -335,6 +429,8 @@ const coursedata = [
         holes: 22,
         par: 67,
         established: 2008,
+        city: 'Deerbrook',
+        state: 'WI',
         zipcode: 54424
     },
     {
@@ -342,6 +438,8 @@ const coursedata = [
         holes: 20,
         par: 60,
         established: 1992,
+        city: 'Sheboygan',
+        state: 'WI',
         zipcode: 53083
     },
     {
@@ -349,6 +447,8 @@ const coursedata = [
         holes: 20,
         par: 60,
         established: 2016,
+        city: 'Racine',
+        state: 'WI',
         zipcode: 53406
     },
     {
@@ -356,6 +456,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2007,
+        city: 'Sparta',
+        state: 'WI',
         zipcode: 54656
     },
     {
@@ -363,6 +465,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1998,
+        city: 'Sparta',
+        state: 'WI',
         zipcode: 54656
     },
     {
@@ -370,6 +474,8 @@ const coursedata = [
         holes: 18,
         par: 50,
         established: 2014,
+        city: 'Florence',
+        state: 'WI',
         zipcode: 54121
     },
     {
@@ -377,6 +483,8 @@ const coursedata = [
         holes: 18,
         par: 55,
         established: 2018,
+        city: 'Fond du Lac',
+        state: 'WI',
         zipcode: 54937
     },
     {
@@ -384,6 +492,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2010,
+        city: 'Monroe',
+        state: 'WI',
         zipcode: 53566
     },
     {
@@ -391,6 +501,8 @@ const coursedata = [
         holes: 18,
         par: 55,
         established: 2003,
+        city: 'Richland Center',
+        state: 'WI',
         zipcode: 53581
     },
     {
@@ -398,6 +510,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2015,
+        city: 'Kenosha',
+        state: 'WI',
         zipcode: 53143
     },
     {
@@ -405,6 +519,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2010,
+        city: 'Reedsville',
+        state: 'WI',
         zipcode: 54230
     },
     {
@@ -412,6 +528,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2006,
+        city: 'Cleveland',
+        state: 'WI',
         zipcode: 53015
     },
     {
@@ -419,6 +537,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2002,
+        city: 'Janesville',
+        state: 'WI',
         zipcode: 53546
     },
     {
@@ -426,6 +546,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2011,
+        city: 'Owen',
+        state: 'WI',
         zipcode: 54460
     },
     {
@@ -433,6 +555,8 @@ const coursedata = [
         holes: 18,
         par: 60,
         established: 2007,
+        city: 'Stanley',
+        state: 'WI',
         zipcode: 54768
     },
     {
@@ -440,6 +564,8 @@ const coursedata = [
         holes: 19,
         par: 58,
         established: 2008,
+        city: 'Marinette',
+        state: 'WI',
         zipcode: 54143
     },
     {
@@ -447,6 +573,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2015,
+        city: 'Marshall',
+        state: 'WI',
         zipcode: 53559
     },
     {
@@ -454,6 +582,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2007,
+        city: 'Menomonie',
+        state: 'WI',
         zipcode: 54751
     },
     {
@@ -461,6 +591,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2005,
+        city: 'Mukwonago',
+        state: 'WI',
         zipcode: 53149
     },
     {
@@ -468,6 +600,8 @@ const coursedata = [
         holes: 24,
         par: 70,
         established: 2009,
+        city: 'Superior',
+        state: 'WI',
         zipcode: 54880
     },
     {
@@ -475,6 +609,8 @@ const coursedata = [
         holes: 18,
         par: 59,
         established: 2018,
+        city: 'Superior',
+        state: 'WI',
         zipcode: 54880
     },
     {
@@ -482,6 +618,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2010,
+        city: 'Superior',
+        state: 'WI',
         zipcode: 54880
     },
     {
@@ -489,6 +627,8 @@ const coursedata = [
         holes: 18,
         par: 36,
         established: null,
+        city: 'Nokomis',
+        state: 'WI',
         zipcode: 54487
     },
     {
@@ -496,6 +636,8 @@ const coursedata = [
         holes: 20,
         par: 78,
         established: 1993,
+        city: 'Marshfield',
+        state: 'WI',
         zipcode: 54449
     },
     {
@@ -503,6 +645,8 @@ const coursedata = [
         holes: 18,
         par: 59,
         established: 2012,
+        city: 'Eagle River',
+        state: 'WI',
         zipcode: 54521
     },
     {
@@ -510,6 +654,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 1992,
+        city: 'Menasha',
+        state: 'WI',
         zipcode: 54956
     },
     {
@@ -517,6 +663,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2019,
+        city: 'Edgerton',
+        state: 'WI',
         zipcode: 53534
     },
     {
@@ -524,6 +672,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2013,
+        city: 'Fennimore',
+        state: 'WI',
         zipcode: 53809
     },
     {
@@ -531,6 +681,8 @@ const coursedata = [
         holes: 18,
         par: 68,
         established: 2011,
+        city: 'Omro',
+        state: 'WI',
         zipcode: 54963
     },
     {
@@ -538,6 +690,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2019,
+        city: 'Howard',
+        state: 'WI',
         zipcode: 54303
     },
     {
@@ -545,6 +699,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2011,
+        city: 'Wautoma',
+        state: 'WI',
         zipcode: 54982
     },
     {
@@ -552,6 +708,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2010,
+        city: 'Green Bay',
+        state: 'WI',
         zipcode: 54303
     },
     {
@@ -559,6 +717,8 @@ const coursedata = [
         holes: 27,
         par: 82,
         established: 2013,
+        city: 'La Crosse',
+        state: 'WI',
         zipcode: 54601
     },
     {
@@ -566,6 +726,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2010,
+        city: 'Mukwonago',
+        state: 'WI',
         zipcode: 53149
     },
     {
@@ -573,6 +735,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2003,
+        city: 'Howard',
+        state: 'WI',
         zipcode: 54303
     },
     {
@@ -580,6 +744,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1989,
+        city: 'Appleton',
+        state: 'WI',
         zipcode: 54913
     },
     {
@@ -587,6 +753,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2012,
+        city: 'Pulaski',
+        state: 'WI',
         zipcode: 54162
     },
     {
@@ -594,6 +762,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2003,
+        city: 'Oshkosh',
+        state: 'WI',
         zipcode: 54901
     },
     {
@@ -601,6 +771,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2009,
+        city: 'Ripon',
+        state: 'WI',
         zipcode: 54971
     },
     {
@@ -608,6 +780,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2016,
+        city: 'Janesville',
+        state: 'WI',
         zipcode: 53548
     },
     {
@@ -615,6 +789,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2011,
+        city: 'West Bend',
+        state: 'WI',
         zipcode: 53095
     },
     {
@@ -622,6 +798,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2017,
+        city: 'Elkhart Lake',
+        state: 'WI',
         zipcode: 53073
     },
     {
@@ -629,6 +807,8 @@ const coursedata = [
         holes: 21,
         par: 63,
         established: 2005,
+        city: 'Watertown',
+        state: 'WI',
         zipcode: 53098
     },
     {
@@ -636,6 +816,8 @@ const coursedata = [
         holes: 18,
         par: 62,
         established: 2016,
+        city: 'Conover',
+        state: 'WI',
         zipcode: 54519
     },
     {
@@ -643,6 +825,8 @@ const coursedata = [
         holes: 18,
         par: 58,
         established: 2011,
+        city: 'Reedsville',
+        state: 'WI',
         zipcode: 54230
     },
     {
@@ -650,6 +834,8 @@ const coursedata = [
         holes: 18,
         par: 59,
         established: 2018,
+        city: 'Rhinelander',
+        state: 'WI',
         zipcode: 54501
     },
     {
@@ -657,6 +843,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2013,
+        city: 'Greendale',
+        state: 'WI',
         zipcode: 53129
     },
     {
@@ -664,6 +852,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2013,
+        city: 'Prairie du Chien',
+        state: 'WI',
         zipcode: 53821
     },
     {
@@ -671,6 +861,8 @@ const coursedata = [
         holes: 18,
         par: 51,
         established: 2017,
+        city: 'West Bend',
+        state: 'WI',
         zipcode: 53090
     },
     {
@@ -678,6 +870,8 @@ const coursedata = [
         holes: 29,
         par: 87,
         established: 1994,
+        city: 'Lac Du Flambeau',
+        state: 'WI',
         zipcode: 54538
     },
     {
@@ -685,6 +879,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2016,
+        city: 'Elkhart Lake',
+        state: 'WI',
         zipcode: 53020
     },
     {
@@ -692,6 +888,8 @@ const coursedata = [
         holes: 36,
         par: 108,
         established: 2000,
+        city: 'Manitowoc',
+        state: 'WI',
         zipcode: 54220
     },
     {
@@ -699,6 +897,8 @@ const coursedata = [
         holes: 18,
         par: 60,
         established: 2014,
+        city: 'Silver Lake',
+        state: 'WI',
         zipcode: 53170
     },
     {
@@ -706,6 +906,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2010,
+        city: 'Somerset',
+        state: 'WI',
         zipcode: 54025
     },
     {
@@ -713,6 +915,8 @@ const coursedata = [
         holes: 33,
         par: 101,
         established: 2000,
+        city: 'Stevens Point',
+        state: 'WI',
         zipcode: 54481
     },
     {
@@ -720,6 +924,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2011,
+        city: 'Fredonia',
+        state: 'WI',
         zipcode: 53021
     },
     {
@@ -727,6 +933,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2006,
+        city: 'Sugar Camp',
+        state: 'WI',
         zipcode: 54501
     },
     {
@@ -734,6 +942,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2012,
+        city: 'Gardner',
+        state: 'WI',
         zipcode: 54204
     },
     {
@@ -741,6 +951,8 @@ const coursedata = [
         holes: 18,
         par: 61,
         established: 2019,
+        city: 'Superior',
+        state: 'WI',
         zipcode: 54880
     },
     {
@@ -748,6 +960,8 @@ const coursedata = [
         holes: 24,
         par: 76,
         established: 2006,
+        city: 'Cable',
+        state: 'WI',
         zipcode: 54821
     },
     {
@@ -755,6 +969,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2002,
+        city: 'Saukville',
+        state: 'WI',
         zipcode: 53080
     },
     {
@@ -762,6 +978,8 @@ const coursedata = [
         holes: 21,
         par: 64,
         established: 2019,
+        city: 'Washburn',
+        state: 'WI',
         zipcode: 54891
     },
     {
@@ -769,6 +987,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: null,
+        city: 'Wausau',
+        state: 'WI',
         zipcode: 54401
     },
     {
@@ -776,6 +996,8 @@ const coursedata = [
         holes: 20,
         par: 60,
         established: 2015,
+        city: 'Siren',
+        state: 'WI',
         zipcode: 54872
     },
     {
@@ -783,6 +1005,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1996,
+        city: 'Eau Claire',
+        state: 'WI',
         zipcode: 54703
     },
     {
@@ -790,6 +1014,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2008,
+        city: 'Eau Claire',
+        state: 'WI',
         zipcode: 54703
     },
     {
@@ -797,6 +1023,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1997,
+        city: 'Green Bay',
+        state: 'WI',
         zipcode: 54301
     },
     {
@@ -804,6 +1032,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2019,
+        city: 'Mt. Horeb',
+        state: 'WI',
         zipcode: 53572
     },
     {
@@ -811,6 +1041,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1999,
+        city: 'Kenosha',
+        state: 'WI',
         zipcode: 53144
     },
     {
@@ -818,6 +1050,8 @@ const coursedata = [
         holes: 2009,
         par: 21,
         established: 63,
+        city: 'Kenosha',
+        state: 'WI',
         zipcode: 53144
     },
     {
@@ -825,6 +1059,8 @@ const coursedata = [
         holes: 18,
         par: 69,
         established: 1989,
+        city: 'Platteville',
+        state: 'WI',
         zipcode: 53818
     },
     {
@@ -832,6 +1068,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2004,
+        city: 'Whitewater',
+        state: 'WI',
         zipcode: 53190
     },
     {
@@ -839,6 +1077,8 @@ const coursedata = [
         holes: 18,
         par: 68,
         established: 2007,
+        city: 'Rice Lake',
+        state: 'WI',
         zipcode: 54868
     },
     {
@@ -846,6 +1086,8 @@ const coursedata = [
         holes: 27,
         par: 81,
         established: 2001,
+        city: 'Deforest',
+        state: 'WI',
         zipcode: 53532
     },
     {
@@ -853,6 +1095,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1996,
+        city: 'New Berlin',
+        state: 'WI',
         zipcode: 53151
     },
     {
@@ -860,6 +1104,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2015,
+        city: 'Viroqua',
+        state: 'WI',
         zipcode: 54665
     },
     {
@@ -867,6 +1113,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2003,
+        city: 'Sussex',
+        state: 'WI',
         zipcode: 53089
     },
     {
@@ -874,6 +1122,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 1980,
+        city: 'Sheboygan',
+        state: 'WI',
         zipcode: 53081
     },
     {
@@ -881,6 +1131,8 @@ const coursedata = [
         holes: 18,
         par: 66,
         established: 1999,
+        city: 'Menomonie',
+        state: 'WI',
         zipcode: 54751
     },
     {
@@ -888,6 +1140,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2006,
+        city: 'Wales',
+        state: 'WI',
         zipcode: 53183
     },
     {
@@ -895,6 +1149,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2009,
+        city: 'Westfield',
+        state: 'WI',
         zipcode: 53964
     },
     {
@@ -902,6 +1158,8 @@ const coursedata = [
         holes: 18,
         par: 63,
         established: 2007,
+        city: 'Birchwood',
+        state: 'WI',
         zipcode: 54817
     },
     {
@@ -909,6 +1167,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2014,
+        city: 'Lake Geneva',
+        state: 'WI',
         zipcode: 53147
     },
     {
@@ -916,6 +1176,8 @@ const coursedata = [
         holes: 27,
         par: 86,
         established: 2001,
+        city: 'Osseo',
+        state: 'WI',
         zipcode: 54758
     },
     {
@@ -923,6 +1185,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2017,
+        city: 'Montello',
+        state: 'WI',
         zipcode: 53949
     },
     {
@@ -930,6 +1194,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2007,
+        city: 'Oshkosh',
+        state: 'WI',
         zipcode: 54901
     },
     {
@@ -937,6 +1203,8 @@ const coursedata = [
         holes: 18,
         par: 56,
         established: 2007,
+        city: 'Oshkosh',
+        state: 'WI',
         zipcode: 54901
     },
     {
@@ -944,6 +1212,8 @@ const coursedata = [
         holes: 27,
         par: 81,
         established: 2004,
+        city: 'Kewaunee',
+        state: 'WI',
         zipcode: 54216
     },
     {
@@ -951,6 +1221,8 @@ const coursedata = [
         holes: 18,
         par: 55,
         established: 2016,
+        city: 'Madison',
+        state: 'WI',
         zipcode: 53718
     },
     {
@@ -958,6 +1230,8 @@ const coursedata = [
         holes: 18,
         par: 54,
         established: 2000,
+        city: 'Stevens Point',
+        state: 'WI',
         zipcode: 54481
     },
     {
@@ -965,6 +1239,8 @@ const coursedata = [
         holes: 18,
         par: 57,
         established: 2010,
+        city: 'Green Lake',
+        state: 'WI',
         zipcode: 54941
     }
 ];
