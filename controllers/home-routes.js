@@ -5,7 +5,7 @@ const reqAuth = require('../utils/auth');
 // get all courses for homepage
 // router.get("/", (req, res) => {
 //   Course.findAll({
-//     attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
+//     attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state','zipcode']
 
 //   })
 //     .then((dbCourseData) => {
@@ -34,6 +34,8 @@ router.get('/course/:id', (req, res) => {
       'holes',
       'par',
       'established',
+      'city',
+      'state',
       'zipcode'
     ],
     include: [
@@ -80,7 +82,7 @@ router.get('/course/:id', (req, res) => {
 //       include: [
 //           {
 //               model: Course,
-//               attributes: ['id', 'course_name']
+//               attributes: ['id', 'course_name', 'city', 'state']
 //           },
 //           {
 //               model: User,
@@ -137,7 +139,7 @@ router.get('/', reqAuth, (req, res) => {
       include: [
           {
               model: Course,
-              attributes: ['id', 'course_name']
+              attributes: ['id', 'course_name', 'city', 'state']
           },
           {
               model: User,
@@ -154,7 +156,7 @@ router.get('/', reqAuth, (req, res) => {
       res.status(500).json(err);
   })
   // Course.findAll({
-  //       attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
+  //       attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
   //     })
   Played.findAll({
     attributes: [
@@ -169,7 +171,7 @@ router.get('/', reqAuth, (req, res) => {
         },
         {
             model: Course,
-            attributes: ['course_name']
+            attributes: ['course_name', 'city', 'state']
         }
     ]
   })
@@ -201,6 +203,8 @@ router.get('/courses', reqAuth, (req, res) => {
             'holes',
             'par',
             'established',
+            'city',
+            'state',
             'zipcode'
         ],
         include: [
@@ -254,7 +258,7 @@ module.exports = router;
 //       include: [
 //           {
 //               model: Course,
-//               attributes: ['id', 'course_name']
+//               attributes: ['id', 'course_name', 'city', 'state']
 //           },
 //           {
 //               model: User,
@@ -271,7 +275,7 @@ module.exports = router;
 //       res.status(500).json(err);
 //   })
 //   Course.findAll({
-//         attributes: ['id', 'course_name', 'holes', 'par', 'established', 'zipcode']
+//         attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
 //       })
 //   .then((dbCourseData) => {
 //           homeObject.courses = dbCourseData.map(course => course.get({ plain: true }));
