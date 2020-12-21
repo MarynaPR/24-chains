@@ -1,21 +1,23 @@
-<div class="row mt-4">
+<div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
-    <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-        <p><strong>{{user.username}}</strong></p>
-        <p>{{course.course_name}}</p>
-        <p>{{created_at}}</p>
-        <p>{{review_title}}</p>
-        <p>{{rating}}/5 Discs</p>
-        <p>{{review_content}}</p>
-        {{!-- <div class="row bg-secondary">
-            <div class="col align-items-start bg-secondary">
-                14 Upvotes 2 DownVotes
-            </div>
-            <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
-                <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
-                    class="btn align-item-end ml-3 mt-1">Downvote</button>
-            </div>
-        </div> --}}
+    <div class="col-md-8 p-3">
+        <div class="card border-primary" style="padding:10px 20px;">
+            <p class="text-uppercase"><strong>{{user.username}}</strong></p>
+            <p>{{course.course_name}}</p>
+            <p>{{created_at}}</p>
+            <p>{{review_title}}</p>
+            <p>{{rating}}/5 Discs</p>
+            <p>{{review_content}}</p>
+            {{!-- <div class=" row bg-secondary">
+                <div class="col align-items-start bg-secondary">
+                    14 Upvotes 2 DownVotes
+                </div>
+                <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
+                    <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
+                        class="btn align-item-end ml-3 mt-1">Downvote</button>
+                </div>
+            </div> --}}
+        </div>
     </div>
     <div class="col-sm-2"></div>
 </div>

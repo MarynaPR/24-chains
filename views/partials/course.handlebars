@@ -1,16 +1,19 @@
 {{!-- SEARCH/LIST OF ALL COURCES --}}
-<article class="course">
-    <div class="">
-        <a href="/course/{{id}}">{{course_name}}</a>
-        {{!-- <span class=""></span> --}}
+<div class="row mt-3 bg-transparent">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 p-3">
+        <div class="card" style="padding:10px 20px; border-color: rgba(255, 166, 0, 0.616);">
+            <a href="/course/{{id}}">{{course_name}}</a>
+            <div class="">
+                Number of Holes: {{holes}}
+                <br>
+                Par: {{par}}
+                <br>
+                Year Established: {{established}}
+                <br>
+                Zip code: {{zipcode}}
+            </div>
+        </div>
     </div>
-    <div class="">
-        Number of Holes: {{holes}}
-        <br>
-        Par: {{par}}
-        <br>
-        Year Established: {{established}}
-        <br>
-        Zip code: {{zipcode}}
-    </div>
-</article>
+    <div class="col-sm-3"></div>
+</div>

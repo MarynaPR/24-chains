@@ -1,15 +1,16 @@
 <main class="dashboard">
-
+  {{!-- ------------------------issue------------------------- --}}
+  {{!-- USER is redirected to profile? not profile-favorited... --}}
   <div class="header-row" id="header-row" style="padding: 0px; overflow:hidden; max-height: 500px;">
     <div class="container-fluid" style="padding: 0px;">
       <div class="row">
         <div class="col-xs-12" style="position: relative;">
-          {{!-- <img src="/public/images/IMG_4694.png" class="img-fluid" alt="company logo"
-            style="width:100%; margin-top: -150px;"> --}}
-          <div class="username">
-            {{!-- ______________________________ADD FIRST AND LAST NAME CALLS FROM THE DATA
-            BASE____________________________ --}}
-            <h2 style="z-index: 1060;">First and Last Name</h2>
+          <div class="username text-center text-uppercase">
+            {{!-- <h3> Welcome back</h3> --}}
+            {{!--ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE--}}
+            <h2 style="z-index: 1060; padding-left: 45px;">
+              {{dataValues.firstname}} {{dataValues.lastname}}
+            </h2>
           </div>
         </div>
       </div>
@@ -19,39 +20,42 @@
   <div class="row mt-3">
     <div class="col-sm-1"></div>
     <div class="col-md-3">
-      <div class="card" style="border-radius: 10px; border: none;">
-        <div class="card-body bg-secondary" style="border-radius: 8px;">
-          <h5 class="card-title">About User</h5>
+      <div class="card-user bg-transparent">
+        <div class="card border-primary" style="padding: 20px;">
+          <h5 class="card-title text-uppercase text-center">About User</h5>
           {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________
           --}}
-          <p class="card-text">1 Favorite Course</p>
-          <p class="card-text">2 Favorite Course</p>
-          <p class="card-text">3 Favorite Course</p>
-          <p class="card-text">Best Score: -4</p>
+          <p class="card-text text-center">1 Favorite Course</p>
+          <p class="card-text text-center">2 Favorite Course</p>
+          <p class="card-text text-center">3 Favorite Course</p>
+          <p class="card-text text-center">Best Score: -4</p>
         </div>
       </div>
     </div>
+
     <div class="col-md-2">
-      <div class="card" style="border: none;">
-        <div class="card-body bg-dark">
+      <div class="card bg-transparent text-uppercase" style="border: none;">
+        <div class="card-body">
           {{!-- ______________________________CALL FROM THE DATA BASE FOR ALL USERS FAVORITED COURSES________________
           --}}
           <a href="/profile/favorited" class="btn btn-primary">Favorite Courses</a>
         </div>
       </div>
     </div>
+
     <div class="col-md-2">
-      <div class="card" style="border: none;">
-        <div class="card-body bg-dark">
+      <div class="card bg-transparent text-uppercase" style="border: none;">
+        <div class="card-body">
           {{!-- __________________________CALL FROM THE DATA BASE FOR ALL USERS SAVED COURSES_______________________
           --}}
           <a href="#" class="btn btn-primary">Saved Courses</a>
         </div>
       </div>
     </div>
+
     <div class="col-md-2">
-      <div class="card" style="border: none;">
-        <div class="card-body bg-dark">
+      <div class="card bg-transparent text-uppercase" style="border: none;">
+        <div class="card-body">
           {{!-- ____________________________CALL FROM THE DATA BASE FOR ALL USERS RATED COURSES____________________ --}}
           <a href="#" class="btn btn-primary">Rated Courses</a>
         </div>
@@ -60,9 +64,8 @@
     <div class="col-sm-1"></div>
   </div>
 
-  <!-- _________________________________________THIS IS AN EXAMPLE OF A RATED COURSE POST_____________________________________ -->
+  {{!-- _________________________________User Posts_______________________________ --}}
 
-  {{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
   {{#each reviews as |review|}}
   {{>reviews review}}
   {{/each}}
