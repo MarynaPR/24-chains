@@ -160,6 +160,27 @@ router.get('/signup', (req, res) => {
 })
 
 
+//====================================SORTING FUNCTION=============================
+
+function compare( a, b ) {
+  if ( a.created_at < b.created_at ){
+    return -1;
+  }
+  if ( a.created_at > b.created_at ){
+    return 1;
+  }
+  return 0;
+}
+
+// objs.sort( compare );
+
+
+
+
+
+
+
+
 
 // get all user reviews
 router.get('/', reqAuth, (req, res) => {
@@ -185,7 +206,7 @@ router.get('/', reqAuth, (req, res) => {
   })
   .then(dbReviewData => {
       homeObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-      console.log(homeObject.reviews);
+      //console.log(homeObject.reviews);
   })
   .catch(err => {
       console.log(err);
@@ -215,6 +236,11 @@ router.get('/', reqAuth, (req, res) => {
           homeObject.played = dbPlayedData.map(played => played.get({ plain: true }));
           //creates a list of all data in homeObject
           homeObject.fullList = homeObject.played.concat(homeObject.reviews)
+
+          console.log('===============attempt 1==========================');
+          console.log(homeObject.fullList);
+          homeObject.sorted = homeObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+
           //converting date into integers(Date.now())
           //homeObject.ordered = homeObject.fullList.sort(compareNumbers(homeObject.reviews.created_at))
           res.render('homepage', {
