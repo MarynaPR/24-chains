@@ -1,5 +1,23 @@
 <div class="card text-center bg-transparent">
-    {{> course course}}
+
+    <div class="row mt-3 bg-transparent">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 p-3">
+            <div class="card" style="padding:10px 20px; border-color: rgba(255, 166, 0, 0.616);">
+                <a href="/course/{{reviewObject.course.id}}">{{reviewObject.course.course_name}}</a>
+                <div class="">
+                    Number of Holes: {{reviewObject.course.holes}}
+                    <br>
+                    Par: {{reviewObject.course.par}}
+                    <br>
+                    Year Established: {{reviewObject.course.established}}
+                    <br>
+                    Zip code: {{reviewObject.course.zipcode}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
 </div>
 {{#if loggedIn}}
 
@@ -120,11 +138,11 @@
 </div>
 
 {{!-- LIST of reviews --}}
-{{#each review as |review|}}
-{{>reviews review}}
-{{review.course_id}}
-{{review.review_title}}
-<p class="card-text">{{review.review_content}}</p>
+{{#each reviewObject.reviews as |review|}}
+    {{>reviews review}}
+    {{!-- {{review.course_id}}
+    {{review.review_title}}
+    <p class="card-text">{{review.review_content}}</p> --}}
 {{/each}}
 
 {{!-- {{#each reviews as |review|}}
