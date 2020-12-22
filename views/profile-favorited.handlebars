@@ -9,7 +9,7 @@
             {{!-- <h3> Welcome back</h3> --}}
             {{!--ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE--}}
             <h2 style="z-index: 1060; padding: 15px;">
-              {{dataValues.firstname}} {{dataValues.lastname}}
+              {{profileFavoriteObject.user.firstname}} {{profileFavoriteObject.user.lastname}}
             </h2>
           </div>
         </div>
@@ -24,7 +24,7 @@
 
         {{!-- </div>style="border-radius: 10px;"> --}}
       <div class="card border-primary" style="padding: 20px;">
-        <h5 class="card-title text-uppercase text-center">About User</h5>
+        <h5 class="card-title text-uppercase text-center">About {{profileFavoriteObject.user.firstname}}</h5>
         {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________
         --}}
         <p class="card-text text-center">1 Favorite Course</p>
@@ -71,8 +71,8 @@
 
   {{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
 
-  {{#each favorites as |favorite|}}
-  {{>favorites favorite}}
+  {{#each profileFavoriteObject.favorites as |favorite|}}
+    {{>favorites favorite}}
   {{/each}}
 
 </main>
