@@ -16,13 +16,13 @@ body {
   background-size: cover;
 }
 
-body .btn {
+/* body .btn {
   background: rgba(255, 102, 0, 0.781);
 }
 
 body .btn:hover {
   background: #bf5020;
-}
+} */
 
 body .card-sign .card-title {
   margin-bottom: 3rem;

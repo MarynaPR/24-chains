@@ -24,6 +24,40 @@ const reqAuth = require('../utils/auth');
 
 // get a single course for new-review page
 router.get('/course/:id', (req, res) => {
+  const reviewObject = {};
+
+  Review.findAll({
+    where: {
+        course_id: req.params.id
+    },
+    attributes: [
+        'id',
+        'review_content',
+        'review_title',
+        'rating',
+        'created_at'
+    ],
+    include: [
+        {
+            model: Course,
+            attributes: ['id', 'course_name', 'city', 'state']
+        },
+        {
+            model: User,
+            attributes: ['id', 'username']
+        }
+    ]
+  })
+  .then(dbReviewData => {
+      reviewObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
+      console.log('============================REVIEW DATA=======================')
+      console.log(reviewObject.reviews);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  })
+
   Course.findOne({
     where: {
       id: req.params.id
@@ -55,10 +89,12 @@ router.get('/course/:id', (req, res) => {
       return;
     }
 
-    const course = dbCourseData.get({ plain: true });
+    reviewObject.course = dbCourseData.get({ plain: true });
+    console.log('============================COURSE DATA=======================')
+    console.log(reviewObject.course);
 
     res.render('new-review', {
-      course,
+      reviewObject,
       loggedIn: req.session.loggedIn
     });
   })
