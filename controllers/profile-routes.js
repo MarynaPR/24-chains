@@ -167,7 +167,74 @@ router.get('/favorited', reqAuth, (req, res) => {
                 loggedIn: req.session.loggedIn
             });
         });
-})
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// get all user reviewed courses and user data
+router.get('/reviewed', reqAuth, (req, res) => {
+    const profileReviewObject = {};
+
+    User.findOne({
+        where: {
+            id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'username',
+            'firstname',
+            'lastname'
+        ]
+    })
+    .then(dbUserData => {
+        // console.log("///////", dbUserData.dataValues)
+        //const { dataValues } = dbUserData
+        profileReviewObject.user = dbUserData.get({ plain: true });
+
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+
+    Review.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'review_title',
+            'review_content',
+            'rating',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
+            }
+        ]
+    })
+    .then(dbReviewData => {
+        profileReviewObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
+
+        profileReviewObject.reviews = profileReviewObject.reviews.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+
+        res.render('profile-reviewed', {
+            profileReviewObject,
+            loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+
 //loads all profile data on page load (username, reviews, played courses by user)
 router.get('/', reqAuth, (req, res) => {
     const profileObject = {}
