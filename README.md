@@ -21,3 +21,5 @@ Foundation: `npm install foundation-sites`,`npm install --global foundation-cli`
 
 Sass : `npm install -g sass`
 
+'npm install googleapis'
+

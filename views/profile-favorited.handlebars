@@ -8,7 +8,7 @@
           <div class="username text-center text-uppercase">
             {{!-- <h3> Welcome back</h3> --}}
             {{!--ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE--}}
-            <h2 style="z-index: 1060; padding: 15px;">
+            <h2 style="z-index: 1060; padding-left: 45px;">
               {{profileFavoriteObject.user.firstname}} {{profileFavoriteObject.user.lastname}}
             </h2>
           </div>
@@ -23,7 +23,7 @@
       <div class="card-user bg-transparent">
 
         {{!-- </div>style="border-radius: 10px;"> --}}
-      <div class="card border-primary" style="padding: 20px;">
+      <div class="card" style="padding:10px 20px; border: 3px solid; border-color: rgb(152, 147, 146);">
         <h5 class="card-title text-uppercase text-center">About {{profileFavoriteObject.user.firstname}}</h5>
         {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________
         --}}
@@ -41,7 +41,7 @@
       <div class="card-body">
         {{!-- ______________________________CALL FROM THE DATA BASE FOR ALL USERS FAVORITED COURSES________________
         --}}
-        <a href="/profile/favorited" class="btn btn-primary">Favorite Courses</a>
+        <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
       <div class="card-body">
         {{!-- __________________________CALL FROM THE DATA BASE FOR ALL USERS SAVED COURSES_______________________
         --}}
-        <a href="#" class="btn btn-primary">Saved Courses</a>
+        <a href="/profile/saved" class="btn text-white">Saved Courses</a>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@
   {{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
 
   {{#each profileFavoriteObject.favorites as |favorite|}}
-    {{>favorites favorite}}
+  {{>favorites favorite}}
   {{/each}}
 
 </main>

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Course, Favorite, Review, Played } = require('../models');
+const { User, Course, Favorite, Review, Played, Saved } = require('../models');
 const reqAuth = require('../utils/auth');
 
 // get user data
@@ -69,6 +69,54 @@ const reqAuth = require('../utils/auth');
 //         });
 // });
 
+//get all the saved courses
+router.get('/saved', reqAuth, (req, res) => {
+    const profileSavedObject = {};
+    User.findOne({
+        where: {
+            id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'username',
+            'firstname',
+            'lastname'
+        ]
+    })
+        .then(dbUserData => {
+            profileSavedObject.user = dbUserData.get({ plain: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+    Saved.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
+            }
+        ]
+    })
+        .then(dbReviewData => {
+            profileSavedObject.saved = dbReviewData.map(saved => saved.get({ plain: true }));
+            res.render('profile-saved', {
+                profileSavedObject,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 // // get all user favorited courses and user data
 router.get('/favorited', reqAuth, (req, res) => {
     const profileFavoriteObject = {};
@@ -84,16 +132,16 @@ router.get('/favorited', reqAuth, (req, res) => {
             'lastname'
         ]
     })
-    .then(dbUserData => {
-        // console.log("///////", dbUserData.dataValues)
-        //const { dataValues } = dbUserData
-        profileFavoriteObject.user = dbUserData.get({ plain: true });
+        .then(dbUserData => {
+            // console.log("///////", dbUserData.dataValues)
+            //const { dataValues } = dbUserData
+            profileFavoriteObject.user = dbUserData.get({ plain: true });
 
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 
     Favorite.findAll({
         where: {
@@ -109,14 +157,15 @@ router.get('/favorited', reqAuth, (req, res) => {
             }
         ]
     })
-    .then(dbReviewData => {
-        profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+        .then(dbReviewData => {
+            profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
 
-        profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+            profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
-        res.render('profile-favorited', {
-            profileFavoriteObject,
-            loggedIn: req.session.loggedIn
+            res.render('profile-favorited', {
+                profileFavoriteObject,
+                loggedIn: req.session.loggedIn
+            });
         });
     })
     .catch(err => {
@@ -189,7 +238,6 @@ router.get('/reviewed', reqAuth, (req, res) => {
 //loads all profile data on page load (username, reviews, played courses by user)
 router.get('/', reqAuth, (req, res) => {
     const profileObject = {}
-
     User.findOne({
         where: {
             id: req.session.userId
@@ -201,16 +249,15 @@ router.get('/', reqAuth, (req, res) => {
             'lastname'
         ]
     })
-    .then(dbUserData => {
-        // console.log("///////", dbUserData.dataValues)
-        //const { dataValues } = dbUserData
-        profileObject.user = dbUserData.get({ plain: true });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-
+        .then(dbUserData => {
+            // console.log("///////", dbUserData.dataValues)
+            //const { dataValues } = dbUserData
+            profileObject.user = dbUserData.get({ plain: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
     Review.findAll({
         where: {
             user_id: req.session.userId
@@ -233,14 +280,13 @@ router.get('/', reqAuth, (req, res) => {
             }
         ]
     })
-    .then(dbReviewData => {
-        profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-
+        .then(dbReviewData => {
+            profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
     Played.findAll({
         where: {
             user_id: req.session.userId
@@ -261,26 +307,19 @@ router.get('/', reqAuth, (req, res) => {
             }
         ]
     })
-    .then((dbPlayedData) => {
-        profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
+        .then((dbPlayedData) => {
+            profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
 
-        //creates a list of all data in homeObject
-        profileObject.fullList = profileObject.played.concat(profileObject.reviews)
+            //creates a list of all data in homeObject
+            profileObject.fullList = profileObject.played.concat(profileObject.reviews)
 
-        profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+            profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
-        res.render('profile', {
-            profileObject,
-            loggedIn: req.session.loggedIn
+            res.render('profile', {
+                profileObject,
+                loggedIn: req.session.loggedIn
+            });
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-  });
-
-
-
+})
 
 module.exports = router;

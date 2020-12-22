@@ -41,6 +41,46 @@ class Course extends Model {
     }
 }
 
+class Course extends Model {
+    static saved(body, models) {
+        return models.Saved.create({
+            user_id: body.user_id,
+            course_id: body.course_id
+        }).then(() => {
+            return Course.findOne({
+                where: {
+                    id: body.course_id
+                },
+                attributes: [
+                    'id',
+                    'course_name',
+                    'holes',
+                    'par',
+                    'established',
+                    'city',
+                    'state',
+                    'zipcode'
+                ],
+                include: [
+                    {
+                        model: models.Review,
+                        attributes: ['id', 'review_title', 'review_content', 'rating'],
+                        include: {
+                            model: models.User,
+                            attributes: ['username']
+                        }
+                    },
+                    {
+                        model: models.Saved,
+                        attributes: ['id', 'course_id', 'user_id']
+                    }
+                ]
+            });
+        });
+    }
+}
+
+
 // create fields for Course model
 Course.init(
     {

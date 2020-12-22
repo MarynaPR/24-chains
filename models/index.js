@@ -4,6 +4,7 @@ const Course = require('./Course');
 const Review = require('./Review');
 const Favorite = require('./Favorite');
 const Played = require('./Played');
+const Saved = require('./Saved');
 
 // create associations
 User.hasMany(Review, {
@@ -64,5 +65,28 @@ Favorite.belongsTo(Course, {
     foreignKey: 'course_id',
     onDelete: 'SET NULL'
 });
+//Saved
+User.belongsToMany(Course, {
+    through: Saved,
+    as: 'saved_courses',
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
 
-module.exports = { User, Course, Review, Favorite, Played };
+Course.belongsToMany(User, {
+    through: Saved,
+    as: 'saved_courses',
+    foreignKey: 'course_id',
+    onDelete: 'SET NULL'
+});
+
+Course.hasMany(Saved, {
+    foreignKey: 'course_id'
+});
+
+Saved.belongsTo(Course, {
+    foreignKey: 'course_id',
+    onDelete: 'SET NULL'
+});
+
+module.exports = { User, Course, Review, Favorite, Saved, Played };
