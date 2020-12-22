@@ -6,7 +6,7 @@
           <div class="username text-center text-uppercase">
             {{!-- <h3> Welcome back</h3> --}}
             <h2 style="z-index: 1060; padding-left: 45px;">
-              {{dataValues.firstname}} {{dataValues.lastname}}
+              {{profileObject.user.firstname}} {{profileObject.user.lastname}}
             </h2>
           </div>
         </div>
@@ -18,8 +18,8 @@
     <div class="col-sm-1"></div>
     <div class="col-md-3">
       <div class="card-user bg-transparent">
-        <div class="card border-danger" style="padding: 20px;">
-          <h5 class="card-title text-uppercase text-center">About User</h5>
+        <div class="card border-primary" style="padding: 20px;">
+          <h5 class="card-title text-uppercase text-center">About {{profileObject.user.firstname}}</h5>
           {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________
           --}}
           <p class="card-text text-center">1 Favorite Course</p>
@@ -63,9 +63,14 @@
 
   {{!-- _________________________________User Posts_______________________________ --}}
 
-  {{#each reviews as |review|}}
+  {{#each profileObject.reviews as |review|}}
   {{>reviews review}}
   {{/each}}
+
+  {{#each profileObject.played as |played|}}
+  {{>played played}}
+  {{/each}}
+
 
 
 
