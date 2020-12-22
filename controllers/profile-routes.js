@@ -166,13 +166,12 @@ router.get('/favorited', reqAuth, (req, res) => {
                 profileFavoriteObject,
                 loggedIn: req.session.loggedIn
             });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-})
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-
+});
 // get all user reviewed courses and user data
 router.get('/reviewed', reqAuth, (req, res) => {
     const profileReviewObject = {};
