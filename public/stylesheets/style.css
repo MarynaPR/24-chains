@@ -1,0 +1,86 @@
+/* compiler */
+.page-name {
+  font-size: 37px;
+  font-weight: 600;
+}
+
+.logo-img {
+  margin-bottom: 7px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("/images/IMG_4786.png") fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/IMG_4786.png") fixed;
+  background-size: cover;
+}
+
+body .btn {
+  background: rgba(255, 102, 0, 0.781);
+}
+
+body .btn:hover {
+  background: #bf5020;
+}
+
+body .card-sign .card-title {
+  margin-bottom: 3rem;
+  font-weight: 350;
+  font-size: 1.7rem;
+}
+
+body .card-sign .card-body {
+  padding: 3rem;
+}
+
+body .form-sign {
+  width: 100%;
+}
+
+/* round corners, etc on btns */
+.form-sign .btn,
+.card-user,
+.row .btn,
+.input-group-text,
+.textarea,
+.form-inline input,
+.form-inline .btn
+.input-group {
+  font-size: 87%;
+  border-radius: 6rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1.2rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+/* round corners on input form */
+.card,
+.form-label-group input,
+.textarea,
+.form-inline input,
+.form-inline .btn,
+.form-control {
+  height: auto;
+  border-radius: 2rem;
+  background: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+input {
+  padding-left: 25px;
+  height: 20px;
+}
+
+.sign-up-log-in:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,21 +1,10 @@
-body
-{
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/IMG_4786.png') fixed;
-  background-size: cover;
-  padding: 0;
-  margin: 0;
-}
-.card-sign .card-title {
-margin-bottom: 3rem;
-font-weight: 350;
-font-size: 1.7rem;
-}
-.card-sign .card-body {
-padding: 3rem;
-}
-.form-sign {
-width: 100%;
-}
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+@import './variables';
+@import './navbar';
+@import './body';
+
 /* round corners, etc on btns */
 .form-sign .btn,
 .card-user,
@@ -32,6 +21,7 @@ letter-spacing: .1rem;
 font-weight: bold;
 padding: 1.2rem;
 transition: all 0.2s;
+border-color: $border;
 }
 /* round corners on input form */
 .card,
@@ -45,6 +35,7 @@ height: auto;
 border-radius: 2rem;
 background: transparent;
 background-color: rgba(255,255,255,0.2);
+
 }
 input{
 padding-left: 25px;
@@ -58,13 +49,4 @@ text-decoration: none;
 color: rgba(255,255,255,0.9);
 font-weight: 600;
 }
-.page-name {
-  font-size: 36px;
-  font-weight: 600;
-}
-.logo-img{
-  margin-bottom: 6px;
-}
-.btn {
-  background-color: rgb(213, 121, 9);
-}
+

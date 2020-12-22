@@ -1,0 +1,52 @@
+//mixin 
+
+@mixin paddingMargin($direction, $background) {
+    padding: 0;
+    margin: 0;
+    //padding-direction: $direction;=> then apply to col, row => @include paddingMargin(row, blue)/(column, red);
+    //background: $background;
+}
+
+body
+{
+  @include paddingMargin();
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/IMG_4786.png') fixed;
+  background-size: cover;
+
+  //nested elements
+  a .btn {
+     
+        background: #fc4a1a;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: #fff;
+        border: 3px solid #eee;
+    
+      
+    // background-color: $primaryBtn;
+    // border: $border;
+    // cursor: pointer;
+    // transition-duration: 0,2s;
+    
+    // &:hover {
+    //     background: $hoverBtn;
+    //     box-shadow: 0 12px 16px 0 yellow, 0 17px 50px 0 red;
+    // }
+}
+.card {
+    border: $border;
+}
+  .card-sign .card-title {
+    margin-bottom: 3rem;
+    font-weight: 350;
+    font-size: 1.7rem;
+    border: $border;
+}
+  .card-sign .card-body {
+    padding: 3rem;
+    border: $border;
+    }
+  .form-sign {
+    width: 100%;
+    }
+}
