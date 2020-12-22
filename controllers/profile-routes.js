@@ -145,8 +145,7 @@ router.get('/favorited', reqAuth, (req, res) => {
             // console.log("///////", dbUserData.dataValues)
             //const { dataValues } = dbUserData
             profileFavoriteObject.user = dbUserData.get({ plain: true });
-            console.log('============================USER DATA=======================')
-            console.log(profileFavoriteObject.user);
+
         })
         .catch(err => {
             console.log(err);
@@ -169,116 +168,102 @@ router.get('/favorited', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-            console.log('============================FAVORITE DATA=======================')
-            console.log(profileFavoriteObject.favorites);
+
+            profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
             res.render('profile-favorited', {
                 profileFavoriteObject,
                 loggedIn: req.session.loggedIn
             });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
         });
-});
 
-//loads all profile data on page load (username, reviews, played courses by user)
-router.get('/', reqAuth, (req, res) => {
-    const profileObject = {}
+    //loads all profile data on page load (username, reviews, played courses by user)
+    router.get('/', reqAuth, (req, res) => {
+        const profileObject = {}
 
-    User.findOne({
-        where: {
-            id: req.session.userId
-        },
-        attributes: [
-            'id',
-            'username',
-            'firstname',
-            'lastname'
-        ]
-    })
-        .then(dbUserData => {
-            // console.log("///////", dbUserData.dataValues)
-            //const { dataValues } = dbUserData
-            profileObject.user = dbUserData.get({ plain: true });
-            console.log('============================USER DATA=======================')
-            console.log(profileObject.user);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
-
-    Review.findAll({
-        where: {
-            user_id: req.session.userId
-        },
-        attributes: [
-            'id',
-            'review_content',
-            'review_title',
-            'rating',
-            'created_at'
-        ],
-        include: [
-            {
-                model: Course,
-                attributes: ['id', 'course_name', 'city', 'state']
+        User.findOne({
+            where: {
+                id: req.session.userId
             },
-            {
-                model: User,
-                attributes: ['id', 'username']
-            }
-        ]
-    })
-        .then(dbReviewData => {
-            profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-            console.log('============================REVIEW DATA=======================')
-            console.log(profileObject.reviews);
+            attributes: [
+                'id',
+                'username',
+                'firstname',
+                'lastname'
+            ]
         })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
+            .then(dbUserData => {
+                // console.log("///////", dbUserData.dataValues)
+                //const { dataValues } = dbUserData
+                profileObject.user = dbUserData.get({ plain: true });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
 
-    Played.findAll({
-        where: {
-            user_id: req.session.userId
-        },
-        attributes: [
-            'id',
-            'score',
-            'created_at'
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
+        Review.findAll({
+            where: {
+                user_id: req.session.userId
             },
-            {
-                model: Course,
-                attributes: ['course_name', 'city', 'state']
-            }
-        ]
-    })
-        .then((dbPlayedData) => {
-            profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
-            console.log('============================PLAYED DATA=======================')
-            console.log(profileObject.played);
-            //creates a list of all data in homeObject
-            //profileObject.fullList = homeObject.played.concat(homeObject.reviews)
-            //converting date into integers(Date.now())
-            //homeObject.ordered = homeObject.fullList.sort(compareNumbers(homeObject.reviews.created_at))
-            res.render('profile', {
-                profileObject,
-                loggedIn: req.session.loggedIn
+            attributes: [
+                'id',
+                'review_content',
+                'review_title',
+                'rating',
+                'created_at'
+            ],
+            include: [
+                {
+                    model: Course,
+                    attributes: ['id', 'course_name', 'city', 'state']
+                },
+                {
+                    model: User,
+                    attributes: ['id', 'username']
+                }
+            ]
+        })
+            .then(dbReviewData => {
+                profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+
+        Played.findAll({
+            where: {
+                user_id: req.session.userId
+            },
+            attributes: [
+                'id',
+                'score',
+                'created_at'
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Course,
+                    attributes: ['course_name', 'city', 'state']
+                }
+            ]
+        })
+            .then((dbPlayedData) => {
+                profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
+
+                //creates a list of all data in homeObject
+                profileObject.fullList = profileObject.played.concat(profileObject.reviews)
+
+                profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+
+                res.render('profile', {
+                    profileObject,
+                    loggedIn: req.session.loggedIn
+                });
             });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
 
-module.exports = router;
+        module.exports = router;

@@ -1,7 +1,7 @@
 
-{{#each homeObject.reviews as |allreviews|}}
+{{!-- {{#each homeObject.reviews as |allreviews|}}
 {{>reviews allreviews}}
-{{/each}}
+{{/each}} --}}
 
 {{!-- <ol class="">
     {{#each homeObject.courses as |course|}}
@@ -12,6 +12,45 @@
 </ol> --}}
 
 
-{{#each homeObject.played as |played|}}
+{{!-- {{#each homeObject.played as |played|}}
     {{> played played }}
+{{/each}} --}}
+
+
+{{#each homeObject.sorted as |sorted|}}
+    {{!-- adding reviews --}}
+    {{#if sorted.review_content}}
+
+    <div class="row mt-4 bg-transparent">
+        <div class="col-sm-2"></div>
+        <div class="col-md-8 p-3">
+            <div class="card border-primary" style="padding:10px 20px;">
+                <p class="text-uppercase"><strong>{{user.username}}</strong></p>
+                <p>{{course.course_name}}</p>
+                <p>{{created_at}}</p>
+                <p>{{review_title}}</p>
+                <p>{{rating}}/5 Discs</p>
+                <p>{{review_content}}</p>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    {{/if}}
+
+    {{!-- add played data --}}
+    {{#unless sorted.review_content}}
+        <div class="row mt-4 bg-transparent">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8 p-3">
+                <div class="card border-primary" style="padding:10px 20px; background-color: rgba(255, 255, 255, 0.468);">
+                    {{!-- need to add score model --}}
+                    <p><span>{{user.username}}</span></p>
+                    <p>Course: <span>{{course.course_name}}</span></p>
+                    <p>Score: <span>{{score}}</span></p>
+                </div>
+            </div>
+        </div>
+    {{/unless}}
 {{/each}}
+

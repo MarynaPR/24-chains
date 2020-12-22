@@ -15,14 +15,14 @@ const seedAll = async () => {
     await seedCourses();
     console.log('\n----- COURSES SEEDED -----\n');
 
-    await seedReviews();
-    console.log('\n----- REVIEWS SEEDED -----\n');
+    await seedPlayed();
+    console.log('\n----- PLAYED SEEDED -----\n');
 
     await seedFavorites();
     console.log('\n----- FAVORITES SEEDED -----\n');
 
-    await seedPlayed();
-    console.log('\n----- PLAYED SEEDED -----\n');
+    await seedReviews();
+    console.log('\n----- REVIEWS SEEDED -----\n');
     
     console.log('\n ----- DATABASE SEEDED -----\n');
 

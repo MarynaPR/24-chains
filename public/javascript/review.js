@@ -8,8 +8,8 @@ const newReview = async function(event) {
     const rating = document.querySelector('input[name="course-rating"]').value;
     const review_title = document.querySelector('input[name="review-title"]').value;
     
-    if (review_content && rating) {
-        const response = await fetch(`api/review`, {
+    if (review_content && review_title && rating) {
+        const response = await fetch(`../api/review`, {
             method: "POST",
             body: JSON.stringify({
                 course_id,
@@ -30,5 +30,5 @@ const newReview = async function(event) {
     }
 };
 
-document.querySelector("#new-review").addEventListener("submit", newReview);
+document.querySelector("#new-review").addEventListener("click", newReview);
 

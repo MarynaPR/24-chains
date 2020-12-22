@@ -63,14 +63,52 @@
 
   {{!-- _________________________________User Posts_______________________________ --}}
 
-  {{#each profileObject.reviews as |review|}}
+  {{!-- {{#each profileObject.reviews as |review|}}
   {{>reviews review}}
   {{/each}}
 
   {{#each profileObject.played as |played|}}
   {{>played played}}
-  {{/each}}
+  {{/each}} --}}
 
+  {{#each profileObject.sorted as |sorted|}}
+    {{#if sorted.review_content}}
+
+      <div class="row mt-4 bg-transparent">
+          <div class="col-sm-2"></div>
+          <div class="col-md-8 p-3">
+              <div class="card border-primary" style="padding:10px 20px;">
+                  <p class="text-uppercase"><strong>{{user.username}}</strong></p>
+                  <p>{{course.course_name}}</p>
+                  <p>{{created_at}}</p>
+                  <p>{{review_title}}</p>
+                  <p>{{rating}}/5 Discs</p>
+                  <p>{{review_content}}</p>
+              </div>
+          </div>
+          <div class="col-sm-2"></div>
+      </div>
+
+    {{/if}}
+
+    {{#unless sorted.review_content}}
+
+      <div class="row mt-4 bg-transparent">
+          <div class="col-sm-2"></div>
+          <div class="col-md-8 p-3">
+              <div class="card border-primary" style="padding:10px 20px; background-color: rgba(255, 255, 255, 0.468);">
+                  {{!-- need to add score model --}}
+                  <p><span>{{user.username}}</span></p>
+                  <p>Course: <span>{{course.course_name}}</span></p>
+                  <p>Score: <span>{{score}}</span></p>
+              </div>
+          </div>
+      </div>
+
+    {{/unless}}
+  {{/each}}
+  
+</main>
 
 
 

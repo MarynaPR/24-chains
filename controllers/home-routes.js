@@ -50,8 +50,7 @@ router.get('/course/:id', (req, res) => {
   })
     .then(dbReviewData => {
       reviewObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-      console.log('============================REVIEW DATA=======================')
-      console.log(reviewObject.reviews);
+      reviewObject.reviews = reviewObject.reviews.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
     })
     .catch(err => {
       console.log(err);
@@ -90,8 +89,6 @@ router.get('/course/:id', (req, res) => {
       }
 
       reviewObject.course = dbCourseData.get({ plain: true });
-      console.log('============================COURSE DATA=======================')
-      console.log(reviewObject.course);
 
       res.render('new-review', {
         reviewObject,
@@ -160,6 +157,27 @@ router.get('/signup', (req, res) => {
 })
 
 
+//====================================SORTING FUNCTION=============================
+
+function compare(a, b) {
+  if (a.created_at < b.created_at) {
+    return -1;
+  }
+  if (a.created_at > b.created_at) {
+    return 1;
+  }
+  return 0;
+}
+
+// objs.sort( compare );
+
+
+
+
+
+
+
+
 
 // get all user reviews
 router.get('/', reqAuth, (req, res) => {
@@ -185,15 +203,12 @@ router.get('/', reqAuth, (req, res) => {
   })
     .then(dbReviewData => {
       homeObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-      console.log(homeObject.reviews);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     })
-  // Course.findAll({
-  //       attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
-  //     })
+
   Played.findAll({
     attributes: [
       'id',
@@ -215,6 +230,9 @@ router.get('/', reqAuth, (req, res) => {
       homeObject.played = dbPlayedData.map(played => played.get({ plain: true }));
       //creates a list of all data in homeObject
       homeObject.fullList = homeObject.played.concat(homeObject.reviews)
+
+      homeObject.sorted = homeObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+
       //converting date into integers(Date.now())
       //homeObject.ordered = homeObject.fullList.sort(compareNumbers(homeObject.reviews.created_at))
       res.render('homepage', {
@@ -262,7 +280,7 @@ router.get('/courses', reqAuth, (req, res) => {
   })
     .then(dbCourseData => {
       const courses = dbCourseData.map(course => course.get({ plain: true }));
-      console.log(courses);
+
       res.render('searched-courses', {
         courses,
         loggedIn: req.session.loggedIn
