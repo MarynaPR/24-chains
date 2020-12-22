@@ -91,16 +91,19 @@
     <form class="form-sign">
         <div class="container">
             <div class="row justify-content-start">
+                <div>
+                    <input name="course-rating" class="form-control">
+                </div>
                 <div class="mb-3 form-label-group">
                     <label for="title" id="input" class="form-label-group"> </label>
-                    <input type="title" class="form-control" placeholder="Title">
+                    <input type="title" class="form-control" name="review-title" placeholder="Title">
                 </div>
             </div>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-uppercase">Your Review</span>
                 </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="review-body"></textarea>
             </div>
     </form>
     <hr class="my-4">
@@ -154,4 +157,5 @@
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
 <script src="/javascript/played.js"></script>
+<script src="/javascript/favorite.js"></script>
 {{/if}}
