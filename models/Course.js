@@ -39,9 +39,6 @@ class Course extends Model {
             });
         });
     }
-}
-
-class Course extends Model {
     static saved(body, models) {
         return models.Saved.create({
             user_id: body.user_id,
@@ -79,7 +76,6 @@ class Course extends Model {
         });
     }
 }
-
 
 // create fields for Course model
 Course.init(
