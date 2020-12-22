@@ -55,7 +55,7 @@
       <div class="card bg-transparent text-uppercase" style="border: none;">
         <div class="card-body">
           {{!-- ____________________________CALL FROM THE DATA BASE FOR ALL USERS RATED COURSES____________________ --}}
-          <a href="#" class="btn btn1 text-white">Rated Courses</a>
+          <a href="profile/reviewed" class="btn btn1 text-white">Reviewed Courses</a>
         </div>
       </div>
     </div>
@@ -94,11 +94,11 @@
 
   {{#unless sorted.review_content}}
 
-  <div class="row mt-4 bg-transparent">
+  <div class="row mt-4">
     <div class="col-sm-2"></div>
     <div class="col-md-8 p-3">
       <div class="card"
-        style="padding:10px 20px; background-color: rgba(70, 92, 111, 0.303); border: 3px solid; border-color: rgb(106, 138, 172);">
+        style="padding:10px 20px; background-color: rgba(150, 194, 225, 0.303); border: 3px solid; border-color: rgb(106, 138, 172);">
         {{!-- need to add score model --}}
         <p class="text-uppercase"><span>{{user.username}}</span></p>
         <p>Course: <span>{{course.course_name}}</span></p>

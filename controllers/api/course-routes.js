@@ -112,6 +112,16 @@ router.put('/favorite', (req, res) => {
         });
 });
 
+// favorite a course
+router.put('/saved', (req, res) => {
+    Course.favorite({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
+        .then(updatedSavedData => res.json(updatedSavedData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 // Update a course
 router.put('/:id', (req, res) => {
     Course.update(
