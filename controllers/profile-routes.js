@@ -88,8 +88,7 @@ router.get('/favorited', reqAuth, (req, res) => {
         // console.log("///////", dbUserData.dataValues)
         //const { dataValues } = dbUserData
         profileFavoriteObject.user = dbUserData.get({ plain: true });
-        console.log('============================USER DATA=======================')
-        console.log(profileFavoriteObject.user);
+
     })
     .catch(err => {
         console.log(err);
@@ -112,8 +111,8 @@ router.get('/favorited', reqAuth, (req, res) => {
     })
     .then(dbReviewData => {
         profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-        console.log('============================FAVORITE DATA=======================')
-        console.log(profileFavoriteObject.favorites);
+
+        profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
         res.render('profile-favorited', {
             profileFavoriteObject,
@@ -147,8 +146,6 @@ router.get('/', reqAuth, (req, res) => {
         // console.log("///////", dbUserData.dataValues)
         //const { dataValues } = dbUserData
         profileObject.user = dbUserData.get({ plain: true });
-        console.log('============================USER DATA=======================')
-        console.log(profileObject.user);
     })
     .catch(err => {
         console.log(err);
@@ -179,8 +176,6 @@ router.get('/', reqAuth, (req, res) => {
     })
     .then(dbReviewData => {
         profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-        console.log('============================REVIEW DATA=======================')
-        console.log(profileObject.reviews);
     })
     .catch(err => {
         console.log(err);
@@ -209,12 +204,12 @@ router.get('/', reqAuth, (req, res) => {
     })
     .then((dbPlayedData) => {
         profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
-        console.log('============================PLAYED DATA=======================')
-        console.log(profileObject.played);
+
         //creates a list of all data in homeObject
-        //profileObject.fullList = homeObject.played.concat(homeObject.reviews)
-        //converting date into integers(Date.now())
-        //homeObject.ordered = homeObject.fullList.sort(compareNumbers(homeObject.reviews.created_at))
+        profileObject.fullList = profileObject.played.concat(profileObject.reviews)
+
+        profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+
         res.render('profile', {
             profileObject,
             loggedIn: req.session.loggedIn
