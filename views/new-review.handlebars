@@ -4,7 +4,8 @@
         <div class="col-sm-3"></div>
         <div class="col-sm-6 p-3">
             <div class="card" style="padding:10px 20px; border-color: rgba(255, 166, 0, 0.616);">
-                <a href="/course/{{reviewObject.course.id}}">{{reviewObject.course.course_name}}</a>
+                <a class="text-white text-uppercase"
+                    href="/course/{{reviewObject.course.id}}">{{reviewObject.course.course_name}}</a>
                 <div class="">
                     Number of Holes: {{reviewObject.course.holes}}
                     <br>
@@ -142,10 +143,10 @@
 
 {{!-- LIST of reviews --}}
 {{#each reviewObject.reviews as |review|}}
-    {{>reviews review}}
-    {{!-- {{review.course_id}}
-    {{review.review_title}}
-    <p class="card-text">{{review.review_content}}</p> --}}
+{{>reviews review}}
+{{!-- {{review.course_id}}
+{{review.review_title}}
+<p class="card-text">{{review.review_content}}</p> --}}
 {{/each}}
 
 {{!-- {{#each reviews as |review|}}

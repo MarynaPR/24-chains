@@ -70,10 +70,8 @@ const reqAuth = require('../utils/auth');
 // });
 
 //get all the saved courses
-//code here
 router.get('/saved', reqAuth, (req, res) => {
     const profileSavedObject = {};
-
     User.findOne({
         where: {
             id: req.session.userId
@@ -86,16 +84,12 @@ router.get('/saved', reqAuth, (req, res) => {
         ]
     })
         .then(dbUserData => {
-
             profileSavedObject.user = dbUserData.get({ plain: true });
-            console.log('============================USER DATA=======================')
-            console.log(profileSavedObject.user);
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         })
-
     Saved.findAll({
         where: {
             user_id: req.session.userId
@@ -112,9 +106,6 @@ router.get('/saved', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileSavedObject.saved = dbReviewData.map(saved => saved.get({ plain: true }));
-            console.log('============================FAVORITE DATA=======================')
-            console.log(profileSavedObject.saved);
-
             res.render('profile-saved', {
                 profileSavedObject,
                 loggedIn: req.session.loggedIn
@@ -176,94 +167,92 @@ router.get('/favorited', reqAuth, (req, res) => {
                 loggedIn: req.session.loggedIn
             });
         });
-
-    //loads all profile data on page load (username, reviews, played courses by user)
-    router.get('/', reqAuth, (req, res) => {
-        const profileObject = {}
-
-        User.findOne({
-            where: {
-                id: req.session.userId
-            },
-            attributes: [
-                'id',
-                'username',
-                'firstname',
-                'lastname'
-            ]
+})
+//loads all profile data on page load (username, reviews, played courses by user)
+router.get('/', reqAuth, (req, res) => {
+    const profileObject = {}
+    User.findOne({
+        where: {
+            id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'username',
+            'firstname',
+            'lastname'
+        ]
+    })
+        .then(dbUserData => {
+            // console.log("///////", dbUserData.dataValues)
+            //const { dataValues } = dbUserData
+            profileObject.user = dbUserData.get({ plain: true });
         })
-            .then(dbUserData => {
-                // console.log("///////", dbUserData.dataValues)
-                //const { dataValues } = dbUserData
-                profileObject.user = dbUserData.get({ plain: true });
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            })
-
-        Review.findAll({
-            where: {
-                user_id: req.session.userId
-            },
-            attributes: [
-                'id',
-                'review_content',
-                'review_title',
-                'rating',
-                'created_at'
-            ],
-            include: [
-                {
-                    model: Course,
-                    attributes: ['id', 'course_name', 'city', 'state']
-                },
-                {
-                    model: User,
-                    attributes: ['id', 'username']
-                }
-            ]
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         })
-            .then(dbReviewData => {
-                profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            })
-
-        Played.findAll({
-            where: {
-                user_id: req.session.userId
+    Review.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'review_content',
+            'review_title',
+            'rating',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'city', 'state']
             },
-            attributes: [
-                'id',
-                'score',
-                'created_at'
-            ],
-            include: [
-                {
-                    model: User,
-                    attributes: ['username']
-                },
-                {
-                    model: Course,
-                    attributes: ['course_name', 'city', 'state']
-                }
-            ]
+            {
+                model: User,
+                attributes: ['id', 'username']
+            }
+        ]
+    })
+        .then(dbReviewData => {
+            profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
         })
-            .then((dbPlayedData) => {
-                profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+    Played.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'score',
+            'created_at'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Course,
+                attributes: ['course_name', 'city', 'state']
+            }
+        ]
+    })
+        .then((dbPlayedData) => {
+            profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
 
-                //creates a list of all data in homeObject
-                profileObject.fullList = profileObject.played.concat(profileObject.reviews)
+            //creates a list of all data in homeObject
+            profileObject.fullList = profileObject.played.concat(profileObject.reviews)
 
-                profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
+            profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
-                res.render('profile', {
-                    profileObject,
-                    loggedIn: req.session.loggedIn
-                });
+            res.render('profile', {
+                profileObject,
+                loggedIn: req.session.loggedIn
             });
+        });
+})
 
-        module.exports = router;
+module.exports = router;

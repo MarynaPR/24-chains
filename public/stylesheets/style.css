@@ -17,7 +17,6 @@ body {
 }
 
 body .btn {
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -26,7 +25,7 @@ body .btn {
   font-size: 15px;
   margin: 4px 2px;
   cursor: pointer;
-    background: linear-gradient(to right, #e8a41c, #fc4a1a);
+    background: linear-gradient(to right, #e8a41c, #e45b36);
         color: #fff;
         border: 3px solid #eee;
 
@@ -36,7 +35,7 @@ body .btn {
 
 body .btn:hover {
   background: rgb(191, 80, 32);
-  box-shadow: 0 12px 16px 0 rgb(181, 69, 69), 0 17px 50px 0 orange;
+  box-shadow: 0 12px 14px 0 rgb(155, 64, 48), 0 15px 40px 0 orange;
 }
 
 
@@ -61,8 +60,9 @@ body .form-sign {
 .input-group-text,
 .textarea,
 .form-inline input,
-.form-inline .btn
-.input-group {
+.form-inline .btn,
+.card
+ {
   font-size: 87%;
   border-radius: 6rem;
   letter-spacing: .1rem;
@@ -78,7 +78,9 @@ body .form-sign {
 .textarea,
 .form-inline input,
 .form-inline .btn,
-.form-control {
+.form-control,
+.input-group
+ {
   height: auto;
   border-radius: 2rem;
   background: transparent;

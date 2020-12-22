@@ -43,7 +43,8 @@ body
     margin-bottom: 3rem;
     font-weight: 350;
     font-size: 1.7rem;
-    border: $border;
+    border: 3px solid rgb(92, 68, 68);
+    // border: $border;
 }
   .card-sign .card-body {
     padding: 3rem;

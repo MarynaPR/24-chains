@@ -248,7 +248,6 @@ router.get('/', reqAuth, (req, res) => {
 
 
 // get all courses
-
 router.get('/courses', reqAuth, (req, res) => {
   Course.findAll({
     attributes: [
