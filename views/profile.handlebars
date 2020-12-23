@@ -4,8 +4,7 @@
       <div class="row">
         <div class="col-xs-12" style="position: relative;">
           <div class="username text-center text-uppercase">
-            {{!-- <h3> Welcome back</h3> --}}
-            <h2 style="z-index: 1060; padding-left: 45px; text-shadow: 1px 1px rgb(41, 40, 40);">
+            <h2 style="z-index: 1060; padding-left: 45px; text-shadow: 2px 2px rgb(41, 40, 40);">
               {{profileObject.user.firstname}} {{profileObject.user.lastname}}
             </h2>
           </div>
@@ -19,10 +18,8 @@
     <div class="col-md-3">
       <div class="card-user bg-transparent">
         <div class="card" style="padding:10px 20px; border: 3px solid; border-color: rgb(152, 147, 146);">
-          <h5 class="card-title text-uppercase text-center" style="text-shadow: 1px 1px rgb(57, 54, 54);">About
+          <h5 class="card-title text-uppercase text-center" style="text-shadow: 2px 2px rgb(57, 54, 54);">About
             {{profileObject.user.firstname}}</h5>
-          {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________
-          --}}
           <p class="card-text text-center">1 Favorite Course</p>
           <p class="card-text text-center">2 Favorite Course</p>
           <p class="card-text text-center">3 Favorite Course</p>
@@ -34,8 +31,6 @@
     <div class="col-md-2">
       <div class="card bg-transparent text-uppercase" style="border: none;">
         <div class="card-body">
-          {{!-- ______________________________CALL FROM THE DATA BASE FOR ALL USERS FAVORITED COURSES________________
-          --}}
           <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
         </div>
       </div>

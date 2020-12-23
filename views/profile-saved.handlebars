@@ -8,7 +8,7 @@
                     <div class="username text-center text-uppercase">
                         {{!-- <h3> Welcome back</h3> --}}
                         {{!--ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE--}}
-                        <h2 style="z-index: 1060; padding-left: 45px;">
+                        <h2 style="z-index: 1060; padding-left: 45px; text-shadow: 2px 2px rgb(41, 40, 40);">
                             {{profileSavedObject.user.firstname}} {{profileSavedObject.user.lastname}}
                         </h2>
                     </div>
@@ -24,7 +24,8 @@
 
                 {{!-- </div>style="border-radius: 10px;"> --}}
             <div class="card" style="padding:10px 20px; border: 3px solid; border-color: rgb(152, 147, 146);">
-                <h5 class="card-title text-uppercase text-center">About {{profileFavoriteObject.user.firstname}}</h5>
+                <h5 class="card-title text-uppercase text-center" style="text-shadow: 2px 2px rgb(57, 54, 54);">About
+                    {{profileSavedObject.user.firstname}}</h5>
                 {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED
                 COURSES________________
                 --}}

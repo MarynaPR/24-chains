@@ -8,16 +8,17 @@
 .input-group-text,
 .textarea,
 .form-inline input,
-.form-inline .btn
-.input-group
+.form-inline .btn,
+.card
+//.input-group
 {
-font-size: 87%;
-border-radius: 6rem;
-letter-spacing: .1rem;
-font-weight: bold;
-padding: 1.2rem;
-transition: all 0.2s;
-border-color: $border;
+  font-size: 87%;
+  border-radius: 6rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1.2rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 /* round corners on input form */
 .card,
@@ -25,12 +26,13 @@ border-color: $border;
 .textarea,
 .form-inline input,
 .form-inline .btn,
-.form-control
-{
-height: auto;
-border-radius: 2rem;
-background: transparent;
-background-color: rgba(255,255,255,0.2);
+.form-control,
+.input-group
+ {
+  height: auto;
+  border-radius: 2rem;
+  background: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 input{
 padding-left: 25px;
@@ -45,33 +47,12 @@ color: rgba(255,255,255,0.9);
 font-weight: 600;
 
 }
-//search form
-input.form-control {
-    width: 50%;
-    height: 10%;
-border-radius: 3rem;
-background: transparent;
-background-color: rgba(255,255,255,0.2);
-}
-.btn {
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 4px 2px;
-    cursor: pointer;
-      background: linear-gradient(to right, #f7b733, #fc4a1a);
-          color: #fff;
-          border: 3px solid #eee;
-  
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-
-    &:hover {
-      background: $hoverBtn;
-             box-shadow: 0 12px 14px 0 rgb(181, 42, 18), 0 15px 40px 0 orange;
-     }
-}
+// //search form
+// input.form-control {
+// width: 50%;
+// height: 10%;
+// border-radius: 3rem;
+// background: transparent;
+// background-color: rgba(255,255,255,0.2);
+// }
 
