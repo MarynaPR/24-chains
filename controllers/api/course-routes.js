@@ -38,6 +38,10 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post("/search", (req, res) => {
+    console.log(req.body)
+    res.json({ success: true })
+})
 // get one course
 router.get('/:id', (req, res) => {
     Course.findOne({
