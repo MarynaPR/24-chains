@@ -2,72 +2,6 @@ const router = require('express').Router();
 const { User, Course, Favorite, Review, Played, Saved } = require('../models');
 const reqAuth = require('../utils/auth');
 
-// get user data
-// router.get('/', (req, res) => {
-//     console.log("------------", req.session.userId)
-//     User.findOne({
-//         where: {
-//             id: req.session.userId
-//         },
-//         attributes: [
-//             'id',
-//             'username',
-//             'firstname',
-//             'lastname'
-//         ]
-//     })
-//         .then(dbUserData => {
-//             // console.log("///////", dbUserData.dataValues)
-//             const { dataValues } = dbUserData
-//             res.render('profile', {
-//                 dataValues,
-//                 loggedIn: req.session.loggedIn
-
-//             });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
-
-// get all user reviews
-// router.get('/', reqAuth, (req, res) => {
-//     Review.findAll({
-//         where: {
-//             user_id: req.session.userId
-//         },
-//         attributes: [
-//             'id',
-//             'review_content',
-//             'review_title',
-//             'rating',
-//             'created_at'
-//         ],
-//         include: [
-//             {
-//                 model: Course,
-//                 attributes: ['id', 'course_name', 'city', 'state']
-//             },
-//             {
-//                 model: User,
-//                 attributes: ['id', 'username']
-//             }
-//         ]
-//     })
-//         .then(dbReviewData => {
-//             const reviews = dbReviewData.map(review => review.get({ plain: true }));
-
-//             res.render('profile', {
-//                 reviews,
-//                 loggedIn: req.session.loggedIn
-//             });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
 
 //get all the saved courses
 router.get('/saved', reqAuth, (req, res) => {
@@ -133,10 +67,7 @@ router.get('/favorited', reqAuth, (req, res) => {
         ]
     })
         .then(dbUserData => {
-            // console.log("///////", dbUserData.dataValues)
-            //const { dataValues } = dbUserData
             profileFavoriteObject.user = dbUserData.get({ plain: true });
-
         })
         .catch(err => {
             console.log(err);
@@ -159,7 +90,7 @@ router.get('/favorited', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-
+            //Sorts by created_at time
             profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
             res.render('profile-favorited', {
@@ -172,6 +103,7 @@ router.get('/favorited', reqAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
 // get all user reviewed courses and user data
 router.get('/reviewed', reqAuth, (req, res) => {
     const profileReviewObject = {};
@@ -188,10 +120,7 @@ router.get('/reviewed', reqAuth, (req, res) => {
         ]
     })
         .then(dbUserData => {
-            // console.log("///////", dbUserData.dataValues)
-            //const { dataValues } = dbUserData
             profileReviewObject.user = dbUserData.get({ plain: true });
-
         })
         .catch(err => {
             console.log(err);
@@ -218,7 +147,7 @@ router.get('/reviewed', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileReviewObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-
+            //Sorts by created_at time
             profileReviewObject.reviews = profileReviewObject.reviews.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
             res.render('profile-reviewed', {
@@ -248,8 +177,6 @@ router.get('/', reqAuth, (req, res) => {
         ]
     })
         .then(dbUserData => {
-            // console.log("///////", dbUserData.dataValues)
-            //const { dataValues } = dbUserData
             profileObject.user = dbUserData.get({ plain: true });
         })
         .catch(err => {
@@ -308,9 +235,8 @@ router.get('/', reqAuth, (req, res) => {
         .then((dbPlayedData) => {
             profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
 
-            //creates a list of all data in homeObject
+            //creates a list of all data in homeObject and sorts by created_at time
             profileObject.fullList = profileObject.played.concat(profileObject.reviews)
-
             profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
             res.render('profile', {
