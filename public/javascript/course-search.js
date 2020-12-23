@@ -1,7 +1,5 @@
 async function searchClickHandler(event) {
     event.preventDefault();
-    let search = document.getElementById("search_term").value
-    document.location.replace('/courses?city=' + search);
 
     // const searchRequest = document.querySelector('input[name="search-input"]').value;
 
