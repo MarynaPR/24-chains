@@ -3,9 +3,10 @@
     <div class="row mt-3 bg-transparent">
         <div class="col-sm-3"></div>
         <div class="col-sm-6 p-3">
-            <div class="card" style="padding:10px 20px; border-color: rgba(255, 166, 0, 0.616);">
-                <a href="/course/{{reviewObject.course.id}}">{{reviewObject.course.course_name}}</a>
+            <div class="card" style="padding:10px 20px; border: 2.5px solid; border-color: rgb(136, 131, 130);">
                 <div class="">
+                    {{reviewObject.course.course_name}}
+                    <br>
                     Number of Holes: {{reviewObject.course.holes}}
                     <br>
                     Par: {{reviewObject.course.par}}
@@ -26,13 +27,13 @@
 
     <div class="row justify-content-start">
         <div class="col align-self-start">
-            <button class="btn btn-primary btn-google btn-block text-uppercase" id="favorite-course">
+            <button class="btn btn-google btn-block text-uppercase" id="favorite-course">
                 <span class="fa fa-plus"></span>
                 Favorite Course
             </button>
         </div>
         <div class="col">
-            <button class="btn btn-primary btn-google btn-block text-uppercase" id="saved-course">
+            <button class="btn btn-google btn-block text-uppercase" id="saved-course">
                 <span class="fa fa-plus"></span> Saved Course
             </button>
         </div>
@@ -91,21 +92,24 @@
     <form class="form-sign">
         <div class="container">
             <div class="row justify-content-start">
+                <div>
+                    <input name="course-rating" class="form-control">
+                </div>
                 <div class="mb-3 form-label-group">
                     <label for="title" id="input" class="form-label-group"> </label>
-                    <input type="title" class="form-control" placeholder="Title">
+                    <input type="title" class="form-control" name="review-title" placeholder="Title">
                 </div>
             </div>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-uppercase">Your Review</span>
                 </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="review-body"></textarea>
             </div>
     </form>
     <hr class="my-4">
     <div class="row">
-        <button type="button" id="new-review" class="btn btn-primary text-uppercase">Submit Review</button>
+        <button type="button" id="new-review" class="btn text-uppercase">Submit Review</button>
     </div>
     <div class="row">
         <br>
@@ -132,17 +136,17 @@
         </form>
         <hr class="my-4">
         <div class="row">
-            <button type="button" id="new-played" class="btn btn-primary text-uppercase">POST SCORE</button>
+            <button type="button" id="new-played" class="btn text-uppercase">Post Score</button>
         </div>
     </div>
 </div>
 
 {{!-- LIST of reviews --}}
 {{#each reviewObject.reviews as |review|}}
-    {{>reviews review}}
-    {{!-- {{review.course_id}}
-    {{review.review_title}}
-    <p class="card-text">{{review.review_content}}</p> --}}
+{{>reviews review}}
+{{!-- {{review.course_id}}
+{{review.review_title}}
+<p class="card-text">{{review.review_content}}</p> --}}
 {{/each}}
 
 {{!-- {{#each reviews as |review|}}
@@ -154,4 +158,5 @@
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
 <script src="/javascript/played.js"></script>
+<script src="/javascript/favorite.js"></script>
 {{/if}}

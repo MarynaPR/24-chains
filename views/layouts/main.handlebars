@@ -8,7 +8,7 @@
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../stylesheets/css/style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com"></script>
@@ -22,14 +22,13 @@
                 class="d-inline-block align-middle logo-img" alt="">
             24
             Chains</a>
-        {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button> --}}
+        </button>
         {{#if loggedIn}}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto">
                 <!-- home and profile:link -->
                 <li class="nav-item">
                     <a class="nav-link navbar-brand" href="/">Home</a>
@@ -42,9 +41,10 @@
                 </li>
             </ul>
         </div>
-        <form class="form-inline">
-            <input class="form-control" name="search-input" type="search" placeholder="Search by City or Course Name" aria-label="Search">
-            <button id="search-course" class="btn btn-primary" type="submit">Search</button>
+        <form class="form-inline my-lg-0">
+            <input class="form-control mr-sm-2" name="search-input" type="search" placeholder="Search by City or Course Name"
+                aria-label="Search">
+            <button id="search-course" class="btn text-white text-uppercase" type="submit">Search</button>
         </form>
         {{/if}}
     </div>

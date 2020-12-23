@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Course, Review, User, Favorite } = require('../../models');
+const { Course, Review, User, Favorite, Saved } = require('../../models');
 
 // get all courses
 router.get('/', (req, res) => {
@@ -31,11 +31,11 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbCourseData => res.json(dbCourseData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => res.json(dbCourseData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // get one course
@@ -71,17 +71,17 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // create a course
@@ -95,21 +95,31 @@ router.post('/', (req, res) => {
         state: req.body.state,
         zipcode: req.body.zipcode
     })
-    .then(dbCourseData => res.json(dbCourseData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => res.json(dbCourseData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // favorite a course
 router.put('/favorite', (req, res) => {
     Course.favorite({ ...req.body, user_id: req.session.userId }, { Favorite, Course, User, Review })
-    .then(updatedFavoriteData => res.json(updatedFavoriteData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(updatedFavoriteData => res.json(updatedFavoriteData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// favorite a course
+router.put('/saved', (req, res) => {
+    Course.favorite({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
+        .then(updatedSavedData => res.json(updatedSavedData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Update a course
@@ -130,17 +140,17 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Delete a course
@@ -150,17 +160,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

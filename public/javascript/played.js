@@ -19,10 +19,7 @@ const newPlayed = async function(event) {
                 "Content-Type": "application/json",
             }
         });
-        // console.log('made it past the response');
-        console.log(response);
         if (response.ok) {
-            console.log('your played post was posted successfully');
             document.location.replace('/profile');
         } else {
             alert(response.statusText);
