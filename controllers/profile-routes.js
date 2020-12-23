@@ -79,7 +79,8 @@ router.get('/favorited', reqAuth, (req, res) => {
             user_id: req.session.userId
         },
         attributes: [
-            'id'
+            'id',
+            'created_at'
         ],
         include: [
             {
@@ -92,7 +93,7 @@ router.get('/favorited', reqAuth, (req, res) => {
             profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
             //Sorts by created_at time
             profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
-
+            
             res.render('profile-favorited', {
                 profileFavoriteObject,
                 loggedIn: req.session.loggedIn
