@@ -145,9 +145,9 @@ router.put('/favorite', (req, res) => {
         });
 });
 
-// favorite a course
+// save a course
 router.put('/saved', (req, res) => {
-    Course.favorite({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
+    Course.saved({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
         .then(updatedSavedData => res.json(updatedSavedData))
         .catch(err => {
             console.log(err);
