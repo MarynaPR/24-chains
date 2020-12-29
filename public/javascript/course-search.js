@@ -14,7 +14,11 @@ async function searchClickHandler(event) {
 
     //SELECT * FROM course WHERE course_name LIKE '%water%';
     document.location.replace('/courses');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b96b030f57f27ea5655e074515aaab81181f355a
 }
 
 document.querySelector('#search-course').addEventListener('click', searchClickHandler);
