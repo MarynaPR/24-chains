@@ -33,14 +33,23 @@ body
     margin-bottom: 3rem;
     font-weight: 350;
     font-size: 1.7rem;
-    //border: 3px solid rgb(92, 68, 68);
-
 }
   .card-sign .card-body {
     padding: 3rem;
    
-    }
+}
   .form-sign {
     width: 100%;
-    }
+}
+
+  .header-row {
+   padding: 0px; 
+   overflow:hidden; 
+   max-height: 500px;
+}
+.container-fluid {
+  padding: 0px;
+
+}
+  
 }

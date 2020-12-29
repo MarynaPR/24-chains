@@ -52,6 +52,16 @@ body .form-sign {
   width: 100%;
 }
 
+body .header-row {
+  padding: 0px;
+  overflow: hidden;
+  max-height: 500px;
+}
+
+body .container-fluid {
+  padding: 0px;
+}
+
 /* round corners, etc on btns */
 .form-sign .btn,
 .card-user,
