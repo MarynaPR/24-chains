@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24 Chains</title>
-    <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -14,42 +13,38 @@
     <script src="https://kit.fontawesome.com"></script>
 </head>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-    {{!-- <div class="container-fluid"> --}}
-        <a class="navbar-brand page-name" href="/">
-            <img src="../images/disc-golf-basket.png" width=" 30" height="30"
-                class="d-inline-block align-middle logo-img" alt="">
-            24
-            Chains</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        {{#if loggedIn}}
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!-- home and profile:link -->
-                <li class="nav-item active">
-                    <a class="nav-link navbar-brand" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a id="logout" class="nav-link navbar-brand" href="/login">Log Out</a>
-                </li>
-            </ul>
+    <a class="navbar-brand page-name" href="/">
+        <img src="../images/disc-golf-basket.png" width=" 30" height="30" class="d-inline-block align-middle logo-img"
+            alt="">
+        24
+        Chains</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {{#if loggedIn}}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbar-brand" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-brand" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a id="logout" class="nav-link navbar-brand" href="/login">Log Out</a>
+            </li>
+        </ul>
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class=" form-control mr-sm-2" name="search-input" style="width: auto;" type=" search"
-                    placeholder="Search by City" aria-label="Search" id="search_term">
-                <button id="search-course" class="btn text-white text-uppercase my-2 my-sm-0"
-                    style="border-radius: 6rm;" type="submit">Search</button>
-            </form>
-            {{/if}}
+        <form class="form-inline my-2 my-lg-0">
+            <input class=" form-control mr-sm-2" name="search-input" type="search" placeholder="Search by City"
+                aria-label="Search" id="search_term">
+            <button id="search-course" class="btn text-white text-uppercase my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        {{/if}}
 
-        </div>
+    </div>
 </nav>
 
 <body class="text-white">
@@ -58,7 +53,7 @@
         {{{ body }}}
     </main>
 
-    <footer class="mt-5 text-center">
+    <footer class="card-holder mt-5 text-center">
         24 Chains &copy;2020
     </footer>
 </body>

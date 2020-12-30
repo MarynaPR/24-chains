@@ -1,9 +1,9 @@
-<div class="card text-center bg-transparent">
+<div class="card-holder text-center bg-transparent">
 
     <div class="row mt-3 bg-transparent">
         <div class="col-sm-3"></div>
         <div class="col-sm-6 p-3">
-            <div class="card" style="padding:10px 20px; border: 2.5px solid; border-color: rgb(136, 131, 130);">
+            <div class="card">
                 <div class="">
                     {{reviewObject.course.course_name}}
                     <br>
@@ -22,34 +22,29 @@
 </div>
 {{#if loggedIn}}
 
-{{!-- BTNs --}}
-<div class="container">
 
+<div class="container">
     <div class="row justify-content-start">
         <div class="col align-self-start">
-            <button class="btn btn-google btn-block text-uppercase" id="favorite-course">
+            <button class="btn btn-block text-uppercase" id="favorite-course">
                 <span class="fa fa-plus"></span>
                 Favorite Course
             </button>
         </div>
         <div class="col">
-            <button class="btn btn-google btn-block text-uppercase" id="saved-course">
+            <button class="btn btn-block text-uppercase" id="saved-course">
                 <span class="fa fa-plus"></span> Saved Course
             </button>
         </div>
     </div>
     <hr class="my-4">
-    {{!-- POST RATING --}}
+
     <div class="row">
         <div class="form-group" id="rating-ability-wrapper">
             <label class="control-label" for="rating">
-                {{!-- <span class="field-label-header">How would you rate this course?</span><br> --}}
-                {{!-- <span class="field-label-info"></span> --}}
                 <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
             </label>
-            {{!-- <h2 class="bold rating-header" style="">
-                <span class="selected-rating">0</span><small> / 5</small>
-            </h2> --}}
+
             <button type="button" class="btn btn-outline-warning" data_attr="1" id="rating-star-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-disc-fill" viewBox="0 0 16 16">
@@ -88,19 +83,20 @@
         </div>
     </div>
 
-    {{!-- REVIEW text --}}
     <form class="form-sign">
         <div class="container">
+            <div>
+                <input name="course-rating" class="form-control">
+            </div>
+            <hr class="my-4">
             <div class="row justify-content-start">
-                <div>
-                    <input name="course-rating" class="form-control">
-                </div>
                 <div class="mb-3 form-label-group">
-                    <label for="title" id="input" class="form-label-group"> </label>
+                    {{!-- <label for="title" id="input" class="form-label-group"></label> --}}
                     <input type="title" class="form-control" name="review-title" placeholder="Title">
                 </div>
             </div>
-            <div class="input-group">
+
+            <div class="input-group" id="input-group-review">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-uppercase">Your Review</span>
                 </div>
@@ -111,33 +107,35 @@
     <div class="row">
         <button type="button" id="new-review" class="btn text-uppercase">Submit Review</button>
     </div>
+    {{!-- SCORE --}}
     <div class="row">
         <br>
         <br>
     </div>
-
     <div class="row">
-        <h3>If you have played here let others know how you did!</h3>
+        <h5>If you have played here let others know how you did!</h5>
     </div>
-    {{!-- SCORE text --}}
-    <div class="row">
+    {{!-- <div class="row"> --}}
         <form class="form-sign">
             <div class="container">
-                <div class="row justify-content-start">
-                </div>
+                {{!-- <div class="row justify-content-start"></div> --}}
+
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-uppercase">Your Score</span>
                     </div>
-                    <label for="title" id="input" class="form-label-group"> </label>
+                    {{!-- <label for="title" id="input" class="form-label-group"> </label> --}}
                     <input type="title" name="played-score" class="form-control">
-                    {{!-- <textarea class="form-control" aria-label="With textarea"></textarea> --}}
                 </div>
+            </div>
         </form>
-        <hr class="my-4">
-        <div class="row">
-            <button type="button" id="new-played" class="btn text-uppercase">Post Score</button>
-        </div>
+        {{!--
+    </div> --}}
+
+
+    <hr class="my-4">
+    <div class="row">
+        <button type="button" id="new-played" class="btn text-uppercase">Post Score</button>
     </div>
 </div>
 
