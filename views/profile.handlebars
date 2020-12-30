@@ -1,108 +1,91 @@
 <main class="dashboard">
-
-  <div class="header-row" id="header-row" style="padding: 0px; overflow:hidden; max-height: 500px;">
-      <div class="container-fluid" style="padding: 0px;">
-          <div class="row"> 
-              <div class="col-xs-12" style="position: relative;"> 
-                      <img src="/public/images/IMG_4694.png" class="img-fluid" alt="company logo" style="width:100%; margin-top: -150px;">
-                      <div class="username">
-                        {{!-- ______________________________ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE____________________________ --}}
-                          <h2 style="z-index: 1060;">First and Last Name</h2>
-                      </div>
-              </div>     
+  <div class="header-row" id="header-row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="username text-center text-uppercase">
+            <h2>{{profileObject.user.firstname}} {{profileObject.user.lastname}}</h2>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 
   <div class="row mt-3">
-      <div class="col-sm-1"></div>
-      <div class="col-md-3">
-        <div class="card" style="border-radius: 10px; border: none;">
-          <div class="card-body bg-secondary" style="border-radius: 8px;">
-            <h5 class="card-title">About User</h5>
-            {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED COURSES________________ --}}
-            <p class="card-text">1 Favorite Course</p>
-            <p class="card-text">2 Favorite Course</p>
-            <p class="card-text">3 Favorite Course</p>
-            <p class="card-text">Best Score: -4</p>
-          </div>
+    <div class="col-sm-1"></div>
+    <div class="col-md-3">
+      <div class="card-user bg-transparent">
+        <div class="card">
+          <h5 class="card-title text-uppercase text-center">About
+            {{profileObject.user.firstname}}</h5>
+          <p class="card-text text-center">1 Favorite Course</p>
+          <p class="card-text text-center">2 Favorite Course</p>
+          <p class="card-text text-center">3 Favorite Course</p>
+          <p class="card-text text-center">Best Score: -4</p>
         </div>
       </div>
-      <div class="col-md-2">
-        <div class="card" style="border: none;">
-          <div class="card-body bg-dark">
-            {{!-- ______________________________CALL FROM THE DATA BASE FOR ALL USERS FAVORITED COURSES________________ --}}
-            <a href="#" class="btn btn-primary">Favorite Courses</a>
-          </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
         </div>
       </div>
-      <div class="col-md-2">
-          <div class="card" style="border: none;">
-            <div class="card-body bg-dark">
-              {{!-- __________________________CALL FROM THE DATA BASE FOR ALL USERS SAVED COURSES_______________________ --}}
-              <a href="#" class="btn btn-primary">Saved Courses</a>
-            </div>
-          </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="profile/saved" class="btn text-white">Saved Courses</a>
         </div>
-        <div class="col-md-2">
-          <div class="card" style="border: none;">
-            <div class="card-body bg-dark">
-              {{!-- ____________________________CALL FROM THE DATA BASE FOR ALL USERS RATED COURSES____________________ --}}
-              <a href="#" class="btn btn-primary">Rated Courses</a>
-            </div>
-          </div>
       </div>
-      <div class="col-sm-1"></div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/reviewed" class="btn btn1 text-white">Reviewed Courses</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
   </div>
 
-  <!-- _________________________________________THIS IS AN EXAMPLE OF A RATED COURSE POST_____________________________________ -->
+  {{#each profileObject.sorted as |sorted|}}
+  {{#if sorted.review_content}}
 
-{{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
-
-    {{#each reviews}}
-      {{>reviews review}}
-    {{/each}}
-
-
-  {{!-- <div class="row mt-4">
-      <div class="col-sm-2"></div>
-      <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-          Username</br>
-          Date/Time 12/12/2020 4:35 PM </br>
-          Random Course Name <br>
-          Rating 3/5 Discs </br>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium!                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium!                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium!                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium! 
-          </br>
-
-          <div class="row bg-secondary">
-              <div class="col align-items-start bg-secondary">
-                  14 Upvotes  2 DownVotes
-              </div>
-              <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
-                  <button type="submit" class="btn mt-1">Upvote</button><button type="submit" class="btn align-item-end ml-3 mt-1">Downvote</button>
-              </div>
-          </div>
+  <div class="row mt-4 bg-transparent">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 p-3">
+      <div class="card">
+        <p class="text-uppercase"><strong>{{user.username}}</strong></p>
+        <p>{{course.course_name}}</p>
+        <p>{{created_at}}</p>
+        <p>{{review_title}}</p>
+        <p>{{rating}}/5 Discs</p>
+        <p>{{review_content}}</p>
       </div>
-      <div class="col-sm-2"></div>
-  </div> --}}
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
 
-  <!-- _________________________________________THIS IS AN EXAMPLE OF A PLAYED COURSE POST_________________________________ -->
+  {{/if}}
 
-  {{!-- {{#each}}
-    {{>course-score}}
-  {{/each}} --}}
+  {{#unless sorted.review_content}}
 
-
-  {{!-- <div class="row mt-4">
-      <div class="col-sm-2 "></div>
-      <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-          Username</br>
-          Date/Time 12/12/2020 4:35 PM </br>
-          Random Course Name <br>
-          Number of Holes: 18 </br>
-          Rating 4/5 Discs</br>
-          Score: 3   
+  <div class="row mt-4">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 p-3">
+      <div class="card-course">
+        <p class="text-uppercase"><span>{{user.username}}</span></p>
+        <p>Course: <span>{{course.course_name}}</span></p>
+        <p>Score: <span>{{score}}</span></p>
       </div>
-      <div class="col-sm-2"></div>
-  </div> --}}
+    </div>
+  </div>
+
+  {{/unless}}
+  {{/each}}
+
 </main>
