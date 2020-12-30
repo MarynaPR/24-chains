@@ -1,17 +1,10 @@
 <main class="dashboard">
-    {{!-- ------------------------issue------------------------- --}}
-    {{!-- USER is redirected to profile? not profile-favorited... --}}
     <div class="header-row" id="header-row">
-        {{!-- style="padding: 0px; overflow:hidden; max-height: 500px;"> --}}
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12" style="position: relative;">
+                <div class="col-xs-12">
                     <div class="username text-center text-uppercase">
-                        {{!-- <h3> Welcome back</h3> --}}
-                        {{!--ADD FIRST AND LAST NAME CALLS FROM THE DATA BASE--}}
-                        <h2 style="z-index: 1060; padding-left: 45px; text-shadow: 2px 2px rgb(41, 40, 40);">
-                            {{profileSavedObject.user.firstname}} {{profileSavedObject.user.lastname}}
-                        </h2>
+                        <h2>{{profileSavedObject.user.firstname}} {{profileSavedObject.user.lastname}}</h2>
                     </div>
                 </div>
             </div>
@@ -22,60 +15,42 @@
         <div class="col-sm-1"></div>
         <div class="col-md-3">
             <div class="card-user bg-transparent">
-
-                {{!-- </div>style="border-radius: 10px;"> --}}
-            <div class="card" style="padding:10px 20px; border: 3px solid; border-color: rgb(152, 147, 146);">
-                <h5 class="card-title text-uppercase text-center" style="text-shadow: 2px 2px rgb(57, 54, 54);">About
-                    {{profileSavedObject.user.firstname}}</h5>
-                {{!-- ____________________________CALL FROM THE DATA BASE THE 3 MOST RECENT FAVORITED
-                COURSES________________
-                --}}
-                <p class="card-text text-center">1 Favorite Course</p>
-                <p class="card-text text-center">2 Favorite Course</p>
-                <p class="card-text text-center">3 Favorite Course</p>
-                <p class="card-text text-center">Best Score: -4</p>
+                <div class="card">
+                    <h5 class="card-title text-uppercase text-center">About {{profileSavedObject.user.firstname}}</h5>
+                    <p class="card-text text-center">1 Favorite Course</p>
+                    <p class="card-text text-center">2 Favorite Course</p>
+                    <p class="card-text text-center">3 Favorite Course</p>
+                    <p class="card-text text-center">Best Score: -4</p>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="col-md-2">
-        <div class="card bg-transparent text-uppercase" style="border: none;">
-            <div class="card-body">
-                {{!-- ______________________________CALL FROM THE DATA BASE FOR ALL USERS FAVORITED
-                COURSES________________
-                --}}
-                <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
+        <div class="col-md-2">
+            <div class="card-holder bg-transparent text-uppercase">
+                <div class="card-body">
+                    <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-2">
-        <div class="card bg-transparent text-uppercase" style="border: none;">
-            <div class="card-body">
-                {{!-- __________________________CALL FROM THE DATA BASE FOR ALL USERS SAVED
-                COURSES_______________________
-                --}}
-                <a href="/profile/saved" class="btn text-white">Saved Courses</a>
+        <div class="col-md-2">
+            <div class="card-holder bg-transparent text-uppercase">
+                <div class="card-body">
+                    <a href="/profile/saved" class="btn text-white">Saved Courses</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-2">
-        <div class="card bg-transparent text-uppercase" style="border: none;">
-            <div class="card-body">
-                {{!-- ____________________________CALL FROM THE DATA BASE FOR ALL USERS RATED
-                COURSES____________________ --}}
-                <a href="/profile/reviewed" class="btn text-white">Reviewed Courses</a>
+        <div class="col-md-2">
+            <div class="card-holder bg-transparent text-uppercase">
+                <div class="card-body">
+                    <a href="/profile/reviewed" class="btn text-white">Reviewed Courses</a>
+                </div>
             </div>
         </div>
+        <div class="col-sm-1"></div>
     </div>
-    <div class="col-sm-1"></div>
-    </div>
-
-    <!-- _________________________________________THIS IS AN EXAMPLE OF A RATED COURSE POST_____________________________________ -->
-
-    {{!-- _________________________________THIS WILL GET ADDED IN THE FUTURE_______________________________ --}}
 
     {{#each profileSavedObject.saved as |saved|}}
     {{>saved saved}}

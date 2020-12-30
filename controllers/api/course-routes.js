@@ -88,6 +88,35 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.get('/city/:city', (req, res) => {
+    Course.findAll({
+        where: {
+            city: req.params.city
+        },
+        attributes: [
+            'id',
+            'course_name',
+            'holes',
+            'par',
+            'established',
+            'city',
+            'state',
+            'zipcode'
+        ]
+    })
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found in this city' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 // create a course
 router.post('/', (req, res) => {
     Course.create({
@@ -116,9 +145,9 @@ router.put('/favorite', (req, res) => {
         });
 });
 
-// favorite a course
+// save a course
 router.put('/saved', (req, res) => {
-    Course.favorite({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
+    Course.saved({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
         .then(updatedSavedData => res.json(updatedSavedData))
         .catch(err => {
             console.log(err);

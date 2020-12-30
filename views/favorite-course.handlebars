@@ -1,10 +1,8 @@
-{{!-- THIS FILE WILL INCLUDE FAVORITE COURSES--}}
 <div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
     <div class="col-md-8 p-3">
-        <div class="card" style="padding:10px 20px;">
-            {{#each course}}
-            <a class="" href="/course/{{id}}">
+        <div class="card">
+            {{#each course}} <a class="" href="/course/{{id}}">
                 <span>{{course.course_name}}</span>
             </a>
             {{/each}}

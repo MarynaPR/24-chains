@@ -23,11 +23,10 @@
 <div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
     <div class="col-md-8 p-3">
-        <div class="card"
-            style="padding:10px 20px; background-color: rgba(70, 92, 111, 0.303); border: 3px solid; border-color: rgb(117, 128, 140);">
+        <div class="card-course">
             <p class="text-uppercase"><strong>{{user.username}}</strong></p>
             <p>{{course.course_name}}</p>
-            <p>{{created_at}}</p>
+            <p>{{format_date created_at}}</p>
             <p>{{review_title}}</p>
             <p>{{rating}}/5 Discs</p>
             <p>{{review_content}}</p>
@@ -35,16 +34,13 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
-
 {{/if}}
 
-{{!-- add played data --}}
 {{#unless sorted.review_content}}
 <div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
     <div class="col-md-8 p-3">
-        <div class="card" style="padding:10px 20px; border: 3px solid; border-color: rgb(152, 147, 146);">
-            {{!-- need to add score model --}}
+        <div class="card">
             <p class="text-uppercase"><span>{{user.username}}</span></p>
             <p>Course: <span>{{course.course_name}}</span></p>
             <p>Score: <span>{{score}}</span></p>
