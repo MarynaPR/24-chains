@@ -1,0 +1,59 @@
+<main class="dashboard">
+  <div class="header-row" id="header-row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="username text-center text-uppercase">
+            <h2>{{profileReviewObject.user.firstname}} {{profileReviewObject.user.lastname}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-1"></div>
+    <div class="col-md-3">
+      <div class="card-user bg-transparent">
+        <div class="card">
+          <h5 class="card-title text-uppercase text-center">About {{profileReviewObject.user.firstname}}</h5>
+          <p class="card-text text-center">1 Favorite Course</p>
+          <p class="card-text text-center">2 Favorite Course</p>
+          <p class="card-text text-center">3 Favorite Course</p>
+          <p class="card-text text-center">Best Score: -4</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/saved" class="btn text-white">Saved Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/reviewed" class="btn text-white">Reviewed Courses</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+
+  {{#each profileReviewObject.reviews as |review|}}
+  {{>reviews review}}
+  {{/each}}
+
+</main>

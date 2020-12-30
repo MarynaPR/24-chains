@@ -1,19 +1,23 @@
 const router = require('express').Router();
 const { Review, User, Course } = require('../../models');
+const reqAuth = require('../../utils/auth');
 
 // create a review
-router.post('/', (req, res) => {
-    Review.create({
-        course_id: req.body.course_id,
-        review_content: req.body.review_content,
-        rating: req.body.rating,
-        user_id: req.body.user_id,
-        review_title: req.body.review_title
-    })
-        .then(dbReview => res.json(dbReview))
-        .catch(err => {
-            res.status(500).json(err);
-        });
+router.post('/', reqAuth, (req, res) => {
+    if (req.session) {
+        Review.create({
+            course_id: req.body.course_id,
+            review_content: req.body.review_content,
+            rating: req.body.rating,
+            user_id: req.session.userId,
+            review_title: req.body.review_title
+        })
+            .then(dbReview => res.json(dbReview))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
 });
 
 // get all reviews
@@ -33,7 +37,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Course,
-                attributes: ['course_name']
+                attributes: ['course_name', 'city', 'state']
             }
         ]
     })
@@ -64,7 +68,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Course,
-                attributes: ['course_name']
+                attributes: ['course_name', 'city', 'state']
             }
         ]
     })

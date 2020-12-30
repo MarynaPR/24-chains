@@ -1,34 +1,50 @@
-{{!-- not in card format, add
-<div class="card">
-    <div class="card-header">
-        <h2>Login</h2>
-    </div> --}}
-    {{!-- <div class="dropdown-menu"> --}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card-holder card-sign my-5 bg-transparent">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Log In</h5>
 
-        <form class="px-4 py-3" id="login-form">
-            <div class="mb-3">
-                <label for="exampleDropdownFormUsername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username-input-login" placeholder="Username" required
-                    autofocus>
-            </div>
-            <div class="mb-3">
-                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password-input-login" placeholder="Password">
-            </div>
-            <div class="mb-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                    <label class="form-check-label" for="dropdownCheck">
-                        Remember me
-                    </label>
+                    <form class="form-sign" id="login-form">
+                        <div class="form-label-group">
+                            <span>
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>
+                            <input type="text" class="form-control" id="username-input-login"
+                                placeholder="      Username" />
+                            <label for="exampleDropdownFormUsername" class="form-label"></label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <span>
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                            <input type="password" id="password-input-login" class="form-control"
+                                placeholder="      Password" required>
+                            <label for="inputPassword"></label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-block text-white text-uppercase">Log
+                            in</button>
+                        <hr class="my-4">
+
+                        <button class="btn btn-lg btn-google btn-block text-white text-uppercase"><i
+                                class="fa fa-google-plus"></i> Log in with
+                            Google</button>
+
+                        {{!-- fa-facebook-square
+                        --}}
+                        <div class="dropdown-divider"></div>
+                        <a class="sign-up-log-in" href="/signup">Not a member? Sign up</a>
+                    </form>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/signup">Not a member? Sign up</a>
+        </div>
+    </div>
+</div>
 
-        {{!--
-    </div> --}}
-
-    <script src="/javascript/login.js"></script>
+<script src="/javascript/login.js"></script>

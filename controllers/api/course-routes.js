@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Course, Review, User, Favorite } = require('../../models');
+const { Course, Review, User, Favorite, Saved } = require('../../models');
 
 // get all courses
 router.get('/', (req, res) => {
@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
             'holes',
             'par',
             'established',
+            'city',
+            'state',
             'zipcode'
         ],
         include: [
@@ -29,13 +31,17 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbCourseData => res.json(dbCourseData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => res.json(dbCourseData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
+router.post("/search", (req, res) => {
+    console.log(req.body)
+    res.json({ success: true })
+})
 // get one course
 router.get('/:id', (req, res) => {
     Course.findOne({
@@ -48,6 +54,8 @@ router.get('/:id', (req, res) => {
             'holes',
             'par',
             'established',
+            'city',
+            'state',
             'zipcode'
         ],
         include: [
@@ -67,17 +75,46 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/city/:city', (req, res) => {
+    Course.findAll({
+        where: {
+            city: req.params.city
+        },
+        attributes: [
+            'id',
+            'course_name',
+            'holes',
+            'par',
+            'established',
+            'city',
+            'state',
+            'zipcode'
+        ]
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found in this city' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // create a course
@@ -87,23 +124,35 @@ router.post('/', (req, res) => {
         holes: req.body.holes,
         par: req.body.par,
         established: req.body.established,
+        city: req.body.city,
+        state: req.body.state,
         zipcode: req.body.zipcode
     })
-    .then(dbCourseData => res.json(dbCourseData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => res.json(dbCourseData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // favorite a course
 router.put('/favorite', (req, res) => {
-    Course.favorite({ ...req.body, user_id: req.session.user_id }, { Favorite, Course, User, Review })
-    .then(updatedFavoriteData => res.json(updatedFavoriteData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+    Course.favorite({ ...req.body, user_id: req.session.userId }, { Favorite, Course, User, Review })
+        .then(updatedFavoriteData => res.json(updatedFavoriteData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// save a course
+router.put('/saved', (req, res) => {
+    Course.saved({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
+        .then(updatedSavedData => res.json(updatedSavedData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Update a course
@@ -114,6 +163,8 @@ router.put('/:id', (req, res) => {
             holes: req.body.holes,
             par: req.body.par,
             established: req.body.established,
+            city: req.body.city,
+            state: req.body.state,
             zipcode: req.body.zipcode
         },
         {
@@ -122,17 +173,17 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Delete a course
@@ -142,17 +193,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbCourseData => {
-        if(!dbCourseData) {
-            res.status(404).json({ message: 'No course found with this id'});
-            return;
-        }
-        res.json(dbCourseData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCourseData => {
+            if (!dbCourseData) {
+                res.status(404).json({ message: 'No course found with this id' });
+                return;
+            }
+            res.json(dbCourseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

@@ -4,138 +4,85 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24 chains</title>
-    <!-- Latest compiled and minified CSS & JS -->
+    <title>24 Chains</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/style.css"> -->
+    <script src="https://kit.fontawesome.com"></script>
 </head>
 
-{{!--
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">24 chains</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand page-name" href="/">
+        <img src="../images/disc-golf-basket.png" width=" 30" height="30" class="d-inline-block align-middle logo-img"
+            alt="">
+        24
+        Chains</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {{#if loggedIn}}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbar-brand" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-brand" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a id="logout" class="nav-link navbar-brand" href="/login">Log Out</a>
+            </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class=" form-control mr-sm-2" name="search-input" type="search" placeholder="Search by City"
+                aria-label="Search" id="search_term">
+            <button id="search-course" class="btn text-white text-uppercase my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        {{/if}}
+
+    </div>
+</nav>
+
+<body class="text-white">
+
+    <!-- LOGIN -->
+    {{!-- <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <!-- log in emoji -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path
+                    d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+            </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <!-- home and profile:link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a id="logout" class="nav-link" href="/login">Log Out</a>
-                </li>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search for course" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> --}}
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button"><a href="/login">Login</a></button></li>
+            --}}
+            {{!-- <li><button class="dropdown-item" type="button">Sign up</button></li>
+            --}}
+            {{!--
+        </ul>
+    </div>
+    </ul>
+    </div>
+    </div>
+    </nav> --}}
 
-
-                <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-                    <header class="mb-auto">
-                        <div>
-                            <h3 class="float-md-start mb-0">24 chains</h3>
-                            <nav class="nav nav-masthead justify-content-center float-md-end">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                                <a class="nav-link" href="/profile">Profile</a>
-                                <a class="nav-link" href="#">Courses</a>
-                            </nav>
-                        </div>
-                    </header>
-                    <!-- NAVBAR -->
-                    {{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="#">24 chains</a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <!-- home and profile:link -->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/profile">Profile</a>
-                                    </li>
-                                    <form class="d-flex">
-                                        <input class="form-control me-2" type="search" placeholder="Search for course"
-                                            aria-label="Search">
-                                        <button class="btn btn-outline-success" type="submit">Search</button>
-                                    </form> --}}
-
-                                    <!-- LOGIN -->
-                                    {{!-- <div class="dropdown">
-                                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <!-- log in emoji -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
-                                                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
-                                            </svg>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li><button class="dropdown-item" type="button"><a
-                                                        href="/login">Login</a></button></li>
-                                            --}}
-                                            {{!-- <li><button class="dropdown-item" type="button">Sign up</button></li>
-                                            --}}
-                                            {{!--
-                                        </ul>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav> --}}
-
-                    {{!-- <main class="form-signin">
-                        <form>
-                            <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72"
-                                height="57">
-                            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-                            <label for="inputEmail" class="visually-hidden">Username</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                required autofocus>
-                            <label for="inputPassword" class="visually-hidden">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                required>
-                            <div class="checkbox mb-3">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
-                            <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-                        </form>--}}
-                    </main>
-
-
-                    <body class="d-flex h-100 text-center text-white bg-dark">
-
-                        <main class="px-3">
-                            {{{ body }}}
-                        </main>
-
-                        <footer class="mt-auto text-white-50">
-                            &copy; 24 chains copyright2020
-                        </footer>
-                    </body>
+    <footer class="card-holder mt-5 text-center">
+        24 Chains &copy;2020
+    </footer>
+</body>
 
 </html>
+
+{{#if loggedIn}}
+<script src="/javascript/course-search.js"></script>
 <script src="/javascript/logout.js"></script>
+{{/if}}

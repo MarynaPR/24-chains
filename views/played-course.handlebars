@@ -1,13 +1,13 @@
-{{!-- SAVED/Played COURSES --}}
-<div class="row mt-4">
+<div class="row mt-4 bg-transparent">
     <div class="col-sm-2"></div>
-    <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
-        {{#each course}}
-        {{!-- need to add score model --}}
-        <a class="" href="/profile/{{id}}">
-            <span>{{course.course_name}}</span>
-            <span>{{played.score}}</span>
-        </a>
-        {{/each}}
+    <div class="col-md-8 p-3">
+        <div class="card">
+            {{#each course}}
+            <a class="" href="/profile/{{id}}">
+                <span>{{course.course_name}}</span>
+                <span>{{played.score}}</span>
+            </a>
+            {{/each}}
+        </div>
     </div>
 </div>

@@ -5,8 +5,6 @@
 
 `npm install -g sass"
 for homebrew: `brew install sass/sass/sass`
-HEAD
-ccc85886de612bcf1cfd9e08317d92398007d251
 # Technologies used:
 
 * Node.js
@@ -22,4 +20,6 @@ Bootstrap: `npm install bootstrap@next`, icons:`npm i bootstrap-icons`
 Foundation: `npm install foundation-sites`,`npm install --global foundation-cli`
 
 Sass : `npm install -g sass`
+
+'npm install googleapis'
 
