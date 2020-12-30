@@ -1,13 +1,10 @@
-
-body
-{
+body {
   padding: 0;
   margin: 0;
-  //background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("/images/IMG_4786.png") fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("/images/IMG_4786.png") fixed;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/IMG_4786.png") fixed;
   background-size: cover;
 
-  //nested elements
   .btn {
     color: white;
     padding: 15px 32px;
@@ -33,14 +30,29 @@ body
     margin-bottom: 3rem;
     font-weight: 350;
     font-size: 1.7rem;
-    //border: 3px solid rgb(92, 68, 68);
-
 }
   .card-sign .card-body {
-    padding: 3rem;
+    padding: 2rem;
    
-    }
+}
   .form-sign {
     width: 100%;
-    }
+}
+  .header-row {
+      padding: 0px;
+      overflow:hidden;
+      max-height: 500px;
+}
+ .container-fluid {
+  padding: 0px;
+ }
+ h2 {
+  z-index: 1060;
+  padding-left: 45px;
+  text-shadow: 2px 2px rgb(41, 40, 40);
+ }
+ h5 {
+  text-shadow: 2px 2px rgb(57, 54, 54);
+ }
+
 }

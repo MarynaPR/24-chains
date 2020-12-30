@@ -7,14 +7,14 @@ async function searchClickHandler(event) {
     //     const response = await fetch('../api/course', {
     //         method: "GET",
     //         body: JSON.stringify({
-                
+
     //         })
     //     })
     // }
 
     //SELECT * FROM course WHERE course_name LIKE '%water%';
     document.location.replace('/courses');
-    
+
 }
 
 document.querySelector('#search-course').addEventListener('click', searchClickHandler);
