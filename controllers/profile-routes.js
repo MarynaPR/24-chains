@@ -74,26 +74,25 @@ router.get('/favorited', reqAuth, (req, res) => {
             res.status(500).json(err);
         })
 
-    Favorite.findAll({
-        where: {
-            user_id: req.session.userId
-        },
-        attributes: [
-            'id',
-            'created_at'
-        ],
-        include: [
-            {
-                model: Course,
-                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
-            }
-        ]
-    })
-        .then(dbReviewData => {
-            profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-            //Sorts by created_at time
-            profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
-
+        Favorite.findAll({
+            where: {
+                user_id: req.session.userId
+            },
+            attributes: [
+                'id',
+                'created_at'
+            ],
+            include: [
+                {
+                    model: Course,
+                    attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
+                }
+            ]
+        })
+            .then(dbReviewData => {
+                profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+                //Sorts by created_at time
+                profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
             res.render('profile-favorited', {
                 profileFavoriteObject,
                 loggedIn: req.session.loggedIn
@@ -208,6 +207,30 @@ router.get('/', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+    Favorite.findAll({
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Course,
+                attributes: ['id', 'course_name', 'holes', 'par', 'established', 'city', 'state', 'zipcode']
+            }
+        ]
+    })
+        .then(dbReviewData => {
+            profileObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
+            //Sorts by created_at time
+            profileObject.favorites = profileObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
         })
         .catch(err => {
             console.log(err);
