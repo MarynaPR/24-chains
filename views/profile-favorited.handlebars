@@ -21,14 +21,15 @@
           <h5 class="card-text text-center">3 Favorite Courses</h5>
           <p class="card-text text-center">
             {{profileFavoriteObject.favorites.0.course.course_name}}
-            </p>
+          </p>
           <p class="card-text text-center">
             {{profileFavoriteObject.favorites.1.course.course_name}}
           </p>
           <p class="card-text text-center">
             {{profileFavoriteObject.favorites.2.course.course_name}}
           </p>
-          <p class="card-text text-center">Best Score: -4</p>
+          <p class="card-text text-center">Best Score from {{profileFavoriteObject.played.length}} games:
+            {{profileFavoriteObject.high_score}}</p>
         </div>
       </div>
     </div>
