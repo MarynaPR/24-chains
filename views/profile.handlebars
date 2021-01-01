@@ -16,12 +16,20 @@
     <div class="col-md-3">
       <div class="card-user bg-transparent">
         <div class="card">
-          <h5 class="card-title text-uppercase text-center">About
-            {{profileObject.user.firstname}}</h5>
-          <p class="card-text text-center">1 Favorite Course</p>
-          <p class="card-text text-center">2 Favorite Course</p>
-          <p class="card-text text-center">3 Favorite Course</p>
-          <p class="card-text text-center">Best Score: -4</p>
+          <h4 class="card-title text-uppercase text-center">About
+            {{profileObject.user.firstname}}</h4>
+          <h5 class="card-text text-center">3 Favorite Courses</h5>
+          <p class="card-text text-center">
+            {{profileObject.favorites.0.course.course_name}}
+          </p>
+          <p class="card-text text-center">
+            {{profileObject.favorites.1.course.course_name}}
+          </p>
+          <p class="card-text text-center">
+            {{profileObject.favorites.2.course.course_name}}
+          </p>
+          <p class="card-text text-center">Best Score from {{profileObject.played.length}} games:
+            {{profileObject.high_score}}</p>
         </div>
       </div>
     </div>
