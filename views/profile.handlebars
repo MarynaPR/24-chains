@@ -1,0 +1,99 @@
+<main class="dashboard">
+  <div class="header-row" id="header-row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="username text-center text-uppercase">
+            <h2>{{profileObject.user.firstname}} {{profileObject.user.lastname}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-1"></div>
+    <div class="col-md-3">
+      <div class="card-user bg-transparent">
+        <div class="card">
+          <h4 class="card-title text-uppercase text-center">About
+            {{profileObject.user.firstname}}</h4>
+          <h5 class="card-text text-center">3 Favorite Courses</h5>
+          <p class="card-text text-center">
+            {{profileObject.favorites.0.course.course_name}}
+          </p>
+          <p class="card-text text-center">
+            {{profileObject.favorites.1.course.course_name}}
+          </p>
+          <p class="card-text text-center">
+            {{profileObject.favorites.2.course.course_name}}
+          </p>
+          <p class="card-text text-center">Best Score from {{profileObject.played.length}} games:
+            {{profileObject.high_score}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/favorited" class="btn text-white">Favorite Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="profile/saved" class="btn text-white">Saved Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-holder bg-transparent text-uppercase">
+        <div class="card-body">
+          <a href="/profile/reviewed" class="btn btn1 text-white">Reviewed Courses</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+
+  {{#each profileObject.sorted as |sorted|}}
+  {{#if sorted.review_content}}
+
+  <div class="row mt-4 bg-transparent">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 p-3">
+      <div class="card">
+        <p class="text-uppercase"><strong>{{user.username}}</strong></p>
+        <p>{{course.course_name}}</p>
+        <p>{{created_at}}</p>
+        <p>{{review_title}}</p>
+        <p>{{rating}}/5 Discs</p>
+        <p>{{review_content}}</p>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+
+  {{/if}}
+
+  {{#unless sorted.review_content}}
+
+  <div class="row mt-4">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 p-3">
+      <div class="card-course">
+        <p class="text-uppercase"><span>{{user.username}}</span></p>
+        <p>Course: <span>{{course.course_name}}</span></p>
+        <p>Score: <span>{{score}}</span></p>
+      </div>
+    </div>
+  </div>
+
+  {{/unless}}
+  {{/each}}
+
+</main>

@@ -1,0 +1,8 @@
+
+{{#each courses as |course|}}
+    {{>course course}}
+{{/each}}
+
+{{#unless course.length}}
+<h3>No Courses Found. Try another search.</h3>
+{{/unless}}

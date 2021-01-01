@@ -1,0 +1,13 @@
+<div class="row mt-4 bg-transparent">
+    <div class="col-sm-2"></div>
+    <div class="col-md-8 p-3">
+        <div class="card">
+            {{#each course}}
+            <a class="" href="/profile/{{id}}">
+                <span>{{course.course_name}}</span>
+                <span>{{played.score}}</span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</div>

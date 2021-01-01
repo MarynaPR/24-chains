@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 chains</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./public/stylesheets/style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css"> -->
+</head>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">24 chains</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- home and dashboard:link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search for course" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+
+                <!-- LOGIN -->
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- log in emoji -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path
+                                d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                            <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            <path fill-rule="evenodd"
+                                d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><button class="dropdown-item" type="button"><a href="/login">Login</a></button></li>
+                        <!-- {{!-- <li><button class="dropdown-item" type="button">Sign up</button></li> --}} -->
+                    </ul>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body class="bg-dark">
+
+    <main class="dashboard">
+
+        <div class="header-row" id="header-row" style="padding: 0px; overflow:hidden; max-height: 500px;">
+            <div class="container-fluid" style="padding: 0px;">
+                <div class="row">
+                    <div class="col-xs-12" style="position: relative;">
+                        <img src="./public/images/IMG_4694.png" class="img-fluid" alt="company logo"
+                            style="width:100%; margin-top: -150px;">
+                        <div class="caption">
+                            <h2 style="z-index: 1060;">First and Last Name</h2>
+
+                        </div>
+                        <div class="container">
+                            <span id="rateMe2" class="empty-stars"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--{{{body}}}-->
+
+
+        <div class="row mt-3">
+            <div class="col-sm-1"></div>
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 10px; border: none;">
+                    <div class="card-body bg-secondary" style="border-radius: 8px;">
+                        <h5 class="card-title">About User</h5>
+                        <p class="card-text">1 Favorite Course</p>
+                        <p class="card-text">2 Favorite Course</p>
+                        <p class="card-text">3 Favorite Course</p>
+                        <p class="card-text">Best Score: -4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card" style="border: none;">
+                    <div class="card-body bg-dark">
+                        <a href="#" class="btn btn-primary">Favorite Courses</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card" style="border: none;">
+                    <div class="card-body bg-dark">
+                        <a href="#" class="btn btn-primary">Saved Courses</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card" style="border: none;">
+                    <div class="card-body bg-dark">
+                        <a href="#" class="btn btn-primary">Rated Courses</a>
+                        <div>
+                            <!-- <button type="button" class="btn bi bi-star-primary-warning">Warning</button><i -->
+                            <!-- <span class="bi bi-star-warning"></span> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+
+        <!-- _________________________________________THIS IS AN EXAMPLE OF A RATED COURSE POST_____________________________________ -->
+
+        <div class="row mt-4">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/12/2020 4:35 PM </br>
+                Random Course Name <br>
+                Rating 3/5 Discs </br>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam
+                ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam
+                debitis laudantium! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde
+                dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi
+                repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor, sit amet consectetur
+                adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum
+                magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor,
+                sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente
+                error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis
+                laudantium!
+                </br>
+
+                <div class="row bg-secondary">
+                    <div class="col align-items-start bg-secondary">
+                        14 Upvotes 2 DownVotes
+                    </div>
+                    <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
+                        <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
+                            class="btn align-item-end ml-3 mt-1">Downvote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+
+        <!-- _________________________________________THIS IS AN EXAMPLE OF A PLAYED COURSE POST_________________________________ -->
+
+        <div class="row mt-4">
+            <div class="col-sm-2 "></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/12/2020 4:35 PM </br>
+                Random Course Name <br>
+                Number of Holes: 18 </br>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-disc-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                </svg>
+
+
+                Rating 4/5 Discs</br>
+                Score: 3
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+
+
+
+        <!-- _________________________________________THIS IS POPULATED IN A RANDOM ORDER TO SEE STRUCTURE________________________ -->
+
+
+        <div class="row mt-4">
+            <div class="col-sm-2 "></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/11/2020 3:47 PM </br>
+                Triangle Hill Disc Course <br>
+                Number of Holes: 18 </br>
+                Rating 4/5 Discs</br>
+                Score: -6
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2 "></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/8/2020 4:32 PM </br>
+                Pamperin Park Disc Course <br>
+                Number of Holes: 18 </br>
+                Rating 4/5 Discs</br>
+                Score: -3
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/12/2020 4:35 PM </br>
+                Random Course Name <br>
+                Rating 3/5 Discs </br>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam
+                ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam
+                debitis laudantium! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde
+                dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi
+                repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor, sit amet consectetur
+                adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum
+                magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor,
+                sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente
+                error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis
+                laudantium!
+                </br>
+
+                <div class="row bg-secondary">
+                    <div class="col align-items-start bg-secondary" style="border-radius: 10px; border: none;">
+                        14 Upvotes 2 DownVotes
+                    </div>
+                    <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
+                        <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
+                            class="btn align-item-end ml-3 mt-1">Downvote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/12/2020 4:35 PM </br>
+                Random Course Name <br>
+                Rating 3/5 Discs </br>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam
+                ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam
+                debitis laudantium! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde
+                dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi
+                repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor, sit amet consectetur
+                adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum
+                magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor,
+                sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente
+                error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis
+                laudantium!
+                </br>
+
+                <div class="row bg-secondary">
+                    <div class="col align-items-start bg-secondary" style="border-radius: 10px; border: none;">
+                        14 Upvotes 2 DownVotes
+                    </div>
+                    <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
+                        <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
+                            class="btn align-item-end ml-3 mt-1">Downvote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/12/2020 4:35 PM </br>
+                Random Course Name <br>
+                Rating 3/5 Discs </br>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam
+                ipsam sapiente error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam
+                debitis laudantium! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ut unde
+                dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum magni! Explicabo excepturi
+                repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor, sit amet consectetur
+                adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente error vitae saepe illum
+                magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis laudantium! Lorem ipsum dolor,
+                sit amet consectetur adipisicing elit. Aperiam ut unde dignissimos, eligendi, magnam ipsam sapiente
+                error vitae saepe illum magni! Explicabo excepturi repellendus beatae quasi numquam ullam debitis
+                laudantium!
+                </br>
+
+                <div class="row bg-secondary">
+                    <div class="col align-items-start bg-secondary" style="border-radius: 10px; border: none;">
+                        14 Upvotes 2 DownVotes
+                    </div>
+                    <div class="col d-grid gap-2 d-md-flex justify-content-md-end bg-secondary">
+                        <button type="submit" class="btn mt-1">Upvote</button><button type="submit"
+                            class="btn align-item-end ml-3 mt-1">Downvote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2 "></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/11/2020 3:47 PM </br>
+                Triangle Hill Disc Course <br>
+                Number of Holes: 18 </br>
+                Rating 4/5 Discs</br>
+                Score: -6
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-2 "></div>
+            <div class="col-md-8 bg-secondary p-3" style="border-radius: 10px; border: none;">
+                Username</br>
+                Date/Time 12/8/2020 4:32 PM </br>
+                Pamperin Park Disc Course <br>
+                Number of Holes: 18 </br>
+                Rating 4/5 Discs</br>
+                Score: -3
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+
+
+        <!-- ______________________________________END OF TEST INPUTS DISPLAY FOOTER__________________________________________ -->
+
+    </main>
+
+    <footer class="mt-5" style="text-align: center;">
+        &copy; 24 chains copyright2020
+    </footer>
+</body>
+
+</html>

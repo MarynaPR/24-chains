@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS 24_chains_db;
+
+CREATE DATABASE 24_chains_db;
