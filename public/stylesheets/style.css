@@ -79,7 +79,8 @@ body h5 {
 .input-group-text,
 .textarea,
 .form-inline input,
-.form-inline .btn {
+.form-inline .btn,
+.google {
   font-size: 87%;
   border-radius: 2rem;
   letter-spacing: .1rem;
