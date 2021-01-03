@@ -1,23 +1,4 @@
-{{!-- {{#each homeObject.reviews as |allreviews|}}
-{{>reviews allreviews}}
-{{/each}} --}}
-
-{{!-- <ol class="">
-    {{#each homeObject.courses as |course|}}
-    <li>
-        {{> course course }}
-    </li>
-    {{/each}}
-</ol> --}}
-
-
-{{!-- {{#each homeObject.played as |played|}}
-{{> played played }}
-{{/each}} --}}
-
-
 {{#each homeObject.sorted as |sorted|}}
-{{!-- adding reviews --}}
 {{#if sorted.review_content}}
 
 <div class="row mt-4 bg-transparent">
