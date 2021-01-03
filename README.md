@@ -10,6 +10,9 @@ The following image shows the web application's appearance:
 
 ## Description :page_with_curl:
 
+Heroku:
+https://dry-mesa-09626.herokuapp.com/
+
 * user story here *
 
 ## Technology Used :label: 
@@ -32,7 +35,6 @@ The following image shows the web application's appearance:
 * [bcrypt package](https://www.npmjs.com/package/bcrypt)
 * [express-session](https://www.npmjs.com/package/express-session)
 * [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
-* [nodemon package](https://www.npmjs.com/package/nodemon)
 * [handlebars](https://handlebarsjs.com/)
 * [bootstrap](https://getbootstrap.com/)
 * [fontsawesome](https://fontawesome.com/)
@@ -51,17 +53,17 @@ The following image shows the web application's appearance:
 
 ## Testing :repeat_one:
 
-## Contribution :heavy_plus_sign: 
+## Contributing :heavy_plus_sign: 
 
-Contributions, issues and feature requests are welcome. 
-Check out [issues page](https://github.com/MarynaPR/tech-blog/issues). 
+Contributions, issues and feature requests of any kind are welcome!
+Check out [issues page](https://github.com/MarynaPR/24-chains/issues). 
 Give :star: if you found this project useful. 
 
-### Questions :question: 
-Feel free to contact me with any questions via email :e-mail: pryadkamaryna@gmail.com. 
-  
-If you'd like to see my other projects, please visit my :octocat: 
-[GitHub](https://github.com/MarynaPR?tab=repositories)
+## Contributors :star2:
 
-Heroku:
-https://dry-mesa-09626.herokuapp.com/
+* Nate Derenne
+* Austin Price
+* Duncan Martin
+
+### Questions :question: 
+Feel free to contact with any questions.
