@@ -1,5 +1,3 @@
-const { google } = require("googleapis");
-
 const signupFormHandler = async function (event) {
     event.preventDefault();
 
