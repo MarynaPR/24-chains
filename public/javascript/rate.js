@@ -1,45 +1,44 @@
-const clickOne = async function(event) {
+const clickOne = async function (event) {
     event.preventDefault();
 
     const rating = document.querySelector('#rating-star-1').value;
     const rateHolder = document.querySelector('#selected_rating');
-    
     rateHolder.value = rating;
 };
 
-const clickTwo = async function(event) {
+const clickTwo = async function (event) {
     event.preventDefault();
 
     const rating = document.querySelector('#rating-star-2').value;
     const rateHolder = document.querySelector('#selected_rating');
-    
-    rateHolder.value = rating;    
+
+    rateHolder.value = rating;
 };
 
-const clickThree = async function(event) {
+const clickThree = async function (event) {
     event.preventDefault();
 
     const rating = document.querySelector('#rating-star-3').value;
     const rateHolder = document.querySelector('#selected_rating');
-    
+
     rateHolder.value = rating;
 };
 
-const clickFour = async function(event) {
+const clickFour = async function (event) {
     event.preventDefault();
 
     const rating = document.querySelector('#rating-star-4').value;
     const rateHolder = document.querySelector('#selected_rating');
-    
+
     rateHolder.value = rating;
 };
 
-const clickFive = async function(event) {
+const clickFive = async function (event) {
     event.preventDefault();
 
     const rating = document.querySelector('#rating-star-5').value;
     const rateHolder = document.querySelector('#selected_rating');
-    
+
     rateHolder.value = rating;
 };
 
