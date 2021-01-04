@@ -5,7 +5,7 @@ const newReview = async function(event) {
         window.location.toString().split('/').length - 1
     ];
     const review_content = document.querySelector('textarea[name="review-body"]').value;
-    const rating = document.querySelector('input[name="course-rating"]').value;
+    const rating = document.querySelector('input[name="selected_rating"]').value;
     const review_title = document.querySelector('input[name="review-title"]').value;
     
     if (review_content && review_title && rating) {

@@ -200,6 +200,52 @@ router.get('/courses', reqAuth, (req, res) => {
     .then(dbCourseData => {
       const courses = dbCourseData.map(course => course.get({ plain: true }));
 
+      res.render('courses', {
+        courses,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/courses/:city', reqAuth, (req, res) => {
+  Course.findAll({
+    where: {
+      city: req.params.city
+    },
+    attributes: [
+      'id',
+      'course_name',
+      'holes',
+      'par',
+      'established',
+      'city',
+      'state',
+      'zipcode'
+    ],
+    include: [
+      {
+        model: Review,
+        attributes: ['id', 'review_title', 'review_content', 'rating'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username'],
+        through: Favorite,
+        as: 'favorited_courses'
+      }
+    ]
+  })
+    .then(dbCourseData => {
+      const courses = dbCourseData.map(course => course.get({ plain: true }));
+
       res.render('searched-courses', {
         courses,
         loggedIn: req.session.loggedIn
