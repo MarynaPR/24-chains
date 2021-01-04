@@ -25,3 +25,14 @@ const loginFormHandler = async function (event) {
 document
     .querySelector("#login-form")
     .addEventListener("submit", loginFormHandler);
+
+function myFunction() {
+    var google = document.getElementById("google");
+    if (google.style.display === "none") {
+        google.style.display = "block";
+    } else {
+        google.style.display = "none";
+    }
+}
+
+myFunction()

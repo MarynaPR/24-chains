@@ -1,3 +1,5 @@
+const { google } = require("googleapis");
+
 const signupFormHandler = async function (event) {
     event.preventDefault();
 
@@ -19,7 +21,7 @@ const signupFormHandler = async function (event) {
             }),
             headers: { "Content-Type": "application/json" }
         })
-            
+
         if (response.ok) {
             document.location.replace('/profile');
         } else {
@@ -31,3 +33,14 @@ const signupFormHandler = async function (event) {
 document
     .querySelector("#signup-form")
     .addEventListener("submit", signupFormHandler);
+
+function myFunction() {
+    var google = document.getElementById("google");
+    if (google.style.display === "none") {
+        google.style.display = "block";
+    } else {
+        google.style.display = "none";
+    }
+}
+
+myFunction()
