@@ -200,7 +200,7 @@ router.get('/courses', reqAuth, (req, res) => {
     .then(dbCourseData => {
       const courses = dbCourseData.map(course => course.get({ plain: true }));
 
-      res.render('searched-courses', {
+      res.render('courses', {
         courses,
         loggedIn: req.session.loggedIn
       });
