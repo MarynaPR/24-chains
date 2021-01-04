@@ -101,6 +101,10 @@ body h5 {
   color: white;
 }
 
+#selected_rating:focus {
+  outline: none;
+}
+
 /* round corners on input form */
 .form-label-group input,
 .textarea,
