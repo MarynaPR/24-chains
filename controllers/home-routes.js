@@ -179,23 +179,23 @@ router.get('/courses', reqAuth, (req, res) => {
       'city',
       'state',
       'zipcode'
-    ],
-    include: [
-      {
-        model: Review,
-        attributes: ['id', 'review_title', 'review_content', 'rating'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username'],
-        through: Favorite,
-        as: 'favorited_courses'
-      }
     ]
+    // include: [
+    //   {
+    //     model: Review,
+    //     attributes: ['id', 'review_title', 'review_content', 'rating'],
+    //     include: {
+    //       model: User,
+    //       attributes: ['username']
+    //     }
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ['username'],
+    //     through: Favorite,
+    //     as: 'favorited_courses'
+    //   }
+    // ]
   })
     .then(dbCourseData => {
       const courses = dbCourseData.map(course => course.get({ plain: true }));

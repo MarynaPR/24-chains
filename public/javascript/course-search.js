@@ -1,8 +1,8 @@
 async function searchClickHandler(event) {
     event.preventDefault();
 
-    // const searchRequest = document.querySelector('input[name="search-input"]').value;
-
+    const searchRequest = document.querySelector('input[name="search-input"]').value;
+    console.log(searchRequest)
     // if(searchRequest) {
     //     const response = await fetch('../api/course', {
     //         method: "GET",
@@ -12,7 +12,7 @@ async function searchClickHandler(event) {
     //     })
     // }
 
-    //SELECT * FROM course WHERE course_name LIKE '%water%';
+    //SELECT * FROM course WHERE city LIKE '%water%';
     document.location.replace('/courses');
 
 }

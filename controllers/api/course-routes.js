@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Course, Review, User, Favorite, Saved } = require('../../models');
+const { sequelize } = require('sequelize');
+const { Op } = require('sequelize');
 
 // get all courses
 router.get('/', (req, res) => {
@@ -88,10 +90,11 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// search course by city name
 router.get('/city/:city', (req, res) => {
     Course.findAll({
         where: {
-            city: req.params.city
+            [Op.substring]: req.params.city
         },
         attributes: [
             'id',
