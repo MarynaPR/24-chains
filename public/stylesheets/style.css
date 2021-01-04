@@ -16,7 +16,6 @@ body {
 }
 
 body .btn {
-  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -90,13 +89,30 @@ body h5 {
   transition: all 0.2s;
 }
 
+#selected_rating {
+  font-weight: bold;
+  background: transparent;
+  border-radius: 25px;
+  padding: 25px;
+  width: 65px;
+  height: 65px;
+  border: 3px solid;
+  border-color: #989392;
+  color: white;
+}
+
+#selected_rating:focus {
+  outline: none;
+}
+
 /* round corners on input form */
 .form-label-group input,
 .textarea,
 .form-inline input,
 .form-inline .btn,
 .input-group,
-.form-control {
+.form-control,
+.control-label {
   height: auto;
   border-radius: 2rem;
   background: transparent;
@@ -133,8 +149,6 @@ body h5 {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   height: auto;
-  padding: 10px 20px;
-  border: 3px solid;
   padding: 10px 20px;
   background-color: rgba(150, 194, 225, 0.303);
   border-radius: 2rem;

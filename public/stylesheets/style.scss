@@ -11,13 +11,27 @@
 .form-inline .btn,
 .google
 {
-  font-size: 87%;
-  border-radius: 2rem;
+  font-size: $font-size;
+  border-radius: $border-radius;
   letter-spacing: .1rem;
-  font-weight: bold;
+  font-weight: $font-weight;
   padding: 1.2rem;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+}
+#selected_rating {
+  font-weight: $font-weight;
+  background: $background;
+  border-radius: 25px;
+  padding: 25px; 
+  width: 65px;
+  height: 65px; 
+  border: $border; 
+  border-color: rgb(152, 147, 146);
+  color: $color;
+}
+#selected_rating:focus {
+  outline: none;
 }
 /* round corners on input form */
 .form-label-group input,
@@ -25,63 +39,59 @@
 .form-inline input,
 .form-inline .btn,
 .input-group,
-.form-control
+.form-control,
+.control-label
  {
-  height: auto;
-  border-radius: 2rem;
-  background: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  height: $height;
+  border-radius: $border-radius;
+  background: $background;
+  background-color: $background-color;
 }
-
 #input-group-review,
 .input-group-text-review {
   height: 155px;
-  border-radius: 2rem;
-  background: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: $border-radius;
+  background: $background;
+  background-color: $background-color;
 }
 .card {
-  font-size: 87%;
+  font-size: $font-size;
   letter-spacing: .1rem;
-  font-weight: bold;
+  font-weight: $font-weight;
   padding: 1.2rem;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  height: auto;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding:10px 20px;
-  border: 3px solid; 
+  height: $height;
+  border-radius: $border-radius;
+  background-color: $background-color;
+  padding: 10px 20px;
+  border: $border; 
   border-color: rgb(152, 147, 146);
 }
-
 .card-course {
-  font-size: 87%;
-  letter-spacing: .1rem;
-  font-weight: bold;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  height: auto;
-  padding:10px 20px;
-  border: 3px solid; 
-  padding:10px 20px;
-  background-color: rgba(150, 194, 225, 0.303);
-  border-radius: 2rem;
-  border: 3px solid;
-  border-color: rgb(106, 138, 172);
+font-size: $font-size;
+letter-spacing: .1rem;
+font-weight: $font-weight;
+-webkit-transition: all 0.2s;
+transition: all 0.2s;
+height: $height;
+padding: 10px 20px;
+background-color: rgba(150, 194, 225, 0.303);
+border-radius: $border-radius;
+border: $border;
+border-color: rgb(106, 138, 172);
 }
 .card-holder{
-  font-size: 87%;
-  letter-spacing: .1rem;
-  font-weight: bold;
-
+font-size: $font-size;
+letter-spacing: .1rem;
+font-weight: $font-weight;
 }
 input{
 padding-left: 25px;
 height: 20px;
 }
 .sign-up-log-in:visited {
-color: white;
+color: $color;
 text-decoration: none;
 }
 .form-control::-webkit-input-placeholder {
@@ -89,5 +99,5 @@ color: rgba(255,255,255,0.9);
 font-weight: 600;
 }
 .col-xs-12 {
-  position: relative;
+position: relative;
 }

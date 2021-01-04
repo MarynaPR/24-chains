@@ -13,7 +13,12 @@ The following image shows the web application's appearance:
 Heroku:
 https://dry-mesa-09626.herokuapp.com/
 
-* user story here *
+As a user, I can create my profile
+As a user, I can sign up or log in
+As a user, I can search for a specific course by city
+As a user, I can post reviews and save my favorite courses
+As a user, I can see my reviews and list of favorite courses on my dashboard
+As a user, I can log out
 
 ## Technology Used :label: 
 
