@@ -1,4 +1,3 @@
-// import all models
 const User = require('./User');
 const Course = require('./Course');
 const Review = require('./Review');
@@ -6,7 +5,6 @@ const Favorite = require('./Favorite');
 const Played = require('./Played');
 const Saved = require('./Saved');
 
-// create associations
 User.hasMany(Review, {
     foreignKey: 'user_id'
 });

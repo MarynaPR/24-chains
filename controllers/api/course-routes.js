@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Course, Review, User, Favorite, Saved } = require('../../models');
 
-// get all courses
 router.get('/', (req, res) => {
     Course.findAll({
         attributes: [
@@ -42,7 +41,7 @@ router.post("/search", (req, res) => {
     console.log(req.body)
     res.json({ success: true })
 })
-// get one course
+
 router.get('/:id', (req, res) => {
     Course.findOne({
         where: {
@@ -117,7 +116,6 @@ router.get('/city/:city', (req, res) => {
         });
 });
 
-// create a course
 router.post('/', (req, res) => {
     Course.create({
         course_name: req.body.course_name,
@@ -135,7 +133,6 @@ router.post('/', (req, res) => {
         });
 });
 
-// favorite a course
 router.put('/favorite', (req, res) => {
     Course.favorite({ ...req.body, user_id: req.session.userId }, { Favorite, Course, User, Review })
         .then(updatedFavoriteData => res.json(updatedFavoriteData))
@@ -145,7 +142,6 @@ router.put('/favorite', (req, res) => {
         });
 });
 
-// save a course
 router.put('/saved', (req, res) => {
     Course.saved({ ...req.body, user_id: req.session.userId }, { Saved, Course, User, Review })
         .then(updatedSavedData => res.json(updatedSavedData))
@@ -155,7 +151,6 @@ router.put('/saved', (req, res) => {
         });
 });
 
-// Update a course
 router.put('/:id', (req, res) => {
     Course.update(
         {
@@ -186,7 +181,6 @@ router.put('/:id', (req, res) => {
         });
 });
 
-// Delete a course
 router.delete('/:id', (req, res) => {
     Course.destroy({
         where: {

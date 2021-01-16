@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Course, Review, User, Favorite, Played, Saved } = require('../models');
 const reqAuth = require('../utils/auth');
 
-
-// get a single course for new-review page
 router.get('/course/:id', (req, res) => {
   const reviewObject = {};
 
@@ -82,8 +80,6 @@ router.get('/course/:id', (req, res) => {
     });
 });
 
-
-// login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -92,7 +88,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// signup page
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -102,7 +97,6 @@ router.get('/signup', (req, res) => {
 })
 
 
-// get all user reviews
 router.get('/', reqAuth, (req, res) => {
   const homeObject = {}
   Review.findAll({
@@ -151,7 +145,6 @@ router.get('/', reqAuth, (req, res) => {
   })
     .then((dbPlayedData) => {
       homeObject.played = dbPlayedData.map(played => played.get({ plain: true }));
-      //creates a list of all data in homeObject and sorts by created_at time
       homeObject.fullList = homeObject.played.concat(homeObject.reviews)
       homeObject.sorted = homeObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
@@ -166,10 +159,54 @@ router.get('/', reqAuth, (req, res) => {
     });
 });
 
-
-// get all courses
 router.get('/courses', reqAuth, (req, res) => {
   Course.findAll({
+    attributes: [
+      'id',
+      'course_name',
+      'holes',
+      'par',
+      'established',
+      'city',
+      'state',
+      'zipcode'
+    ],
+    include: [
+      {
+        model: Review,
+        attributes: ['id', 'review_title', 'review_content', 'rating'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username'],
+        through: Favorite,
+        as: 'favorited_courses'
+      }
+    ]
+  })
+    .then(dbCourseData => {
+      const courses = dbCourseData.map(course => course.get({ plain: true }));
+
+      res.render('courses', {
+        courses,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/courses/:city', reqAuth, (req, res) => {
+  Course.findAll({
+    where: {
+      city: req.params.city
+    },
     attributes: [
       'id',
       'course_name',

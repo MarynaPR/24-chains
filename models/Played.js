@@ -1,10 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create the Played model
-class Played extends Model{}
+class Played extends Model { }
 
-// create fields for Played model
 Played.init(
     {
         id: {
@@ -23,8 +21,8 @@ Played.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'user',
-            key: 'id'
+                model: 'user',
+                key: 'id'
             }
         },
         score: {

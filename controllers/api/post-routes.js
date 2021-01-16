@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Review, User, Course } = require('../../models');
 const reqAuth = require('../../utils/auth');
 
-// create a review
 router.post('/', reqAuth, (req, res) => {
     if (req.session) {
         Review.create({
@@ -20,7 +19,6 @@ router.post('/', reqAuth, (req, res) => {
     }
 });
 
-// get all reviews
 router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
@@ -48,7 +46,6 @@ router.get('/', (req, res) => {
         });
 });
 
-// get one review
 router.get('/:id', (req, res) => {
     Review.findOne({
         where: {
@@ -85,7 +82,6 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// Update a review
 router.put('/:id', (req, res) => {
     Review.update(
         {
@@ -112,7 +108,6 @@ router.put('/:id', (req, res) => {
         });
 });
 
-// delete a review
 router.delete('/:id', (req, res) => {
     Review.destroy({
         where: {

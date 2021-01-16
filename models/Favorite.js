@@ -1,10 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create the Favorite model
-class Favorite extends Model {}
+class Favorite extends Model { }
 
-// create fields for Favorite model
 Favorite.init(
     {
         id: {
@@ -23,8 +21,8 @@ Favorite.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'user',
-            key: 'id'
+                model: 'user',
+                key: 'id'
             }
         }
     },

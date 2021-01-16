@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create the Course model
 class Course extends Model {
     static favorite(body, models) {
         return models.Favorite.create({
@@ -77,7 +76,6 @@ class Course extends Model {
     }
 }
 
-// create fields for Course model
 Course.init(
     {
         id: {

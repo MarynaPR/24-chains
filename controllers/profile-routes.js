@@ -3,7 +3,6 @@ const { User, Course, Favorite, Review, Played, Saved } = require('../models');
 const reqAuth = require('../utils/auth');
 
 
-//get all the saved courses
 router.get('/saved', reqAuth, (req, res) => {
     const profileSavedObject = {};
     User.findOne({
@@ -106,7 +105,6 @@ router.get('/saved', reqAuth, (req, res) => {
         });
 });
 
-// // get all user favorited courses and user data
 router.get('/favorited', reqAuth, (req, res) => {
     const profileFavoriteObject = {};
 
@@ -175,7 +173,6 @@ router.get('/favorited', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileFavoriteObject.favorites = dbReviewData.map(favorite => favorite.get({ plain: true }));
-            //Sorts by created_at time
             profileFavoriteObject.favorites = profileFavoriteObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
             res.render('profile-favorited', {
                 profileFavoriteObject,
@@ -188,7 +185,6 @@ router.get('/favorited', reqAuth, (req, res) => {
         });
 });
 
-// get all user reviewed courses and user data
 router.get('/reviewed', reqAuth, (req, res) => {
     const profileReviewObject = {};
 
@@ -228,7 +224,6 @@ router.get('/reviewed', reqAuth, (req, res) => {
     })
         .then(dbFavoriteData => {
             profileReviewObject.favorites = dbFavoriteData.map(favorite => favorite.get({ plain: true }));
-            //Sorts by created_at time
             profileReviewObject.favorites = profileReviewObject.favorites.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
         })
         .catch(err => {
@@ -285,7 +280,6 @@ router.get('/reviewed', reqAuth, (req, res) => {
     })
         .then(dbReviewData => {
             profileReviewObject.reviews = dbReviewData.map(review => review.get({ plain: true }));
-            //Sorts by created_at time
             profileReviewObject.reviews = profileReviewObject.reviews.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
 
             res.render('profile-reviewed', {
@@ -299,8 +293,6 @@ router.get('/reviewed', reqAuth, (req, res) => {
         });
 });
 
-
-//loads all profile data on page load (username, reviews, played courses by user)
 router.get('/', reqAuth, (req, res) => {
     const profileObject = {}
     User.findOne({
@@ -396,8 +388,6 @@ router.get('/', reqAuth, (req, res) => {
     })
         .then((dbPlayedData) => {
             profileObject.played = dbPlayedData.map(played => played.get({ plain: true }));
-
-            //creates a list of all data in homeObject and sorts by created_at time
             profileObject.fullList = profileObject.played.concat(profileObject.reviews)
             profileObject.sorted = profileObject.fullList.sort((a, b) => (a.created_at > b.created_at) ? 1 : -1).reverse();
             profileObject.high_score = Math.min.apply(Math, profileObject.played.map(course => course.score));

@@ -1,10 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create the Review model
-class Review extends Model {}
+class Review extends Model { }
 
-// create fields for Review model
 Review.init(
     {
         id: {
@@ -23,8 +21,8 @@ Review.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'user',
-            key: 'id'
+                model: 'user',
+                key: 'id'
             }
         },
         review_title: {
