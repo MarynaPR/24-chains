@@ -11,7 +11,7 @@
 
 ### description :page_with_curl:
 
-Our group built an interactive website for all disc golf enthusiasts. Disc Golf is played much like golf, but instead of a ball and clubs, players use a flying disc or frisbee. It is thrown from a tee area to a target, which is an elevated metal basket with chains. The target, that has 24 metal chains, served as an inspiration for the name of this application - `24-chains`. Because disc golf is so easy to learn and play, it welcomes people of all ages, gender identity and economic status, making it a great lifetime fitness activity. One fo the great features that disc golf has is that it is the most sustainable sport facility to produce, with new courses being installed every day. It can even coexist with existing park facilities.
+Our group built an interactive website for all disc golf enthusiasts. Disc Golf is played much like golf, but instead of a ball and clubs, players use a flying disc or frisbee. It is thrown from a tee area to a cage, which is an elevated metal basket with chains. The cage, that has 24 metal chains, served as an inspiration for the name of this application - `24-chains`. Because disc golf is so easy to learn and play, it welcomes people of all ages, gender identity and economic status, making it a great lifetime fitness activity. One fo the great features that disc golf has is that it is the most sustainable sport facility to produce, with new courses being installed every day. It can even coexist with existing park facilities.
 With growing popularity of disc golf due to flexible schedule, low barrier to entry, distancing due to pandemic and a sheer fun of the game, this app was created to connect users in Wisconsin area. It allows members to log in, search for the next place nearby to play disc golf, and celebrate their achievements by rating and writing reviews on their played courses or saving the course to their profile. 
 
 ### user story:
@@ -19,7 +19,7 @@ With growing popularity of disc golf due to flexible schedule, low barrier to en
 - As a user when I go to the website, I am presented with a log in or sign up page. 
 - As a user when I search for a specific course by city, then I am presented with a list of courses with a brief description including name of the course, number of holes, par and year course was established.
 - As a user I can post reviews and save my favorite courses.
- - As a user on my profile page I am presented with  with `about me` section and courses by categories:  favorite, saved and reviewed.
+ - As a user on my profile page I am presented with  with `about user` section and courses by categories:  favorite, saved and reviewed.
 - As a user when I go to the home page I see the list of all members, their score and the course they played. 
 - As a user I can log out. 
 
@@ -54,10 +54,10 @@ Give :star: if you found this project useful.
 
 ### creators :star2:
 
-[Nate Derenne](https://github.com/njderenne)
-[Austin Price](https://github.com/frostyausty)
-[Duncan Martin](https://github.com/DuncanMarten)
-[Maryna Pryadka](https://github.com/MarynaPR)
+* [Nate Derenne](https://github.com/njderenne)
+* [Austin Price](https://github.com/frostyausty)
+* [Duncan Martin](https://github.com/DuncanMarten)
+* [Maryna Pryadka](https://github.com/MarynaPR)
 
 ### questions :question: 
 Feel free to contact with any questions.
